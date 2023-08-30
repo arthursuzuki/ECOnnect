@@ -1,4 +1,4 @@
-# Projeto FDS 
+# Projeto FDS #
 
 ## Descrição:
 
@@ -11,7 +11,7 @@ O [Nome] é um projeto desenvolvido como parte da disciplina de Fundamentos de S
 * Luisa Chagas --> lcc3@cesar.school
 * Maria Augusta Gois --> mabg@cesar.school
 * Vinicius Gomes --> vgb@cesar.school
-* Arthur Suzuki -->
+* Arthur Suzuki --> 
 
 #### Links:
 > Jira: https://projetofds2023.atlassian.net/jira/software/projects/KAN/boards/1
