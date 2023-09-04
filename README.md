@@ -2,7 +2,7 @@
 
 ## Descrição:
 
-O ECOnnect é um projeto desenvolvido como parte da disciplina de Fundamentos de Software, que apresenta uma aplicação web com o principal objetivo de promover comunidades limpas e sustentáveis, focando em três pilares fundamentais: utilização de Energia Solar, Coleta Seletiva e Conscientização Ecológica. O ECOnnect estimula a adoção de práticas sustentáveis da comunidade por meio da tecnologia, e através dela, poder atingir o objetivo principal que é contribuir para o desenvolvimento de uma relação harmoniosa e sustentável da sociedade com o meio ambiente.
+A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integração dentro do ecossistema da energia solar, com um enfoque direto no Objetivo de Desenvolvimento Sustentável 7. Nossa missão é fornecer informações essenciais sobre regulamentações, oferecer recursos de acompanhamento financeiro, promover a conscientização sobre energia limpa e facilitar o acesso a empresas locais. Tudo isso visa tornar a transição para uma energia mais sustentável e eficiente uma realidade acessível e prática para todos.
 
 ## Colaboradores:
 
