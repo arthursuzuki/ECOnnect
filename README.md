@@ -14,4 +14,4 @@ A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integr
 * Arthur Suzuki --> aljs@cesar.school
 
 #### Links:
-> [Jira]:(https://projetofds2023.atlassian.net/jira/software/projects/ECNT/boards/2)
+> Jira: https://projetofds2023.atlassian.net/jira/software/projects/ECNT/boards/2
