@@ -15,3 +15,4 @@ A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integr
 
 #### Links:
 > Jira: https://projetofds2023.atlassian.net/jira/software/projects/ECNT/boards/2
+> Figma: https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&t=6ZG68T2LLgporl5e-6
