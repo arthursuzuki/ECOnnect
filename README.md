@@ -13,13 +13,20 @@ A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integr
 
 ## Protótipos Lo-Fi
 
-Menu - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-172&mode=design&t=hRaA6lGfiClT6q58-0
-Acessar disponibilidade de empresas que oferecem o serviço próximas ao usuário - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-49&mode=design&t=hRaA6lGfiClT6q58-0
-Inserir informações do espaço disponível para geração de energia - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=72-174&mode=design&t=hRaA6lGfiClT6q58-0
-Estimar o potencial de geração de energia em função do espaço disponível - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=58-2&mode=design&t=hRaA6lGfiClT6q58-0
-Obter o orçamento em função do espaço disponível - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-123&mode=design&t=hRaA6lGfiClT6q58-0
-Acessar informações referentes ao tempo que levará para obter o retorno financeiro do investimento - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-141&mode=design&t=hRaA6lGfiClT6q58-0
-Calculadora Solar - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-93&mode=design&t=hRaA6lGfiClT6q58-0
+-Menu - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-172&mode=design&t=hRaA6lGfiClT6q58-0
+
+-Acessar disponibilidade de empresas que oferecem o serviço próximas ao usuário - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-49&mode=design&t=hRaA6lGfiClT6q58-0
+
+-Inserir informações do espaço disponível para geração de energia - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=72-174&mode=design&t=hRaA6lGfiClT6q58-0
+
+-Estimar o potencial de geração de energia em função do espaço disponível - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=58-2&mode=design&t=hRaA6lGfiClT6q58-0
+
+-Obter o orçamento em função do espaço disponível - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-123&mode=design&t=hRaA6lGfiClT6q58-0
+
+-Acessar informações referentes ao tempo que levará para obter o retorno financeiro do investimento - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-
+141&mode=design&t=hRaA6lGfiClT6q58-0
+
+-Calculadora Solar - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-93&mode=design&t=hRaA6lGfiClT6q58-0
 
 ## Screencast apresentando o Protótipo
 
