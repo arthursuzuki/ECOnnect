@@ -34,7 +34,7 @@ https://github.com/arthursuzuki/fds/assets/132377213/deacdc74-095e-46bb-830b-131
 
 ## Experiência Realizando Programação em Pares:
 
-A experiência de programação em par no desenvolvimento do projeto ECOnnect foi profundamente enriquecedora. Ela estreitou nossa colaboração, aprimorou a comunicação, acelerou a resolução de problemas e permitiu que cada membro da equipe se especializasse em suas funções específicas, resultando em um desenvolvimento eficiente e na entrega das atividades com qualidade. Essa escolha promoveu um ambiente de trabalho altamente produtivo, onde os desafios foram superados com rapidez e eficácia, garantindo que atingíssemos nossos objetivos com sucesso.
+A experiência de programação em par no desenvolvimento do nosso projeto foi profundamente enriquecedora. Ela estreitou nossa colaboração, aprimorou a comunicação, acelerou a resolução de problemas e permitiu que cada membro da equipe se especializasse em suas funções específicas, resultando em um desenvolvimento eficiente e na entrega das atividades com qualidade. Essa escolha promoveu um ambiente de trabalho altamente produtivo, onde os desafios foram superados com rapidez e eficácia, garantindo que atingíssemos nossos objetivos com sucesso.
 
 ## Colaboradores
 * Eduardo Lins --> eal3@cesar.school
