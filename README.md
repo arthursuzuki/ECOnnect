@@ -34,6 +34,17 @@ A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integr
 
 https://github.com/arthursuzuki/fds/assets/132377213/deacdc74-095e-46bb-830b-1317bcf7ceb0
 
+
+
+## ENTREGA 02:
+
+### Diagrama de Atividades
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/0ec163da-de13-436d-871e-78a5f1693577)
+
+### Issue/Bug Tracker Atualizado
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/aaac8b26-a5df-4409-baec-710778ee2f38)
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/748dd10a-a0fd-41e3-8462-d254e1122fe9)
+
 ### Relato da Programação em Par:
 
 * Luísa Chagas & Arthur Suzuki: A decisão de utilizar a programação em pares, com Luísa cuidando do frontend e Suzuki do backend, enriqueceu a colaboração, melhorou a comunicação e acelerou a resolução de problemas. A dupla se reuniu regularmente para analisar o progresso do projeto e ajudar um ao outro conforme necessário. Eles desenvolveram a história de calcular o potencial de geração de energia utilizando o GitHub para compartilhar os códigos, resultando em um desenvolvimento eficiente e na entrega satisfatória das tarefas.
@@ -44,12 +55,6 @@ Na dupla Laura e Eduardo, foi utilizada a programação em par para facilitar o 
 * Vinicius & Maria Augusta: Maria Augusta, preferiu focar no usuário final e na interface desejada, focou-se mais no frontend, enquanto , Vinicius com sua expertise técnica e compreensão dos cálculos envolvidos, focou no backend.
 Ambos aproveitaram as funcionalidades do GitHub, principalmente o uso de repositórios , para manter o fluxo de trabalho organizado. As reuniões frequentes de revisão de código entre a dupla foi importante para que os erros fossem rapidamente identificados e superados, e que as soluções fossem implementadas eficazmente.
 A experiência de programação em pares entre Vinicius e Maria Augusta foi ótima. Ambos os desenvolvedores contribuíram com suas forças individuais para o projeto, resultando em um equilíbrio perfeito entre a usabilidade do frontend e a precisão do backend.
-
-## ENTREGA 02:
-
-### Issue/Bug Tracker Atualizado
-![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/aaac8b26-a5df-4409-baec-710778ee2f38)
-![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/748dd10a-a0fd-41e3-8462-d254e1122fe9)
 
 
 ## Colaboradores
