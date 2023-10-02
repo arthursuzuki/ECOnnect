@@ -4,7 +4,7 @@ from Budget.views import sobreNos, empresas, area, potencial
 
 urlpatterns = [
     path('orcamento/', orcamento),  # Orçamento
-    path('area/', area),  # Área Disponível
+    path('', area),  # Área Disponível
     path('calculadora/', calculadora),  # Calculadora Solar
     path('suporte/', suporte),  # Contato
     path('informacoes/', informacoes),  # Informações
