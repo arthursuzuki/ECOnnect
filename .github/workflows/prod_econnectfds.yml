@@ -66,8 +66,8 @@ jobs:
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: PuppyCore
-        environment_name: PuppyCore-env
+        application_name: econnect
+        environment_name: econnect-env
         version_label: V4.2
         region: "sa-east-1"
         deployment_package:  econnect/deploy.zip
