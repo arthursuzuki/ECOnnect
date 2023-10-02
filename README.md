@@ -4,14 +4,16 @@
 
 A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integração dentro do ecossistema da energia solar, com um enfoque direto no Objetivo de Desenvolvimento Sustentável 7. Nossa missão é fornecer informações essenciais sobre regulamentações, oferecer recursos de acompanhamento financeiro, promover a conscientização sobre energia limpa e facilitar o acesso a empresas locais. Tudo isso visa tornar a transição para uma energia mais sustentável e eficiente uma realidade acessível e prática para todos.
 
-## Histórias e Backlog da primeira sprint
+## ENTREGA 01: 
+
+### Histórias e Backlog da primeira sprint
 
 ![image](https://github.com/arthursuzuki/fds/assets/132377213/b70f138b-942b-49ba-8725-acd2613d61db)
 ![image](https://github.com/arthursuzuki/fds/assets/132377213/6801361f-e3b5-4b91-a561-12cab8907c1d)
 ![image](https://github.com/arthursuzuki/fds/assets/132377213/82576ec0-a457-43fd-b0fc-d00d42b0fd3c)
 
 
-## Protótipos Lo-Fi
+### Protótipos Lo-Fi
 
 -Menu - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-172&mode=design&t=hRaA6lGfiClT6q58-0
 
@@ -28,11 +30,11 @@ A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integr
 
 -Calculadora Solar - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-93&mode=design&t=hRaA6lGfiClT6q58-0
 
-## Screencast apresentando o Protótipo
+### Screencast apresentando o Protótipo
 
 https://github.com/arthursuzuki/fds/assets/132377213/deacdc74-095e-46bb-830b-1317bcf7ceb0
 
-## Relato da Programação em Par:
+### Relato da Programação em Par:
 
 * Luísa Chagas & Arthur Suzuki: A decisão de utilizar a programação em pares, com Luísa cuidando do frontend e Suzuki do backend, enriqueceu a colaboração, melhorou a comunicação e acelerou a resolução de problemas. A dupla se reuniu regularmente para analisar o progresso do projeto e ajudar um ao outro conforme necessário. Eles desenvolveram a história de calcular o potencial de geração de energia utilizando o GitHub para compartilhar os códigos, resultando em um desenvolvimento eficiente e na entrega satisfatória das tarefas.
 
@@ -42,6 +44,12 @@ Na dupla Laura e Eduardo, foi utilizada a programação em par para facilitar o 
 * Vinicius & Maria Augusta: Maria Augusta, preferiu focar no usuário final e na interface desejada, focou-se mais no frontend, enquanto , Vinicius com sua expertise técnica e compreensão dos cálculos envolvidos, focou no backend.
 Ambos aproveitaram as funcionalidades do GitHub, principalmente o uso de repositórios , para manter o fluxo de trabalho organizado. As reuniões frequentes de revisão de código entre a dupla foi importante para que os erros fossem rapidamente identificados e superados, e que as soluções fossem implementadas eficazmente.
 A experiência de programação em pares entre Vinicius e Maria Augusta foi ótima. Ambos os desenvolvedores contribuíram com suas forças individuais para o projeto, resultando em um equilíbrio perfeito entre a usabilidade do frontend e a precisão do backend.
+
+## ENTREGA 02:
+
+### Issue/Bug Tracker Atualizado
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/aaac8b26-a5df-4409-baec-710778ee2f38)
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/748dd10a-a0fd-41e3-8462-d254e1122fe9)
 
 
 ## Colaboradores
