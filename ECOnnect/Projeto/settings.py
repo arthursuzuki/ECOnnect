@@ -60,15 +60,6 @@ else:
         }
     }
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1jb1wip@qo&36c4d_^=lhno4d#7ijj61n*4-s!x*lf^wvz1vfk'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
