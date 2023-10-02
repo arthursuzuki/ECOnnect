@@ -33,6 +33,7 @@ jobs:
       - name: Cleaning testing files
         run: |
           cd ECOnnect/
+          rm .env
           rm db.sqlite3
           cd ..
 
