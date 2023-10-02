@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 80px;
+        }
+
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-color: #F2F2F2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            z-index: 1000;
+        }
+
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            width: 50px;
+        }
+
+        #links {
+            display: flex;
+            gap: 20px;
+            align-items: left;
+            justify-content: flex-start;
+            margin-left: 15px;
+        }
+
+        button {
+            border: none;
+            background: none;
+            padding: 0;
+            font-size: inherit;
+            cursor: pointer;
+        }
+
+        #links a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        .fraseinfo {
+            background-color: #F2F2F2;
+            padding: 10px;
+        }
+
+        .botao {
+            background-color: #F2F2F2;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area total</title>
+    <script>
+        function area() {
+            var largura = document.getElementById("largura").value;
+            var comprimento = document.getElementById("comprimento").value;
+            largura = parseInt(largura);
+            comprimento = parseInt(comprimento);
+            var resultado = document.getElementById("resultado");
+            resultado.innerHTML = "Sua área total é: " + (largura * comprimento);
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Seção do cabeçalho -->
+    <div id="header">
+        <div id="logo-container">
+            <div id="simbolo">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></div>
+            <div id="logo-principal">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></div>
+            <div id="links">
+                <a href="http://127.0.0.1:8000/area/">Área Disponível</a>
+                <a href="http://127.0.0.1:8000/calculadora/">Calculadora Solar</a>
+                <a href="http://127.0.0.1:8000/potencial/">Potencial de Energia</a>
+                <a href="http://127.0.0.1:8000/orcamento/">Orçamento</a></div>
+        </div>
+        <div id="usuario">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;"></div>
+    </div>    
+
+    <h1>Insira informações sobre espaço disponível</h1>
+    <h3>Largura</h3>
+    <input id="largura"><br />
+    <h3>Comprimento</h3>
+    <input id="comprimento"><br />
+    <br />
+    <button onclick="area()">Resultado</button>
+    <div id="resultado"></div>
+    <a href="http://127.0.0.1:8000/" class="botao"><button>Exportar valor pra calculadora</button></a>
+</body>
+
+</html>

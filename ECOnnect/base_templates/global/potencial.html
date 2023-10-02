@@ -1,0 +1,242 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potencial de Geração de Energia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+        }
+
+        #horaspordia {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-color: #F2F2F2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            z-index: 1000;
+        }
+
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            width: 50px;
+        }
+
+        #links {
+            display: flex;
+            gap: 20px;
+            align-items: left;
+            justify-content: flex-start;
+            margin-left: 15px;
+        }
+        
+        #links a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        #footer {
+            background-color: #F2F2F2;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+    <script>
+    function mostrarSelecoes() {
+        var estadoSelecionado = document.getElementById("estado").value;
+        var capitalSelecionada = document.getElementById("capital").value;
+        var horasSol = parseFloat(document.getElementById("horaspordia").value); // Obtenha as horas de sol do usuário
+        var tamanho = 4;
+        var resultadoDiv = document.getElementById("resultado");
+        resultadoDiv.innerHTML = ""; // Limpa o conteúdo anterior
+        if (estadoSelecionado && capitalSelecionada && !isNaN(horasSol)) {
+            var valoresCapitais = {
+                "Rio Branco": 4560,
+                "Maceió": 5523,
+                "Macapá": 4944,
+                "Manaus": 4323,
+                "Salvador": 5365,
+                "Fortaleza": 5776,
+                "Brasília": 5252,
+                "Vitória": 4957,
+                "Goiânia": 5247,
+                "São Luís": 5208,
+                "Cuiabá": 5106,
+                "Campo Grande": 5031,
+                "Belo Horizonte": 5129,
+                "Belém": 4864,
+                "João Pessoa": 5530,
+                "Curitiba": 4194,
+                "Recife": 5462,
+                "Teresina": 5572,
+                "Rio de Janeiro": 4732,
+                "Porto Alegre": 4430,
+                "Natal": 5674,
+                "Porto Velho": 4480,
+                "Boa Vista": 4886,
+                "Florianópolis": 4251,
+                "São Paulo": 4450,
+                "Aracaju": 5496,
+                "Palmas": 5218
+            };
+            var valorCapital = valoresCapitais[capitalSelecionada];
+            if (valorCapital !== undefined) {
+                var eficiencia = 0.26;
+                var result = tamanho * horasSol * eficiencia * valorCapital;
+                resultadoDiv.innerHTML = "Resultado do cálculo: " + result.toFixed(2);
+            } else {
+                resultadoDiv.innerHTML = "Valor não encontrado para a capital selecionada.";
+            }
+        } else {
+            resultadoDiv.innerHTML = "Por favor, selecione um estado, uma capital e insira a quantidade de horas de sol disponíveis antes de calcular.";
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("button").addEventListener("click", function(event) {
+            event.preventDefault(); // Evita o envio automático do formulário
+            mostrarSelecoes();
+        });
+    });
+    </script>
+</head>
+<body>
+    <div id="header">
+        <div id="logo-container">
+            <div id="simbolo">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></div>
+            <div id="logo-principal">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></div>
+            <div id="links">
+                <a href="http://127.0.0.1:8000/area/">Área Disponível</a>
+                <a href="http://127.0.0.1:8000/calculadora/">Calculadora Solar</a>
+                <a href="http://127.0.0.1:8000/potencial/">Potencial de Energia</a>
+                <a href="http://127.0.0.1:8000/orcamento/">Orçamento</a></div>
+        </div>
+        <div id="usuario">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;"></div>
+    </div>
+
+    <form id="body" onsubmit="enviarDados(event)">
+        <label>
+            <br>
+            <h2>Insira a quantidade de horas de sol disponível:</h2>
+            <p></p>
+            <input
+                type="text"
+                id="horaspordia"
+                name="horaspordia"
+                placeholder="Horas/dia"
+            />
+        </label>
+
+        <h2><label for="estado">Escolha um Estado:</label></h2>
+        <select id="estado" name="estado">
+            <option value="ac">Acre</option>
+            <option value="al">Alagoas</option>
+            <option value="ap">Amapá</option>
+            <option value="am">Amazonas</option>
+            <option value="ba">Bahia</option>
+            <option value="ce">Ceará</option>
+            <option value="df">Distrito Federal</option>
+            <option value="es">Espírito Santo</option>
+            <option value="go">Goiás</option>
+            <option value="ma">Maranhão</option>
+            <option value="mt">Mato Grosso</option>
+            <option value="ms">Mato Grosso do Sul</option>
+            <option value="mg">Minas Gerais</option>
+            <option value="pa">Pará</option>
+            <option value="pb">Paraíba</option>
+            <option value="pr">Paraná</option>
+            <option value="pe">Pernambuco</option>
+            <option value="pi">Piauí</option>
+            <option value="rj">Rio de Janeiro</option>
+            <option value="rn">Rio Grande do Norte</option>
+            <option value="rs">Rio Grande do Sul</option>
+            <option value="ro">Rondônia</option>
+            <option value="rr">Roraima</option>
+            <option value="sc">Santa Catarina</option>
+            <option value="sp">São Paulo</option>
+            <option value="se">Sergipe</option>
+            <option value="to">Tocantins</option>
+        </select>
+        
+        <h2><label for="capital">Escolha uma Capital:</label></h2>
+        <select id="capital" name="capital">
+            <option value="Rio Branco">Rio Branco</option>
+            <option value="Maceió">Maceió</option>
+            <option value="Macapá">Macapá</option>
+            <option value="Manaus">Manaus</option>
+            <option value="Salvador">Salvador</option>
+            <option value="Fortaleza">Fortaleza</option>
+            <option value="Brasília">Brasília</option>
+            <option value="Vitória">Vitória</option>
+            <option value="Goiânia">Goiânia</option>
+            <option value="São Luís">São Luís</option>
+            <option value="Cuiabá">Cuiabá</option>
+            <option value="Campo Grande">Campo Grande</option>
+            <option value="Belo Horizonte">Belo Horizonte</option>
+            <option value="Belém">Belém</option>
+            <option value="João Pessoa">João Pessoa</option>
+            <option value="Curitiba">Curitiba</option>
+            <option value="Recife">Recife</option>
+            <option value="Teresina">Teresina</option>
+            <option value="Rio de Janeiro">Rio de Janeiro</option>
+            <option value="Porto Alegre">Porto Alegre</option>
+            <option value="Natal">Natal</option>
+            <option value="Porto Velho">Porto Velho</option>
+            <option value="Boa Vista">Boa Vista</option>
+            <option value="Florianópolis">Florianópolis</option>
+            <option value="São Paulo">São Paulo</option>
+            <option value="Aracaju">Aracaju</option>
+            <option value="Palmas">Palmas</option>
+        </select>
+        </form>
+
+        <button onclick="mostrarSelecoes()">Calcular</button>
+         
+    <div id="resultado"></div>
+</body>
+</html>

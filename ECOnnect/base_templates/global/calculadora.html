@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 80px;
+        }
+
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-color: #F2F2F2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            z-index: 1000;
+        }
+
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            width: 50px;
+        }
+
+        #links {
+            display: flex;
+            gap: 20px;
+            align-items: left;
+            justify-content: flex-start;
+            margin-left: 15px;
+        }
+
+        #estado {
+            fontdisplay: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #links a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        botao {
+            background-color: #F2F2F2;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+</style>
+</head>
+<body>
+    <!-- Seção do cabeçalho -->
+    <div id="header">
+        <div id="logo-container">
+            <div id="simbolo">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></div>
+            <div id="logo-principal">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></div>
+            <div id="links">
+                <a href="http://127.0.0.1:8000/area/">Área Disponível</a>
+                <a href="http://127.0.0.1:8000/calculadora/">Calculadora Solar</a>
+                <a href="http://127.0.0.1:8000/potencial/">Potencial de Energia</a>
+                <a href="http://127.0.0.1:8000/orcamento/">Orçamento</a></div>
+        </div>
+        <div id="usuario">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;"></div>
+    </div>
+    <h1>Calculadora de Energia Solar</h1>
+
+    <form id="solarCalculator">
+        <p for="consumoMensal">Consumo Mensal (kWh):</p>
+        <input type="number" id="consumoMensal" name="consumoMensal" required>
+        <br>
+        <p for="tarifaEnergia">Tarifa de Energia (R$/kWh):</p>
+        <input type="number" id="tarifaEnergia" name="tarifaEnergia" required>
+        <br>
+        <p for="estado">Selecione o Estado:</p>
+        <select id="estado" name="estado">
+            <option value="norte">Norte</option>
+            <option value="nordeste">Nordeste</option>
+            <option value="centroOeste">Centro-Oeste</option>
+            <option value="sudeste">Sudeste</option>
+            <option value="sul">Sul</option>
+        </select>
+        <br>
+        <button type="button" id="botao" onclick="calcularEnergiaSolar()">Calcular</button>
+    </form>
+    
+    <div id="resultado" style="display: none">
+        <h2>Quantidade de Painéis Solares Necessários:</h2>
+        <p id="quantidadePaineis">0 painéis</p>
+        
+        <h2>Área Mínima para Instalação (m²):</h2>
+        <p id="areaMinima">0 m²</p>
+
+        <h2>Estimativa de Geração de Energia Mensal (kWh):</h2>
+        <p id="geracaoMensal">0 kWh</p>
+    </div>
+
+    <script>
+        function calcularEnergiaSolar() {
+            const consumoMensal = parseFloat(document.getElementById('consumoMensal').value);
+            const tarifaEnergia = parseFloat(document.getElementById('tarifaEnergia').value);
+            const estado = document.getElementById('estado').value;
+        
+            const irradiacaoSolarPorEstado = {
+                norte: 5.0,
+                nordeste: 5.5,
+                centroOeste: 6.0,
+                sudeste: 5.7,
+                sul: 4.8
+            };
+        
+            const irradiacaoSolar = irradiacaoSolarPorEstado[estado];
+            const potenciaModulo = 350; // Potência do módulo em Wp
+        
+            if (!isNaN(consumoMensal) && !isNaN(tarifaEnergia) && irradiacaoSolar !== undefined) {
+                energiaMensal = ((potenciaModulo/1000) * irradiacaoSolar * (1 - 0.2)) * 30; // kWh/mês
+                quantidadePaineis = Math.ceil(consumoMensal / energiaMensal); // Número de painéis necessários
+            }
+        
+            const areaMinima = quantidadePaineis * 2; // 2 m² por painel
+        
+            const resultadoSection = document.getElementById('resultado');
+            resultadoSection.style.display = 'block';
+        
+            document.getElementById('quantidadePaineis').textContent = quantidadePaineis + " painéis";
+            document.getElementById('areaMinima').textContent = areaMinima + " m²";
+            document.getElementById('geracaoMensal').textContent = energiaMensal.toFixed(2) + " kWh";
+        }        
+    </script>
+</body>
+</html>

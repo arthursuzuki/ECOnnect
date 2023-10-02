@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento</title>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+        }
+    
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-color: #F2F2F2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            z-index: 1000;
+        }
+        
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        #usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            width: 50px;
+        }
+        
+        #links {
+            display: flex;
+            gap: 20px;
+            align-items: left;
+            justify-content: flex-start;
+            margin-left: 15px;
+        }
+        
+        #links a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+    
+        h1 {
+            color: #333;
+            margin-top: 80px;
+        }
+    
+        p {
+            font-size: 18px;
+        }
+    
+        input {
+            width: 200px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    
+        #resultado {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    
+        #observacao {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    
+        #valor {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    
+        #btnEmpresas {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Seção do cabeçalho -->
+    <div id="header">
+        <div id="logo-container">
+            <div id="simbolo">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></div>
+            <div id="logo-principal">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></div>
+            <div id="links">
+                <a href="http://127.0.0.1:8000/area/">Área Disponível</a>
+                <a href="http://127.0.0.1:8000/calculadora/">Calculadora Solar</a>
+                <a href="http://127.0.0.1:8000/potencial/">Potencial de Energia</a>
+                <a href="http://127.0.0.1:8000/orcamento/">Orçamento</a></div>
+        </div>
+        <div id="usuario">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;"></div>
+    </div>    
+
+    <!-- Seção do Orçamento -->
+    <div>
+        <h1>Obter Orçamento</h1>
+        <p>Área em metros quadrados disponível em seu espaço:</p>
+        <input type="number" id="area" placeholder="Área (m²)">
+        <br>
+        <button onclick="calcularOrcamento()">Calcular Orçamento</button>
+        <p id="resultado"></p>
+        <p id="valor"></p>
+        <p id="observacao"></p>
+        <a href="empresas/" id="btnEmpresas"><button>Ver Empresas Próximas A Mim</button></a>
+    </div>
+    <script>
+        function calcularOrcamento() {
+            var area = parseFloat(document.getElementById("area").value);
+            if (isNaN(area) || area <= 0) {
+                alert("Por favor, insira uma área válida.");
+                return;
+            }
+            const precoPorMetroQuadrado = 556.35;
+            var orcamento = area * precoPorMetroQuadrado;
+            const resultado = "O seu orçamento é feito a partir da área do espaço disponível multiplicada pela média estimada do preço unitário de uma placa solar, totalizando:";
+            var valor = "R$" + orcamento.toFixed(2) + "</strong";
+            var observacao = "*Vale ressaltar que esse valor é apenas uma aproximação, visto que pode variar dependendo de vários fatores.";
+            
+            document.getElementById("resultado").innerHTML = resultado;
+            document.getElementById("valor").innerHTML = valor;
+            document.getElementById("observacao").innerHTML = observacao;
+            document.getElementById("btnEmpresas").style.display = "inline";
+        }
+    </script>
+</body>
+</html>
