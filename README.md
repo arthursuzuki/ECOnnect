@@ -38,6 +38,10 @@ https://github.com/arthursuzuki/fds/assets/132377213/deacdc74-095e-46bb-830b-131
 
 ## ENTREGA 02:
 
+### Link pro site: 
+
+https://econnectfds.azurewebsites.net
+
 ### Diagrama de Atividades
 ![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/0ec163da-de13-436d-871e-78a5f1693577)
 
