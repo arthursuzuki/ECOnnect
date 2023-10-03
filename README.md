@@ -60,8 +60,10 @@ A experiência de programação em pares entre Vinicius e Maria Augusta foi óti
 ![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/945c45b5-aac7-4096-8efc-9fffb8606a53)
 ![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/5851a44f-3ac2-4aea-a478-ebce2620d24b)
 
+### Screencast apresentando a Aplicação/Implementação
 
-### Screencast
+
+https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd6-d3ca753ec0be
 
 
 ## Colaboradores
