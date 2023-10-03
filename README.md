@@ -56,6 +56,11 @@ Na dupla Laura e Eduardo, foi utilizada a programação em par para facilitar o 
 Ambos aproveitaram as funcionalidades do GitHub, principalmente o uso de repositórios , para manter o fluxo de trabalho organizado. As reuniões frequentes de revisão de código entre a dupla foi importante para que os erros fossem rapidamente identificados e superados, e que as soluções fossem implementadas eficazmente.
 A experiência de programação em pares entre Vinicius e Maria Augusta foi ótima. Ambos os desenvolvedores contribuíram com suas forças individuais para o projeto, resultando em um equilíbrio perfeito entre a usabilidade do frontend e a precisão do backend.
 
+### Backlog 
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/945c45b5-aac7-4096-8efc-9fffb8606a53)
+
+### Screencast
+
 
 ## Colaboradores
 * Eduardo Lins --> eal3@cesar.school
