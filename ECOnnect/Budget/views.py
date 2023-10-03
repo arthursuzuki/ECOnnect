@@ -41,3 +41,6 @@ def informacoes(request):
 
 def empresas(request):
     return HttpResponse('Empresas Próximas A Mim')
+
+def home(request):
+    return render(request, "global/home.html")
