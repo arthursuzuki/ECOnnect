@@ -42,7 +42,7 @@ https://github.com/arthursuzuki/fds/assets/132377213/deacdc74-095e-46bb-830b-131
 ![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/0ec163da-de13-436d-871e-78a5f1693577)
 
 ### Issue/Bug Tracker Atualizado
-![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/2904360c-5dec-45e4-b5b6-0f23c89c6743)
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/3c06c734-b0c9-474e-af4c-947c0ff2023f)
 ![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/748dd10a-a0fd-41e3-8462-d254e1122fe9)
 
 ### Relato da Programação em Par:
