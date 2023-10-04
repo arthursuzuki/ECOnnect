@@ -1,6 +1,5 @@
 from django.urls import path
-from Budget.views import orcamento, suporte, calculadora, informacoes
-from Budget.views import sobreNos, empresas, area, potencial
+from Budget.views import *
 
 urlpatterns = [
     path('orcamento/', orcamento, name='orcamento'),  # Orçamento
