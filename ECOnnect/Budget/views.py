@@ -41,3 +41,6 @@ def informacoes(request):
 
 def empresas(request):
     return HttpResponse('Empresas Próximas A Mim')
+
+def infocredito (request):
+    return render(request, 'infocredito.html')
