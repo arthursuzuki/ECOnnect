@@ -1,14 +1,16 @@
+from Budget.views import (area, calculadora, empresas, informacoes, orcamento,
+                          potencial, sobreNos, suporte)
 from django.urls import path
-from Budget.views import orcamento, suporte, calculadora, informacoes
-from Budget.views import sobreNos, empresas, area, potencial
+
+from . import views
 
 urlpatterns = [
-    path('orcamento/', orcamento),  # Orçamento
-    path('', area),  # Área Disponível
-    path('calculadora/', calculadora),  # Calculadora Solar
-    path('suporte/', suporte),  # Contato
-    path('informacoes/', informacoes),  # Informações
-    path('sobreNos/', sobreNos),  # Sobre Nós
-    path('empresas/', empresas),  # Empresas Próximas A Mim
-    path('potencial/', potencial),  # Potencial de Geração de Energia
+    path('orcamento', views.orcamento, name='orcamento'),  # Orçamento
+    path('', views.area, name='area'),  # Área Disponível
+    path('calculadora', views.calculadora, name='calculadora'),  # Calculadora Solar
+    path('suporte', views.suporte, name='suporte'),  # Contato
+    path('informacoes', views.informacoes, name='informacoes'),  # Informações
+    path('sobreNos', views.sobreNos, name='sobreNos'),  # Sobre Nós
+    path('empresas', views.empresas, name='empresas'),  # Empresas Próximas A Mim
+    path('potencial', views.potencial, name='potencial'),  # Potencial de Geração de Energia
 ]
