@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas Frequentes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .faq-item {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .faq-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            display: none;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-item.open {
+            background-color: #f0f0f0;
+        }
+
+        .faq-icon {
+            float: right;
+            font-size: 24px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dúvidas Frequentes - FAQ</h1>
+    </header>
+
+    <div class="container">
+        <div class="faq-item">
+            <div class="faq-question">1. O que é o ECOnnect e como ele está relacionado à energia solar?</div>
+            <div class="faq-answer">A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integração dentro do ecossistema da energia solar, com um enfoque direto no Objetivo de Desenvolvimento Sustentável 7.
+                Nossa missão é fornecer informações essenciais sobre regulamentações, oferecer recursos de acompanhamento financeiro, promover a conscientização sobre energia limpa e facilitar o acesso a empresas locais.</div>
+            <div class="faq-icon">+</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">2. Como realizar um orçamento?</div>
+            <div class="faq-answer">Na área da "calculadora solar" você pode inserir algumas informações e realizar uma simulação que lhe dará um valor aproximado do investimento necessário de acordo com cada área disponível.</div>
+            <div class="faq-icon">+</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">3. Quando terei o retorno financeiro do meu investimento?</div>
+            <div class="faq-answer">O tempo para obter o retorno financeiro do seu investimento em energia solar pode variar significativamente. Diversos fatores influenciam esse período, incluindo:
+                <ul>
+                    <li>Incidência solar: A quantidade de luz solar disponível na sua região afeta diretamente o desempenho do seu sistema de energia solar. Regiões com maior incidência solar geralmente geram retorno mais rápido.</li>
+                    <li>Quantidade de placas solares: O tamanho do seu sistema solar, representado pela quantidade de painéis solares, impacta diretamente a quantidade de eletricidade que você pode gerar.</li>
+                    <li>Custos iniciais: Os custos iniciais do investimento, que incluem a compra e instalação do sistema, afetarão o tempo necessário para recuperar o dinheiro investido.</li>
+                    <li>Consumo de energia: O seu consumo de energia desempenha um papel fundamental. Quanto mais energia você usar e puder substituir pelo seu sistema solar, mais rápido o retorno ocorrerá.</li>
+                    <li>Taxas de eletricidade: As taxas de eletricidade na sua região e qualquer política de compensação de energia também podem influenciar o retorno financeiro.</li>
+                </ul>
+                Para estimar o tempo de retorno, você pode fazer uma simualaçao na nossa calculadora solar.
+            </div>
+            <div class="faq-icon">+</div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 ECOnnect
+    </footer>
+
+    <script>
+        const faqItems = document.querySelectorAll(".faq-item");
+        faqItems.forEach(item => {
+            item.addEventListener("click", () => {
+                item.classList.toggle("open");
+            });
+        });
+    </script>
+</body>
+</html>
