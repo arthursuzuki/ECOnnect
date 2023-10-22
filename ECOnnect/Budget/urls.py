@@ -6,7 +6,8 @@ from . import views
 
 urlpatterns = [
     path('orcamento', views.orcamento, name='orcamento'),  # Orçamento
-    path('', views.area, name='area'),  # Área Disponível
+    path('area', views.area, name='area'),  # Área Disponível
+    path('', views.home, name='home'),  # Home
     path('calculadora', views.calculadora, name='calculadora'),  # Calculadora Solar
     path('suporte', views.suporte, name='suporte'),  # Contato
     path('informacoes', views.informacoes, name='informacoes'),  # Informações

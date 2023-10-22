@@ -1,11 +1,16 @@
-from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 # Create your views here.
 def orcamento(request):
     return render(request, 'global/orcamento.html', context={
         'name': 'Cálculo Orçamento'
+    })
+
+def home(request):
+    return render(request, 'global/home.html', context={
+        'name': 'ECONNECT'
     })
 
 
