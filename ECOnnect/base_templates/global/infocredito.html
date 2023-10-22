@@ -1,68 +1,86 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credito de carbono</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Sen' rel='stylesheet'>
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            font-family: Sen, sans-serif;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            margin: 0;
             align-items: center;
             text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 80px;
         }
 
         #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-color: #F2F2F2;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 14px;
-            background-color: #F2F2F2;
-            width: 100%;
+            z-index: 1000;
         }
 
-        #logo {
-            font-size: 30px;
-            font-weight: bold;
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        #icone {
-            font-size: 34px;
-            margin-left: auto;
-            order: 2;
+        #usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            width: 50px;
         }
 
         #links {
             display: flex;
             gap: 20px;
+            align-items: left;
+            justify-content: flex-start;
+            margin-left: 15px;
+        }
+
+        #estado {
+            fontdisplay: flex;
+            gap: 20px;
             align-items: center;
-            justify-content: center;
-            order: 1;
-            flex-grow: 1;
         }
 
         button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
             border: none;
-            background: none;
-            padding: 0;
-            font-size: inherit;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         #links a {
             text-decoration: none;
             color: black;
+            cursor: pointer;
         }
 
-        .fraseinfo {
-            background-color: #F2F2F2;
-            padding: 10px;
-        }
-
-        .botao {
+        botao {
             background-color: #F2F2F2;
             border: none;
             padding: 10px;
@@ -72,14 +90,20 @@
 </head>
 <body>
     <div id="header">
-        <div id="logo">ECOnnect|</div>
-        <div id="links">
-            <a href="colocar link url">Calculadora solar</a>
-            <a href="colocar link url">Suporte</a>
-            <a href="colocar link url">Informações</a>
-            <a href="colocar link url">Sobre nós</a>
+        <div id="logo-container">
+            <div id="simbolo">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></div>
+            <div id="logo-principal">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></a></div>
+            <div id="links">
+                <a href={%url 'area'%}>Área Disponível</a>
+                <a href={%url 'calculadora'%}>Calculadora Solar</a>
+                <a href={%url 'potencial'%}>Potencial de Energia</a>
+                <a href={%url 'orcamento'%}>Orçamento</a></div>
         </div>
-        <i class="fas fa-user" id="icone"></i>
+        <div id="usuario">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;"></div>
     </div>
     <h1>
         A Energia Solar e os Impactos Positivos na Geração de Créditos de Carbono <br>

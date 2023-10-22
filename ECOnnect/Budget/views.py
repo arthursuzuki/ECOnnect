@@ -31,6 +31,11 @@ def calculadora(request):
         'name': 'Cálculo Orçamento'
     })
 
+def infocredito(request):
+    return render(request, 'global/infocredito.html', context={
+        'name': 'Créditos de Carbono'
+    })
+
 
 def suporte(request):
     return HttpResponse('Suporte')
