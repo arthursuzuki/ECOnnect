@@ -58,11 +58,12 @@
         }
 
         button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
             border: none;
-            background: none;
-            padding: 0;
-            font-size: inherit;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         #links a {
@@ -75,13 +76,7 @@
             background-color: #F2F2F2;
             padding: 10px;
         }
-
-        .botao {
-            background-color: #F2F2F2;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
+        
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,7 +118,7 @@
     <h3>Comprimento</h3>
     <input id="comprimento"><br />
     <br />
-    <button onclick="area()">Resultado</button>
+    <button onclick="area()">Calcular</button>
     <div id="resultado"></div>
     <a href="http://127.0.0.1:8000/" class="botao"><button>Exportar valor pra calculadora</button></a>
 </body>
