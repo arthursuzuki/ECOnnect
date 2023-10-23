@@ -36,6 +36,16 @@ def infocredito(request):
         'name': 'Créditos de Carbono'
     })
 
+def login(request):
+    return render(request, 'global/login.html', context={
+        'name': 'Login'
+    })
+
+def cadastro(request):
+    return render(request, 'global/cadastro.html', context={
+        'name': 'Cadastro'
+    })
+
 
 def suporte(request):
     return HttpResponse('Suporte')

@@ -1,8 +1,11 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOnnect</title>
     <link href='https://fonts.googleapis.com/css?family=Sen' rel='stylesheet'>
     <style>
         body {
@@ -91,22 +94,9 @@
             position: relative;
             display: inline-block;
         }
-        
     </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Area total</title>
-    <script>
-        function area() {
-            var largura = document.getElementById("largura").value;
-            var comprimento = document.getElementById("comprimento").value;
-            largura = parseInt(largura);
-            comprimento = parseInt(comprimento);
-            var resultado = document.getElementById("resultado");
-            resultado.innerHTML = "Sua área total é: " + (largura * comprimento);
-        }
-    </script>
 </head>
+
 
 <body>
     <!-- Seção do cabeçalho -->
@@ -128,8 +118,8 @@
             <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
         </div>
         <div id="popup">
-            <button onclick="redirectTo('http://127.0.0.1:8000/login')">Login</button>
-            <button onclick="redirectTo('http://127.0.0.1:8000/cadastro')">Cadastro</button>
+            <button onclick="redirectTo('nossa_pagina_de_login.html')">Login</button>
+            <button onclick="redirectTo('nossa_pagina_de_cadastro.html')">Cadastro</button>
         </div>
         <script>
             function togglePopup() {
@@ -144,17 +134,32 @@
                 window.location.href = url;
             }
         </script>
-    </div>    
-
-    <h1>Insira informações sobre espaço disponível</h1>
-    <h3>Largura</h3>
-    <input id="largura"><br />
-    <h3>Comprimento</h3>
-    <input id="comprimento"><br />
-    <br />
-    <button onclick="area()">Calcular</button>
-    <div id="resultado"></div>
-    <a href="http://127.0.0.1:8000/" class="botao"><button>Exportar valor pra calculadora</button></a>
+    </div>
 </body>
+
+    <div style="padding: 3rem 10rem 5rem 10rem; display: flex; justify-content: center; align-items: center; flex-direction: column;width: 100%;">
+        <form action="/login" method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Endereço de e-mail</label>
+              <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Senha</label>
+              <input name="password" type="password" class="form-control" id="exampleInputPassword1" />
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" checked />
+              <label class="form-check-label" for="exampleCheck1">Permanecer neste dispositivo</label>
+            </div>
+            <div class="text-end">
+              <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+          </form>
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/fastbootstrap@1.1.2/dist/js/fastbootstrap.min.js" integrity="sha256-+c+/OCMmtlZadi89VaV1yUOkk1T4BD2pwBFpY3OcrqI=" crossorigin="anonymous"></script>
 
 </html>
