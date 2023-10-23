@@ -10,5 +10,7 @@ urlpatterns = [
     path('sobrenos/', sobreNos,name='sobrenos'),  # Sobre Nós
     path('empresas/', empresas,name='empresas'),  # Empresas Próximas A Mim
     path('potencial/', potencial,name='potencial'),  # Potencial de Geração de Energia
-    path('area/',area,name='area')
+    path('area/',area,name='area'),
+    path('faq/',faq,name='faq'),
+    path('teste/',teste,name='teste')
 ]

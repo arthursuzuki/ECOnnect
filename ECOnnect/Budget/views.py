@@ -44,3 +44,9 @@ def empresas(request):
 
 def home(request):
     return render(request, "global/home.html")
+
+def faq(request):
+    return render(request,"global/faq.html")
+
+def teste(request):
+    return render(request,"global/teste.html")

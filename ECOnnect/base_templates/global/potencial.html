@@ -1,7 +1,6 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
-
+{% load static %}
 <head>
     <style>
         body {
@@ -28,7 +27,7 @@
             height: 30px;
             background-color: #F2F2F2;
             display: flex;
-            justify-content: space-between;
+            justify-content: space between;
             align-items: center;
             padding: 14px;
             z-index: 1000;
@@ -55,7 +54,7 @@
             justify-content: flex-start;
             margin-left: 15px;
         }
-        
+
         #links a {
             text-decoration: none;
             color: black;
@@ -68,87 +67,213 @@
             width: 100%;
         }
     </style>
-    <script>
-    function mostrarSelecoes() {
-        var estadoSelecionado = document.getElementById("estado").value;
-        var capitalSelecionada = document.getElementById("capital").value;
-        var horasSol = parseFloat(document.getElementById("horaspordia").value); // Obtenha as horas de sol do usuário
-        var tamanho = 4;
-        var resultadoDiv = document.getElementById("resultado");
-        resultadoDiv.innerHTML = ""; // Limpa o conteúdo anterior
-        if (estadoSelecionado && capitalSelecionada && !isNaN(horasSol)) {
-            var valoresCapitais = {
-                "Rio Branco": 4560,
-                "Maceió": 5523,
-                "Macapá": 4944,
-                "Manaus": 4323,
-                "Salvador": 5365,
-                "Fortaleza": 5776,
-                "Brasília": 5252,
-                "Vitória": 4957,
-                "Goiânia": 5247,
-                "São Luís": 5208,
-                "Cuiabá": 5106,
-                "Campo Grande": 5031,
-                "Belo Horizonte": 5129,
-                "Belém": 4864,
-                "João Pessoa": 5530,
-                "Curitiba": 4194,
-                "Recife": 5462,
-                "Teresina": 5572,
-                "Rio de Janeiro": 4732,
-                "Porto Alegre": 4430,
-                "Natal": 5674,
-                "Porto Velho": 4480,
-                "Boa Vista": 4886,
-                "Florianópolis": 4251,
-                "São Paulo": 4450,
-                "Aracaju": 5496,
-                "Palmas": 5218
-            };
-            var valorCapital = valoresCapitais[capitalSelecionada];
-            if (valorCapital !== undefined) {
-                var eficiencia = 0.26;
-                var result = tamanho * horasSol * eficiencia * valorCapital;
-                resultadoDiv.innerHTML = "Resultado do cálculo: " + result.toFixed(2) + " kWh";
-            } else {
-                resultadoDiv.innerHTML = "Valor não encontrado para a capital selecionada.";
-            }
-        } else {
-            resultadoDiv.innerHTML = "Por favor, selecione um estado, uma capital e insira a quantidade de horas de sol disponíveis antes de calcular.";
-        }
-    }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("button").addEventListener("click", function(event) {
-            event.preventDefault(); // Evita o envio automático do formulário
-            mostrarSelecoes();
+    <script>
+        // Função para mostrar as capitais com base no estado selecionado
+        function mostrarCapitais() {
+            var estadoSelecionado = document.getElementById("estado").value;
+            var capitalSelect = document.getElementById("capital");
+
+            // Remova todas as opções existentes de capital
+            while (capitalSelect.options.length > 0) {
+                capitalSelect.remove(0);
+            }
+
+            // Verifique se um estado foi selecionado
+            if (estadoSelecionado) {
+                capitalSelect.style.display = "block"; // Torna a seleção da capital visível
+
+                // Adicione as opções de capital com base no estado selecionado
+                var options = [];
+                if (estadoSelecionado === "AC") {
+                    options = ["Rio Branco"];
+                } else if (estadoSelecionado === "AL") {
+                    options = ["Maceió"];
+                } else if (estadoSelecionado === "AP") {
+                    options = ["Macapá"];
+                } else if (estadoSelecionado === "AM") {
+                    options = ["Manaus"];
+                } else if (estadoSelecionado === "BA") {
+                    options = ["Salvador"];
+                } else if (estadoSelecionado === "CE") {
+                    options = ["Fortaleza"];
+                } else if (estadoSelecionado === "DF") {
+                    options = ["Brasília"];
+                } else if (estadoSelecionado === "ES") {
+                    options = ["Vitória"];
+                } else if (estadoSelecionado === "GO") {
+                    options = ["Goiânia"];
+                } else if (estadoSelecionado === "MA") {
+                    options = ["São Luís"];
+                } else if (estadoSelecionado === "MT") {
+                    options = ["Cuiabá"];
+                } else if (estadoSelecionado === "MS") {
+                    options = ["Campo Grande"];
+                } else if (estadoSelecionado === "MG") {
+                    options = ["Belo Horizonte"];
+                } else if (estadoSelecionado === "PA") {
+                    options = ["Belém"];
+                } else if (estadoSelecionado === "PB") {
+                    options = ["João Pessoa"];
+                } else if (estadoSelecionado === "PR") {
+                    options = ["Curitiba"];
+                } else if (estadoSelecionado === "PE") {
+                    options = ["Recife"];
+                } else if (estadoSelecionado === "PI") {
+                    options = ["Teresina"];
+                } else if (estadoSelecionado === "RJ") {
+                    options = ["Rio de Janeiro", "Niterói", "Campos"];
+                } else if (estadoSelecionado === "RN") {
+                    options = ["Natal"];
+                } else if (estadoSelecionado === "RS") {
+                    options = ["Porto Alegre"];
+                } else if (estadoSelecionado === "RO") {
+                    options = ["Porto Velho"];
+                } else if (estadoSelecionado === "RR") {
+                    options = ["Boa Vista"];
+                } else if (estadoSelecionado === "SC") {
+                    options = ["Florianópolis"];
+                } else if (estadoSelecionado === "SP") {
+                    options = ["São Paulo", "Campinas", "Santos"];
+                } else if (estadoSelecionado === "SE") {
+                    options = ["Aracaju"];
+                } else if (estadoSelecionado === "TO") {
+                    options = ["Palmas"];
+                }
+
+                for (var i = 0; i < options.length; i++) {
+                    var option = document.createElement("option");
+                    option.text = options[i];
+                    option.value = options[i];
+                    capitalSelect.add(option);
+                }
+            }
+        }
+
+        // Função para calcular a energia solar
+        function mostrarSelecoes() {
+            var estadoSelecionado = document.getElementById("estado").value;
+            var capitalSelecionada = document.getElementById("capital").value;
+            var horasSol = parseFloat(document.getElementById("horaspordia").value); // Obtenha as horas de sol do usuário
+            var tamanho = 4;
+            var resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = ""; // Limpa o conteúdo anterior
+            if (estadoSelecionado && capitalSelecionada && !isNaN(horasSol)) {
+                var valoresCapitais = {
+                    "Rio Branco": 4560,
+                    "Maceió": 5523,
+                    "Macapá": 4944,
+                    "Manaus": 4323,
+                    "Salvador": 5365,
+                    "Fortaleza": 5776,
+                    "Brasília": 5252,
+                    "Vitória": 4957,
+                    "Goiânia": 5247,
+                    "São Luís": 5208,
+                    "Cuiabá": 5106,
+                    "Campo Grande": 5031,
+                    "Belo Horizonte": 5129,
+                    "Belém": 4864,
+                    "João Pessoa": 5530,
+                    "Curitiba": 4194,
+                    "Recife": 5462,
+                    "Teresina": 5572,
+                    "Rio de Janeiro": 4732,
+                    "Porto Alegre": 4430,
+                    "Natal": 5674,
+                    "Porto Velho": 4480,
+                    "Boa Vista": 4886,
+                    "Florianópolis": 4251,
+                    "São Paulo": 4450,
+                    "Aracaju": 5496,
+                    "Palmas": 5218
+                };
+                var valorCapital = valoresCapitais[capitalSelecionada];
+                if (valorCapital !== undefined) {
+                    var eficiencia = 0.26;
+                    var result = tamanho * horasSol * eficiencia * valorCapital;
+                    resultadoDiv.innerHTML = "Resultado do cálculo: " + result.toFixed(2) + " kWh";
+                } else {
+                    resultadoDiv.innerHTML = "Valor não encontrado para a capital selecionada.";
+                }
+            } else {
+                resultadoDiv.innerHTML = "Por favor, selecione um estado, uma capital e insira a quantidade de horas de sol disponíveis antes de calcular.";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("button").addEventListener("click", function(event) {
+                event.preventDefault(); // Evita o envio automático do formulário
+                mostrarSelecoes();
+            });
         });
-    });
     </script>
 </head>
 <body>
     <div id="header">
         <div id="logo-container">
             <div id="simbolo">
-                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></div>
+                <img src="{% static 'logo/ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;">
+            </div>
             <div id="logo-principal">
-                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></div>
+                <img src="{% static 'logo/ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;">
+            </div>
             <div id="links">
                 <a href="{% url 'area' %}">Área Disponível</a>
                 <a href="{% url 'calculadora'%}">Calculadora Solar</a>
                 <a href="{% url 'potencial'%}">Potencial de Energia</a>
-                <a href="{% url 'orcamento'%}">Orçamento</a></div>
+                <a href="{% url 'orcamento'%}">Orçamento</a>
+            </div>
         </div>
         <div id="usuario">
-            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;"></div>
+            <img src="{% static 'logo/user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
+        </div>
     </div>
 
-    <form id="body" onsubmit="enviarDados(event)">
+    <!-- Seção de seleção de estado -->
+    <form id="estado-form">
+        <h2><label for="estado">Escolha um Estado:</label></h2>
+        <select id="estado" name="estado" onchange="mostrarCapitais()">
+            <option value="">Selecione um Estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+
+        <h2><label for="capital">Escolha uma Capital:</label></h2>
+        <select id="capital" name="capital" style="display: none;">
+            <option value="">Selecione um Estado primeiro</option>
+        </select>
+    </form>
+
+    <!-- Seção de cálculo de energia solar -->
+    <form id="calculo-form" onsubmit="mostrarSelecoes(event)">
         <label>
-            <br>
             <h2>Insira a quantidade de horas de sol disponível:</h2>
-            <p></p>
             <input
                 type="text"
                 id="horaspordia"
@@ -156,72 +281,9 @@
                 placeholder="Horas/dia"
             />
         </label>
+        <button type="submit" id="button">Calcular</button>
+    </form>
 
-        <h2><label for="estado">Escolha um Estado:</label></h2>
-        <select id="estado" name="estado">
-            <option value="ac">Acre</option>
-            <option value="al">Alagoas</option>
-            <option value="ap">Amapá</option>
-            <option value="am">Amazonas</option>
-            <option value="ba">Bahia</option>
-            <option value="ce">Ceará</option>
-            <option value="df">Distrito Federal</option>
-            <option value="es">Espírito Santo</option>
-            <option value="go">Goiás</option>
-            <option value="ma">Maranhão</option>
-            <option value="mt">Mato Grosso</option>
-            <option value="ms">Mato Grosso do Sul</option>
-            <option value="mg">Minas Gerais</option>
-            <option value="pa">Pará</option>
-            <option value="pb">Paraíba</option>
-            <option value="pr">Paraná</option>
-            <option value="pe">Pernambuco</option>
-            <option value="pi">Piauí</option>
-            <option value="rj">Rio de Janeiro</option>
-            <option value="rn">Rio Grande do Norte</option>
-            <option value="rs">Rio Grande do Sul</option>
-            <option value="ro">Rondônia</option>
-            <option value="rr">Roraima</option>
-            <option value="sc">Santa Catarina</option>
-            <option value="sp">São Paulo</option>
-            <option value="se">Sergipe</option>
-            <option value="to">Tocantins</option>
-        </select>
-        
-        <h2><label for="capital">Escolha uma Capital:</label></h2>
-        <select id="capital" name="capital">
-            <option value="Rio Branco">Rio Branco</option>
-            <option value="Maceió">Maceió</option>
-            <option value="Macapá">Macapá</option>
-            <option value="Manaus">Manaus</option>
-            <option value="Salvador">Salvador</option>
-            <option value="Fortaleza">Fortaleza</option>
-            <option value="Brasília">Brasília</option>
-            <option value="Vitória">Vitória</option>
-            <option value="Goiânia">Goiânia</option>
-            <option value="São Luís">São Luís</option>
-            <option value="Cuiabá">Cuiabá</option>
-            <option value="Campo Grande">Campo Grande</option>
-            <option value="Belo Horizonte">Belo Horizonte</option>
-            <option value="Belém">Belém</option>
-            <option value="João Pessoa">João Pessoa</option>
-            <option value="Curitiba">Curitiba</option>
-            <option value="Recife">Recife</option>
-            <option value="Teresina">Teresina</option>
-            <option value="Rio de Janeiro">Rio de Janeiro</option>
-            <option value="Porto Alegre">Porto Alegre</option>
-            <option value="Natal">Natal</option>
-            <option value="Porto Velho">Porto Velho</option>
-            <option value="Boa Vista">Boa Vista</option>
-            <option value="Florianópolis">Florianópolis</option>
-            <option value="São Paulo">São Paulo</option>
-            <option value="Aracaju">Aracaju</option>
-            <option value="Palmas">Palmas</option>
-        </select>
-        </form>
-
-        <button onclick="mostrarSelecoes()">Calcular</button>
-         
     <div id="resultado"></div>
 </body>
 </html>
