@@ -69,21 +69,21 @@
     </style>
 
     <script>
-        // Função para mostrar as capitais com base no estado selecionado
+        
         function mostrarCapitais() {
             var estadoSelecionado = document.getElementById("estado").value;
             var capitalSelect = document.getElementById("capital");
 
-            // Remova todas as opções existentes de capital
+            
             while (capitalSelect.options.length > 0) {
                 capitalSelect.remove(0);
             }
 
-            // Verifique se um estado foi selecionado
+            
             if (estadoSelecionado) {
-                capitalSelect.style.display = "block"; // Torna a seleção da capital visível
+                capitalSelect.style.display = "block";
 
-                // Adicione as opções de capital com base no estado selecionado
+            
                 var options = [];
                 if (estadoSelecionado === "AC") {
                     options = ["Rio Branco"];
@@ -150,14 +150,14 @@
             }
         }
 
-        // Função para calcular a energia solar
+ 
         function mostrarSelecoes() {
             var estadoSelecionado = document.getElementById("estado").value;
             var capitalSelecionada = document.getElementById("capital").value;
-            var horasSol = parseFloat(document.getElementById("horaspordia").value); // Obtenha as horas de sol do usuário
+            var horasSol = parseFloat(document.getElementById("horaspordia").value); 
             var tamanho = 4;
             var resultadoDiv = document.getElementById("resultado");
-            resultadoDiv.innerHTML = ""; // Limpa o conteúdo anterior
+            resultadoDiv.innerHTML = ""; 
             if (estadoSelecionado && capitalSelecionada && !isNaN(horasSol)) {
                 var valoresCapitais = {
                     "Rio Branco": 4560,
@@ -230,7 +230,6 @@
         </div>
     </div>
 
-    <!-- Seção de seleção de estado -->
     <form id="estado-form">
         <h2><label for="estado">Escolha um Estado:</label></h2>
         <select id="estado" name="estado" onchange="mostrarCapitais()">
@@ -269,8 +268,6 @@
             <option value="">Selecione um Estado primeiro</option>
         </select>
     </form>
-
-    <!-- Seção de cálculo de energia solar -->
     <form id="calculo-form" onsubmit="mostrarSelecoes(event)">
         <label>
             <h2>Insira a quantidade de horas de sol disponível:</h2>
