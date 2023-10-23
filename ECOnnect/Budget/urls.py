@@ -8,7 +8,7 @@ urlpatterns = [
     path('orcamento', views.orcamento, name='orcamento'),  # Orçamento
     path('area', views.area, name='area'),  # Área Disponível
     path('infocredito', views.infocredito, name='infocredito'),  # Créditos de Carbono
-    path('', views.home),  # Home
+    path('', views.pag_princ),  # Home
     path('calculadora', views.calculadora, name='calculadora'),  # Calculadora Solar
     path('suporte', views.suporte, name='suporte'),  # Contato
     path('informacoes', views.informacoes, name='informacoes'),  # Informações
