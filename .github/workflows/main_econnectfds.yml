@@ -34,7 +34,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r ECOnnect/requirements.txt
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       - name: Zip artifact for deployment
