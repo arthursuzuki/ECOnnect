@@ -105,6 +105,21 @@
             display: none;
         }
 
+        #popup {
+            position: absolute;
+            display: none;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            right: 60px;
+        }
+
+        #user {
+            position: relative;
+            display: inline-block;
+        }
+
     </style>
 </head>
 <body>
@@ -123,8 +138,26 @@
                 <a href={%url 'potencial'%}>Potencial de Energia</a>
                 <a href={%url 'orcamento'%}>Orçamento</a></div>
         </div>
-        <div id="usuario">
-            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;"></div>
+        <div id="user" onclick="togglePopup()">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
+        </div>
+        <div id="popup">
+            <button onclick="redirectTo('nossa_pagina_de_login.html')">Login</button>
+            <button onclick="redirectTo('nossa_pagina_de_cadastro.html')">Cadastro</button>
+        </div>
+        <script>
+            function togglePopup() {
+                var popup = document.getElementById('popup');
+                if (popup.style.display === 'block') {
+                    popup.style.display = 'none';
+                } else {
+                    popup.style.display = 'block';
+                }
+            }
+            function redirectTo(url) {
+                window.location.href = url;
+            }
+        </script>
     </div>    
 
     <!-- Seção do Orçamento -->
