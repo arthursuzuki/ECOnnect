@@ -46,6 +46,9 @@ def cadastro(request):
         'name': 'Cadastro'
     })
 
+def infosolar (request):
+    return render(request, 'informacaosolar.html')
+
 
 def suporte(request):
     return HttpResponse('Suporte')
