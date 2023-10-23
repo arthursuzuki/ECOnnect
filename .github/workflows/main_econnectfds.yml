@@ -33,7 +33,6 @@ jobs:
 
       - name: Install Dependencies
           run: |
-            cd path/to/requirements.txt
             pip install -r requirements.txt
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
