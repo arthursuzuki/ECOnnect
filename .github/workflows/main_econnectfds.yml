@@ -27,6 +27,9 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+      - name: Upgrade Pip
+        run: |
+          pip install --upgrade pip
 
       - name: Install Dependencies
         run: |
