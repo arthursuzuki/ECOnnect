@@ -8,8 +8,8 @@ def orcamento(request):
         'name': 'Cálculo Orçamento'
     })
 
-def pag_princ(request):
-    return render(request, 'global/pag_princ.html', context={
+def home(request):
+    return render(request, 'global/home.html', context={
         'name': 'ECONNECT'
     })
 
