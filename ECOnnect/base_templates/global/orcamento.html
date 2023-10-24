@@ -115,11 +115,6 @@
             right: 60px;
         }
 
-        #user {
-            position: relative;
-            display: inline-block;
-        }
-
     </style>
 </head>
 <body>
@@ -138,7 +133,7 @@
                 <a href={%url 'potencial'%}>Potencial de Energia</a>
                 <a href={%url 'orcamento'%}>Orçamento</a></div>
         </div>
-        <div id="user" onclick="togglePopup()">
+        <div id="usuario" onclick="togglePopup()">
             <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
         </div>
         <div id="popup">

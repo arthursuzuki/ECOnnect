@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECOnnect</title>
+    <title>Informações</title>
     <link href='https://fonts.googleapis.com/css?family=Sen' rel='stylesheet'>
     <style>
         body {
@@ -13,8 +13,6 @@
             flex-direction: column;
             justify-content: center;
             margin: 0;
-            max-width: 100%;
-            overflow-x: hidden;
         }
 
         #header {
@@ -105,13 +103,15 @@
             width: 40%;
         }
 
-        .button {
+        #button {
             width: 130px;
             height: 45px;
             border-radius: 24px;
             border: 3px black solid
-            font-family: Sen, sans-serif;
-            text-size: 18px;
+            text-size: 18px;]
+            background-color: #F2F2F2;
+            padding: 10px;
+            cursor: pointer;
             text-decoration: underline;
         }
 
@@ -156,7 +156,9 @@
                     usar para alimentar sua casa ou empresa. O sistema funciona de maneira sustentável e amigável ao meio ambiente, reduzindo a dependência de fontes de energia não
                     renováveis e diminuindo as emissões de carbono, tornando-a uma opção cada vez mais popular para a geração de eletricidade limpa.</p>
             </div>
-            <button class="button" style="float: left; margin-top: 1px; margin-bottom: 40px;" href={%url 'infocredito'%} >SAIBA MAIS</button>
+            <button id="button" style="width: 120px; float: left; margin-top: 1px; margin-bottom: 40px;">
+                <a href={% url 'infocredito'%} style="color: black;" >SAIBA MAIS</a>
+            </button>
         </div>
     </div>
 
@@ -227,7 +229,9 @@
                 agora um orçamento personalizado para o seu sistema de energia solar. Faça parte da revolução solar hoje e comece a economizar enquanto contribui para um planeta
                 mais limpo. Clique no botão abaixo e dê início à sua jornada de energia solar.</p>
         </div>
-        <button class="button" style="width: 200px; float: left; margin-top: 1px; margin-bottom: 40px;" href={%url 'orcamento'%} >FAÇA SEU ORÇAMENTO</button>
+        <button id="button" style="width: 200px; float: left; margin-top: 1px; margin-bottom: 40px;">
+            <a href={% url 'orcamento'%} style="color: black;">FAÇA SEU ORÇAMENTO</a>
+        </button>
     </div>
 </body>
 </html>
