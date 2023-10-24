@@ -46,8 +46,10 @@ def cadastro(request):
         'name': 'Cadastro'
     })
 
-def infosolar (request):
-    return render(request, 'informacaosolar.html')
+def informacaosolar (request):
+    return render(request, 'global/informacaosolar.html', context={
+        'name': 'Informação Solar'
+    })
 
 
 def suporte(request):
