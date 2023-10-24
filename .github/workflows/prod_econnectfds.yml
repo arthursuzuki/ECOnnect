@@ -27,12 +27,8 @@ jobs:
           python -m venv venv
           source venv/bin/activate
 
-      - name: Upgrade Pip
-        run: |
-          pip install --upgrade pip
-
       - name: Install dependencies
-        run: pip install -r ECOnnect/requirements.txt
+        run: pip install -r requirements.txt
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       - name: Zip artifact for deployment
@@ -68,4 +64,4 @@ jobs:
         with:
           app-name: 'econnectfds'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_26DB6639B22642C48D8B5737EA021A47 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E74EFA4B156848B598897A1EB507DAFA }}
