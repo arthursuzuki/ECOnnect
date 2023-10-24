@@ -2,12 +2,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Potencial de Geração de Energia</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href='https://fonts.googleapis.com/css?family=Sen' rel='stylesheet'>
-    <style>
+<style>
         body {
             font-family: Sen, sans-serif;
             display: flex;
@@ -17,6 +14,11 @@
             align-items: center;
             text-align: center;
             padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 80px;
         }
 
         #horaspordia {
@@ -194,7 +196,7 @@
     <form id="body" onsubmit="enviarDados(event)">
         <label>
             <br>
-            <h2>Insira a quantidade de horas de sol disponível:</h2>
+            <h1>Insira a quantidade de horas de sol disponível:</h1>
             <p></p>
             <input
                 type="text"
