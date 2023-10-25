@@ -4,50 +4,50 @@ from django.shortcuts import render
 
 # Create your views here.
 def orcamento(request):
-    return render(request, 'global/orcamento.html', context={
+    return render(request, 'orcamento.html', context={
         'name': 'Cálculo Orçamento'
     })
 
 def home(request):
-    return render(request, 'global/home.html', context={
+    return render(request, 'home.html', context={
         'name': 'ECONNECT'
     })
 
 
 def area(request):
-    return render(request, 'global/area.html', context={
+    return render(request, 'area.html', context={
         'name': 'Área Disponível'
     })
 
 
 def potencial(request):
-    return render(request, 'global/potencial.html', context={
+    return render(request, 'potencial.html', context={
         'name': 'Potencial de Geração de Energia'
     })
 
 
 def calculadora(request):
-    return render(request, 'global/calculadora.html', context={
+    return render(request, 'calculadora.html', context={
         'name': 'Cálculo Orçamento'
     })
 
 def infocredito(request):
-    return render(request, 'global/infocredito.html', context={
+    return render(request, 'infocredito.html', context={
         'name': 'Créditos de Carbono'
     })
 
 def login(request):
-    return render(request, 'global/login.html', context={
+    return render(request, 'login.html', context={
         'name': 'Login'
     })
 
 def cadastro(request):
-    return render(request, 'global/cadastro.html', context={
+    return render(request, 'cadastro.html', context={
         'name': 'Cadastro'
     })
 
 def informacaosolar (request):
-    return render(request, 'global/informacaosolar.html', context={
+    return render(request, 'informacaosolar.html', context={
         'name': 'Informação Solar'
     })
 
