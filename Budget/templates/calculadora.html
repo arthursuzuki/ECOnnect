@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <title>Calculadora Solar</title>
+    <link href='https://fonts.googleapis.com/css?family=Sen' rel='stylesheet'>
+<style>
+        body {
+            font-family: Sen, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 80px;
+        }
+
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #F2F2F2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            z-index: 1000;
+        }
+
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            width: 50px;
+        }
+
+        #links {
+            font-size: 20px;
+            display: flex;
+            gap: 30px;
+            align-items: left;
+            justify-content: flex-start;
+            margin-left: 15px;
+        }
+
+        #estado {
+            fontdisplay: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #links a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        botao {
+            background-color: #F2F2F2;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #popup {
+            position: absolute;
+            display: none;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            right: 60px;
+        }
+
+</style>
+</head>
+<body>
+    <!-- Seção do cabeçalho -->
+    <div id="header">
+        <div id="logo-container">
+            <div id="simbolo">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></a></div>
+            <div id="logo-principal">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></a></div>
+            <div id="links">
+                <a href={%url 'area'%}>Área Disponível</a>
+                <a href={%url 'calculadora'%}>Calculadora Solar</a>
+                <a href={%url 'potencial'%}>Potencial de Energia</a>
+                <a href={%url 'orcamento'%}>Orçamento</a></div>
+        </div>
+        <div id="usuario" onclick="togglePopup()">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
+        </div>
+        <div id="popup">
+            <button onclick="redirectTo('http://127.0.0.1:8000/login')">Login</button>
+            <button onclick="redirectTo('http://127.0.0.1:8000/cadastro')">Cadastro</button>
+        </div>
+        <script>
+            function togglePopup() {
+                var popup = document.getElementById('popup');
+                if (popup.style.display === 'block') {
+                    popup.style.display = 'none';
+                } else {
+                    popup.style.display = 'block';
+                }
+            }
+            function redirectTo(url) {
+                window.location.href = url;
+            }
+        </script>
+    </div>
+    <h1>Calculadora de Energia Solar</h1>
+
+    <form id="solarCalculator">
+        <p for="consumoMensal">Consumo Mensal (kWh):</p>
+        <input type="number" id="consumoMensal" name="consumoMensal" required>
+        <br>
+        <p for="tarifaEnergia">Tarifa de Energia (R$/kWh):</p>
+        <input type="number" id="tarifaEnergia" name="tarifaEnergia" required>
+        <br>
+        <p for="estado">Selecione o Estado:</p>
+        <select id="estado" name="estado">
+            <option value="norte">Norte</option>
+            <option value="nordeste">Nordeste</option>
+            <option value="centroOeste">Centro-Oeste</option>
+            <option value="sudeste">Sudeste</option>
+            <option value="sul">Sul</option>
+        </select>
+        <br>
+        <button type="button" id="botao" onclick="calcularEnergiaSolar()">Calcular</button>
+    </form>
+    
+    <div id="resultado" style="display: none">
+        <h2>Quantidade de Painéis Solares Necessários:</h2>
+        <p id="quantidadePaineis">0 painéis</p>
+        
+        <h2>Área Mínima para Instalação (m²):</h2>
+        <p id="areaMinima">0 m²</p>
+
+        <h2>Estimativa de Geração de Energia Mensal (kWh):</h2>
+        <p id="geracaoMensal">0 kWh</p>
+    </div>
+
+    <script>
+        function calcularEnergiaSolar() {
+            const consumoMensal = parseFloat(document.getElementById('consumoMensal').value);
+            const tarifaEnergia = parseFloat(document.getElementById('tarifaEnergia').value);
+            const estado = document.getElementById('estado').value;
+        
+            const irradiacaoSolarPorEstado = {
+                norte: 5.0,
+                nordeste: 5.5,
+                centroOeste: 6.0,
+                sudeste: 5.7,
+                sul: 4.8
+            };
+        
+            const irradiacaoSolar = irradiacaoSolarPorEstado[estado];
+            const potenciaModulo = 350; // Potência do módulo em Wp
+        
+            if (!isNaN(consumoMensal) && !isNaN(tarifaEnergia) && irradiacaoSolar !== undefined) {
+                energiaMensal = ((potenciaModulo/1000) * irradiacaoSolar * (1 - 0.2)) * 30; // kWh/mês
+                quantidadePaineis = Math.ceil(consumoMensal / energiaMensal); // Número de painéis necessários
+            }
+        
+            const areaMinima = quantidadePaineis * 2; // 2 m² por painel
+        
+            const resultadoSection = document.getElementById('resultado');
+            resultadoSection.style.display = 'block';
+        
+            document.getElementById('quantidadePaineis').textContent = quantidadePaineis + " painéis";
+            document.getElementById('areaMinima').textContent = areaMinima + " m²";
+            document.getElementById('geracaoMensal').textContent = energiaMensal.toFixed(2) + " kWh";
+        }        
+    </script>
+</body>
+</html>
