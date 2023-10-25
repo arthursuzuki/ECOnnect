@@ -175,6 +175,17 @@
             padding: 10px;
             text-align: center;
         }
+
+        .sucesso-popup {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #00cc00;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -192,6 +203,7 @@
                 <a href="{% url 'orcamento'%}">Orçamento</a></div>
         </div>
     </header>
+
     <div class="container">
         <div class="faq-container">
             <div class="faq-item">
@@ -226,30 +238,10 @@
                 <h2>Não encontrou a resposta que procurava?</h2>
                 <p>Preencha o formulário abaixo, e entraremos em contato em breve.</p>
                 
-                <form>
-                    <div>
-                        <label for="nome" class="required-label">Nome:</label>
-                        <br>
-                        <input type="text" id="nome" name="nome" required>
-                    </div>
-                    <div>
-                        <label for="celular" class="required-label">Celular:</label>
-                        <br>
-                        <input type="text" id="celular" name="celular" required>
-                    </div>
-                    <div>
-                        <label for="email" class="required-label">Email:</label>
-                        <br>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div>
-                        <label for="mensagem">Mensagem:</label>
-                        <br>
-                        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-                    </div>
-                    <div>
-                        <button type="submit">Enviar Mensagem</button>
-                    </div>   
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Enviar Mensagem</button>
                 </form>
             </div>
 
