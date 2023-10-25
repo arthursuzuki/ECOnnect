@@ -24,13 +24,13 @@ load_dotenv(BASE_DIR / '.env')
 
 TARGET_ENV = os.getenv('TARGET_ENV')
 NOT_PROD = not TARGET_ENV.lower().startswith('prod')
+ALLOWED_HOSTS = ["econnectfds.azurewebsites.net"]
 
 if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = 'A SECRET KEY DO SEU PROJETO'
-    ALLOWED_HOSTS = ["econnectfds.azurewebsites.net"]
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
