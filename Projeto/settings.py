@@ -24,7 +24,7 @@ load_dotenv(BASE_DIR / '.env')
 
 TARGET_ENV = os.getenv('TARGET_ENV')
 NOT_PROD = not TARGET_ENV.lower().startswith('prod')
-ALLOWED_HOSTS = ["econnectfds.azurewebsites.net"]
+
 
 if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!
@@ -66,7 +66,7 @@ SECRET_KEY = 'django-insecure-1jb1wip@qo&36c4d_^=lhno4d#7ijj61n*4-s!x*lf^wvz1vfk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['econnectfds.azurewebsites.net']
 
 
 # Application definition
