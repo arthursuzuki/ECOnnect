@@ -1,11 +1,13 @@
-from Budget.views import (area, calculadora, empresas, informacaosolar, orcamento,
-                          potencial, sobreNos, suporte)
 from django.urls import path
+
+from Budget.views import (area, calculadora, empresas, informacaosolar,
+                          orcamento, potencial, sobreNos, suporte)
 
 from . import views
 
 urlpatterns = [
     path('orcamento', views.orcamento, name='orcamento'),  # Orçamento
+    path('faq', views.faq, name='faq'),  # Fale conosco
     path('login', views.login, name='login'),  # Login
     path('cadastro', views.cadastro, name='cadastro'),  # Cadastro
     path('area/', views.area, name='area'),  # Área Disponível
