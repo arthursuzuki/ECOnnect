@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas Frequentes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #links a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        #links {
+            font-size: 20px;
+            display: flex;
+            gap: 30px;
+            align-items: left;
+            justify-content: flex-start;
+            margin-left: 15px;
+        }
+
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #F2F2F2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            z-index: 1000;
+        }
+
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            width: 50px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 100px;
+            background-color: #ece8e8;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-container {
+            flex: 2; 
+            padding: 10px;
+        }
+
+        .form-container {
+            flex: 1; 
+            padding: 10px;
+        }
+
+        .faq-item {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 50px;
+            padding: 50px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center; 
+            justify-content: space-between; 
+        }
+
+        .faq-item:hover {
+            background-color: #e1e1e1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            display: none;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-item.open {
+            background-color: #e1e1e1;
+        }
+
+        .faq-icon {
+            font-size: 24px;
+        }
+
+        .faq-form-container {
+            background-color: #f0f0f0;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form div:not(:last-child) {
+            margin-bottom: 20px;
+        }
+        .required-label::after {
+            content: ' *';
+            color: red;
+        }
+        .support-contacts {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .support-contacts h2 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .support-contacts p {
+            margin-bottom: 10px;
+        }
+
+        .support-contacts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .support-contacts li {
+            margin-bottom: 10px;
+        }
+
+        .support-contacts li::before {
+            content: "•"; /* Utiliza um marcador de lista personalizado */
+            margin-right: 5px;
+        }
+        .faq-form-container form input[type="text"],
+        .faq-form-container form input[type="email"],
+        .faq-form-container form textarea {
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 25px;
+
+        }
+        .faq-form-container form button[type="submit"] {
+            width: 100%; 
+            padding: 15px; 
+            background-color: #66da7f; 
+            color: #000000; 
+            border: none; 
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        footer {
+            background-color: #a0adb6;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .sucesso-popup {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #00cc00;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        }
+
+        #popup {
+            position: absolute;
+            display: none;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            right: 60px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="logo-container">
+            <div id="simbolo">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></a></div>
+            <div id="logo-principal">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></a></div>
+            <div id="links">
+                <a href={%url 'area'%}>Área Disponível</a>
+                <a href={%url 'calculadora'%}>Calculadora Solar</a>
+                <a href={%url 'potencial'%}>Potencial de Energia</a>
+                <a href={%url 'orcamento'%}>Orçamento</a></div>
+        </div>
+        <div id="usuario" onclick="togglePopup()">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
+        </div>
+        <div id="popup">
+            <button onclick="redirectTo('http://127.0.0.1:8000/login')">Login</button>
+            <button onclick="redirectTo('http://127.0.0.1:8000/cadastro')">Cadastro</button>
+        </div>
+        <script>
+            function togglePopup() {
+                var popup = document.getElementById('popup');
+                if (popup.style.display === 'block') {
+                    popup.style.display = 'none';
+                } else {
+                    popup.style.display = 'block';
+                }
+            }
+            function redirectTo(url) {
+                window.location.href = url;
+            }
+        </script>
+    </div>
+
+    <div class="container">
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">1. O que é o ECOnnect e como ele está relacionado à energia solar?</div>
+                <div class="faq-answer">A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integração dentro do ecossistema da energia solar, com um enfoque direto no Objetivo de Desenvolvimento Sustentável 7. Nossa missão é fornecer informações essenciais sobre regulamentações, oferecer recursos de acompanhamento financeiro, promover a conscientização sobre energia limpa e facilitar o acesso a empresas locais.</div>
+                <div class="faq-icon">▼</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">2. Como realizar um orçamento?</div>
+                <div class="faq-answer">Na área da "calculadora solar" você pode inserir algumas informações e realizar uma simulação que lhe dará um valor aproximado do investimento necessário de acordo com cada área disponível.</div>
+                <div class="faq-icon">▼</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">3. Quando terei o retorno financeiro do meu investimento?</div>
+                <div class="faq-answer">O tempo para obter o retorno financeiro do seu investimento em energia solar pode variar significativamente. Diversos fatores influenciam esse período, incluindo:
+                    <ul>
+                        <li>Incidência solar: A quantidade de luz solar disponível na sua região afeta diretamente o desempenho do seu sistema de energia solar. Regiões com maior incidência solar geralmente geram retorno mais rápido.</li>
+                        <li>Quantidade de placas solares: O tamanho do seu sistema solar, representado pela quantidade de painéis solares, impacta diretamente a quantidade de eletricidade que você pode gerar.</li>
+                        <li>Custos iniciais: Os custos iniciais do investimento, que incluem a compra e instalação do sistema, afetarão o tempo necessário para recuperar o dinheiro investido.</li>
+                        <li>Consumo de energia: O seu consumo de energia desempenha um papel fundamental. Quanto mais energia você usar e puder substituir pelo seu sistema solar, mais rápido o retorno ocorrerá.</li>
+                        <li>Taxas de eletricidade: As taxas de eletricidade na sua região e qualquer política de compensação de energia também podem influenciar o retorno financeiro.</li>
+                    </ul>
+                    Para estimar o tempo de retorno, você pode fazer uma simulação na nossa calculadora solar.
+                </div>
+                <div class="faq-icon">▼</div>
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="faq-form-container">
+                <h2>Não encontrou a resposta que procurava?</h2>
+                <p>Preencha o formulário abaixo, e entraremos em contato em breve.</p>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </div>
+
+            <div class="support-contacts">
+                <h2>Contatos para Suporte</h2>
+                <p>Aqui estão os nossos contatos de suporte:</p>
+                <ul>
+                    <li><b>Whatsapp</b>: (81) 99999-9999</li>
+                    <li><b>Email</b>: suporte@econnect.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 ECOnnect
+    </footer>
+    <script>
+        const faqItems = document.querySelectorAll(".faq-item");
+        faqItems.forEach(item => {
+            item.addEventListener("click", () => {
+                item.classList.toggle("open");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -51,6 +51,11 @@ def informacaosolar (request):
         'name': 'Informação Solar'
     })
 
+def faq(request):
+    return render(request, 'global/faq.html', context={
+        'name': 'Fale Conosco'
+    })
+
 
 def suporte(request):
     return HttpResponse('Suporte')
