@@ -1,5 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+
+from .forms import ContatoForm
 
 
 # Create your views here.
@@ -52,9 +54,14 @@ def informacaosolar (request):
     })
 
 def faq(request):
-    return render(request, 'global/faq.html', context={
-        'name': 'Fale Conosco'
-    })
+    if request.method == 'POST':
+        form = ContatoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = ContatoForm()
+    return render(request,"global/faq.html",{'form':form})
 
 
 def suporte(request):
