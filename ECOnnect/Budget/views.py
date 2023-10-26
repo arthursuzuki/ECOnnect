@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .forms import ContatoForm
 
 
 # Create your views here.
@@ -46,7 +47,11 @@ def home(request):
     return render(request, "global/home.html")
 
 def faq(request):
-    return render(request,"global/faq.html")
-
-def teste(request):
-    return render(request,"global/teste.html")
+    if request.method == 'POST':
+        form = ContatoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = ContatoForm()
+    return render(request,"global/faq.html",{'form':form})
