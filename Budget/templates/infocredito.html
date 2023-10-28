@@ -98,6 +98,18 @@
         }
 
     </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function area() {
+            var eletricidade = document.getElementById("eletricidade").value;
+            var eleconvenc = document.getElementById("eleconvenc").value;
+            eletricidade = parseFloat(eletricidade);
+            eleconvenc = parseFloat(eleconvenc);
+            var resultado = document.getElementById("resultado");
+            resultado.innerHTML = "Seu crédito de carbono é: " + (eletricidade * eleconvenc);
+        }
+    </script>
 </head>
 <body>
     <div id="header">
@@ -166,5 +178,16 @@
         ambiente e demonstra compromisso com a sustentabilidade, o que pode ser um diferencial competitivo. Portanto, para um possível cliente que busca 
         reduzir custos operacionais, melhorar sua pegada ambiental e fortalecer sua imagem de responsabilidade corporativa, a energia solar é uma escolha 
         inteligente e sustentável.</h3><br>
+
+    <h2>Cálculo de créditos de carbono</h1>
+    <h3>Eletricidade gerada pela energia solar (kWh)</h3>
+    <input id="eletricidade"><br />
+    <h3>Fator de emissão de CO2 da eletricidade convencional (kg/kWh)</h3>
+    <h5>*Sugerimos usar 0.7 caso não saiba</h5>
+    <input id="eleconvenc"><br />
+    <br />
+    <button onclick="area()">Calcular</button>
+    <div id="resultado"></div>
+    
 </body>
 </html>
