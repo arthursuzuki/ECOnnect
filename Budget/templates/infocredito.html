@@ -103,11 +103,9 @@
     <script>
         function area() {
             var eletricidade = document.getElementById("eletricidade").value;
-            var eleconvenc = document.getElementById("eleconvenc").value;
             eletricidade = parseFloat(eletricidade);
-            eleconvenc = parseFloat(eleconvenc);
             var resultado = document.getElementById("resultado");
-            resultado.innerHTML = "Seu crédito de carbono é: " + (eletricidade * eleconvenc);
+            resultado.innerHTML = "Seu crédito de carbono é: " + (eletricidade * 0.7);
         }
     </script>
 </head>
@@ -182,10 +180,7 @@
     <h2>Cálculo de créditos de carbono</h1>
     <h3>Eletricidade gerada pela energia solar (kWh)</h3>
     <input id="eletricidade"><br />
-    <h3>Fator de emissão de CO2 da eletricidade convencional (kg/kWh)</h3>
-    <h5>*Sugerimos usar 0.7 caso não saiba</h5>
-    <input id="eleconvenc"><br />
-    <br />
+    <h5>*Para o cálculo, utilizamos a eletricidade multiplicada pelo fator de emissão de CO2 da eletricidade convencional (kg/kWh) 0.7, que é a média do país</h5>
     <button onclick="area()">Calcular</button>
     <div id="resultado"></div>
     
