@@ -139,7 +139,7 @@
             if (valorCapital !== undefined) {
                 var eficiencia = 0.26;
                 var result = tamanho * horasSol * eficiencia * valorCapital;
-                resultadoDiv.innerHTML = "Resultado do cálculo: " + result.toFixed(2);
+                resultadoDiv.innerHTML = "Resultado do cálculo: " + result.toFixed(2) + "W/h";
             } else {
                 resultadoDiv.innerHTML = "Valor não encontrado para a capital selecionada.";
             }
@@ -271,7 +271,7 @@
 
         <button onclick="mostrarSelecoes()">Calcular</button>
          
-    <p>O potencial em Watts/H é: <span id="resultado"></span></p>
+    <div id="resultado"></div>
 
 </body>
 </html>
