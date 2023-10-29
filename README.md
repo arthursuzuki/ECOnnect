@@ -2,7 +2,7 @@
 
 ## Descrição:
 
-A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integração dentro do ecossistema da energia solar, com um enfoque direto no Objetivo de Desenvolvimento Sustentável 7. Nossa missão é fornecer informações essenciais sobre regulamentações, oferecer recursos de acompanhamento financeiro, promover a conscientização sobre energia limpa e facilitar o acesso a empresas locais. Tudo isso visa tornar a transição para uma energia mais sustentável e eficiente uma realidade acessível e prática para todos.
+> A plataforma ECOnnect é um ambiente dedicado à promoção da conexão e integração dentro do ecossistema da energia solar, com um enfoque direto no Objetivo de Desenvolvimento Sustentável 7. Nossa missão é fornecer informações essenciais sobre regulamentações, oferecer recursos de acompanhamento financeiro, promover a conscientização sobre energia limpa e facilitar o acesso a empresas locais. Tudo isso visa tornar a transição para uma energia mais sustentável e eficiente uma realidade acessível e prática para todos.
 
 ## ENTREGA 01: 
 
