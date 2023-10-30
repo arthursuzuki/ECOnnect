@@ -100,6 +100,7 @@
             comprimento = parseInt(comprimento);
             var resultado = document.getElementById("resultado");
             resultado.innerHTML = "Sua área total é: " + (largura * comprimento);
+            localStorage = setItem('area',resultado);
         }
     </script>
 </head>
@@ -109,10 +110,10 @@
     <div id="header">
         <div id="logo-container">
             <div id="simbolo">
-                <a href="/">
+                <a href="http://127.0.0.1:8000/">
                 <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></a></div>
             <div id="logo-principal">
-                <a href="/">
+                <a href="http://127.0.0.1:8000/">
                 <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></a></div>
             <div id="links">
                 <a href={%url 'area'%}>Área Disponível</a>
@@ -124,8 +125,8 @@
             <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
         </div>
         <div id="popup">
-            <button onclick="redirectTo('/login')">Login</button>
-            <button onclick="redirectTo('/cadastro')">Cadastro</button>
+            <button onclick="redirectTo('http://127.0.0.1:8000/login')">Login</button>
+            <button onclick="redirectTo('http://127.0.0.1:8000/cadastro')">Cadastro</button>
         </div>
         <script>
             function togglePopup() {
@@ -150,7 +151,39 @@
     <br />
     <button onclick="area()">Calcular</button>
     <div id="resultado"></div>
-    <a href="/orcamento" class="botao"><button>Exportar valor para Orçamento</button></a>
-</body>
+    <a href="http://127.0.0.1:8000/orcamento" class="botao"><button>Exportar valor para Orçamento</button></a>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var larguraSalva = localStorage.getItem('larguraSalva');
+            if (larguraSalva !== null) {
+                document.getElementById('largura').value = larguraSalva;
+            }
+
+            var comprimentoSalvo = localStorage.getItem('comprimentoSalvo');
+            if (comprimentoSalvo !== null) {
+                document.getElementById('comprimento').value = comprimentoSalvo;
+            }
+        });
+
+        function area() {
+            var largura = parseFloat(document.getElementById("largura").value);
+            var comprimento = parseFloat(document.getElementById("comprimento").value);
+
+            if (isNaN(largura) || largura <= 0 || isNaN(comprimento) || comprimento <= 0) {
+                alert("Por favor, insira valores válidos.");
+                return;
+            }
+
+            var areaCalculada = largura * comprimento;
+
+            // Atualizar o resultado na página
+            document.getElementById("resultado").innerHTML = "A área calculada é: " + areaCalculada + " m²";
+
+            // Salvar valores no localStorage
+            localStorage.setItem('larguraSalva', largura);
+            localStorage.setItem('comprimentoSalvo', comprimento);
+        }
+    </script>
+</body>
 </html>
