@@ -76,7 +76,10 @@ https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd
 [https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd6-d3ca753ec0be](https://www.youtube.com/watch?v=D_FdT5lo9wY)
 
 ### Screencast apresentando os testes
-https://drive.google.com/file/d/18AVLfAwH9iWhzQbP0wMfuSmXln2cK03a/view?usp=gmail
+
+
+### Screencast apresentando o Deployment na Azure
+https://www.loom.com/share/588ad89c55c54089a552ec35244d408a?sid=67e75179-6cb7-4cdb-81a5-d3b9bad9437a
 
 ### Lo-Fi - Entrega 3
 https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=187-2&mode=design&t=XFlWAQh6jIuF3r4K-0
