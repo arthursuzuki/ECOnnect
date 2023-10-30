@@ -122,10 +122,10 @@
     <div id="header">
         <div id="logo-container">
             <div id="simbolo">
-                <a href="/">
+                <a href="http://127.0.0.1:8000/">
                 <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></a></div>
             <div id="logo-principal">
-                <a href="/">
+                <a href="http://127.0.0.1:8000/">
                 <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></a></div>
             <div id="links">
                 <a href={%url 'area'%}>Área Disponível</a>
@@ -137,8 +137,8 @@
             <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
         </div>
         <div id="popup">
-            <button onclick="redirectTo('/login')">Login</button>
-            <button onclick="redirectTo('/cadastro')">Cadastro</button>
+            <button onclick="redirectTo('http://127.0.0.1:8000/login')">Login</button>
+            <button onclick="redirectTo('http://127.0.0.1:8000/cadastro')">Cadastro</button>
         </div>
         <script>
             function togglePopup() {
@@ -167,7 +167,16 @@
         <p id="observacao"></p>
         <a href="empresas/" id="btnEmpresas"><button>Ver Empresas Próximas A Mim</button></a>
     </div>
+    
     <script>
+        // Adicionando o código para carregar valor do localStorage
+        document.addEventListener("DOMContentLoaded", function() {
+            var areaSalva = localStorage.getItem('areaSalva');
+            if (areaSalva !== null) {
+                document.getElementById('area').value = areaSalva;
+            }
+        });
+    
         function calcularOrcamento() {
             var area = parseFloat(document.getElementById("area").value);
             if (isNaN(area) || area <= 0) {
@@ -184,6 +193,9 @@
             document.getElementById("valor").innerHTML = valor;
             document.getElementById("observacao").innerHTML = observacao;
             document.getElementById("btnEmpresas").style.display = "inline";
+    
+            // Salvar valor no localStorage
+            localStorage.setItem('areaSalva', area);
         }
     </script>
 </body>
