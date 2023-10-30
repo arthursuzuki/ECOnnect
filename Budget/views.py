@@ -48,10 +48,30 @@ def cadastro(request):
         'name': 'Cadastro'
     })
 
-def informacaosolar (request):
-    return render(request, 'informacaosolar.html', context={
-        'name': 'Informação Solar'
-    })
+def informacaosolar(request):
+    roi = None
+
+    if request.method == 'POST':
+        tipo_local = request.POST.get('tipo_local')
+        gasto_mensal = float(request.POST.get('gasto_mensal').replace('R$', '').replace(',', '').strip())
+
+        if tipo_local == 'Residencial':
+            custo_instalacao = 5000
+        elif tipo_local == 'Comercial':
+            custo_instalacao = 10000
+        elif tipo_local == 'Industrial':
+            custo_instalacao = 20000
+        else:
+            return HttpResponse("Tipo de local inválido.")
+
+        economia_anual = gasto_mensal * 12
+
+        if custo_instalacao > 0:
+            roi = (economia_anual / custo_instalacao) * 100
+        else:
+            roi = 0
+
+    return render(request, 'informacaosolar.html', {'name': 'Informação Solar', 'roi': roi})
 
 def faq(request):
     if request.method == 'POST':

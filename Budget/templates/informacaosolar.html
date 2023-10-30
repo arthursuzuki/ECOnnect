@@ -115,16 +115,6 @@
             text-decoration: underline;
         }
 
-        #popup {
-            position: absolute;
-            display: none;
-            background-color: #f9f9f9;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            padding: 12px 16px;
-            z-index: 1;
-            right: 60px;
-        }
-
     </style>
 </head>
 <body>
@@ -163,7 +153,7 @@
                 window.location.href = url;
             }
         </script>
-    </div>   
+    </div>
 
     <div>
         <div class="flex-left">
@@ -260,6 +250,70 @@
         <button id="button" style="width: 200px; float: left; margin-top: 1px; margin-bottom: 40px;">
             <a href={% url 'orcamento'%} style="color: black;">FAÇA SEU ORÇAMENTO</a>
         </button>
+    </div>
+
+    <div style="background-color: #F2F2F2;">
+        <div class="text">
+            <h2 style="text-align: left; margin-top: 20px; margin-left: 10px;">Simule Rapidamente o Seu ROI</h2>
+        </div>
+    
+        <form method="POST" style="text-align: left; margin-top: 20px; margin-left: 10px;">
+            {% csrf_token %}
+            <label for="tipo_local">Tipo de Local:</label>
+            <select name="tipo_local" id="tipo_local">
+                <option value="Residencial">Residencial</option>
+                <option value="Comercial">Comercial</option>
+                <option value="Industrial">Industrial</option>
+            </select>
+            <br>
+            <label for="gasto_mensal">Gasto Mensal com Conta de Luz:</label>
+            <input type="text" name="gasto_mensal" id="gasto_mensal" placeholder="R$">
+            <br>
+            <button id="button" style="width: 100px; float: left; margin-top: 1px; margin-bottom: 40px;">
+                <a onclick="calcularROI()" style="color: black;">SIMULE JÁ</a>
+            </button>
+            <br>
+        </form>
+
+        <div class="flex-left; margin-left: 15px;">
+            <div style="margin-top: 50px; margin-left: 15px;">
+                {% if roi is not None %}
+                    <h3>ROI Estimado:</h3>
+                    <p>O retorno sobre o investimento pode ser de até {{ roi|floatformat:2 }}%.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <script>
+            function calcularROI() {
+                var tipoLocal = document.getElementById('tipo_local').value;
+                var gastoMensal = parseFloat(document.getElementById('gasto_mensal').value.replace('R$', '').replace(',', '').trim());
+    
+                if (isNaN(gastoMensal)) {
+                    alert('Por favor, insira um valor válido para o gasto mensal.');
+                    return;
+                }
+    
+                var custoInstalacao = 0;
+    
+                if (tipoLocal === 'Residencial') {
+                    custoInstalacao = 5000;
+                } else if (tipoLocal === 'Comercial') {
+                    custoInstalacao = 10000;
+                } else if (tipoLocal === 'Industrial') {
+                    custoInstalacao = 20000;
+                } else {
+                    alert('Selecione um tipo de local válido.');
+                    return;
+                }
+    
+                var economiaAnual = gastoMensal * 12;
+                var roi = (economiaAnual / custoInstalacao) * 100;
+    
+                var resultadoElement = document.getElementById('resultado_roi');
+                resultadoElement.innerHTML = '<h3>ROI Calculado:</h3><p>O retorno sobre o investimento é de ' + roi.toFixed(2) + '%.</p>';
+            }
+        </script>
     </div>
 </body>
 </html>
