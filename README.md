@@ -114,5 +114,5 @@ https://drive.google.com/file/d/18AVLfAwH9iWhzQbP0wMfuSmXln2cK03a/view?usp=gmail
 * Arthur Suzuki --> aljs@cesar.school
 
 #### Links:
-> Jira: https://projetofds2023.atlassian.net/jira/software/projects/ECNT/boards/2
-> Figma: https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&t=6ZG68T2LLgporl5e-6
+> Jira: https://projetofds2023.atlassian.net/jira/software/projects/ECNT/boards/2<br>
+> Figma: https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=51-4&mode=design&t=XFlWAQh6jIuF3r4K-0
