@@ -14,21 +14,7 @@
 
 
 ### Protótipos Lo-Fi
-
--Menu - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-172&mode=design&t=hRaA6lGfiClT6q58-0
-
--Acessar disponibilidade de empresas que oferecem o serviço próximas ao usuário - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-49&mode=design&t=hRaA6lGfiClT6q58-0
-
--Inserir informações do espaço disponível para geração de energia - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=72-174&mode=design&t=hRaA6lGfiClT6q58-0
-
--Estimar o potencial de geração de energia em função do espaço disponível - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=58-2&mode=design&t=hRaA6lGfiClT6q58-0
-
--Obter o orçamento em função do espaço disponível - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-123&mode=design&t=hRaA6lGfiClT6q58-0
-
--Acessar informações referentes ao tempo que levará para obter o retorno financeiro do investimento - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-
-141&mode=design&t=hRaA6lGfiClT6q58-0
-
--Calculadora Solar - https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---Entrega-1?type=design&node-id=53-93&mode=design&t=hRaA6lGfiClT6q58-0
+https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=51-4&mode=design&t=XFlWAQh6jIuF3r4K-0
 
 ### Screencast apresentando o Protótipo
 
@@ -37,10 +23,6 @@ https://github.com/arthursuzuki/fds/assets/132377213/deacdc74-095e-46bb-830b-131
 
 
 ## ENTREGA 02:
-
-### Link pro site: 
-
-https://econnectfds.azurewebsites.net
 
 ### Diagrama de Atividades
 ![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/0ec163da-de13-436d-871e-78a5f1693577)
@@ -66,14 +48,9 @@ A experiência de programação em pares entre Vinicius e Maria Augusta foi óti
 
 ### Screencast apresentando a Aplicação/Implementação
 
-
 https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd6-d3ca753ec0be
 
 ## ENTREGA 03:
-
-### Link pro site: 
-
-https://econnectfds.azurewebsites.net
 
 ### Diagrama de Atividades
 ![Diagrama de atv](https://github.com/arthursuzuki/ECOnnect/assets/126833330/1725813e-202e-4651-a5c4-0f14343516ee)
@@ -82,7 +59,7 @@ https://econnectfds.azurewebsites.net
 ![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/0ff8dc75-01c4-4730-b2fe-5cf9b78fa870)
 
 
-### Relato da Programação em Par:
+### Atualização Relato da Programação em Par:
 
 * Luísa Chagas & Arthur Suzuki:A escolha de adotar a programação em pares, com Luísa responsável pelo frontend e Suzuki pelo backend, fortaleceu a colaboração, aprimorou a comunicação e agilizou a solução de problemas. A dupla se reunia regularmente para avaliar o progresso do projeto e auxiliar um ao outro conforme necessário. Eles revisaram a história de cálculo do potencial de geração de energia, aprimorando seu desempenho, e também desenvolveram a tela de FAQ do projeto, utilizando o GitHub para compartilhar os códigos. Isso resultou em um desenvolvimento eficaz, no crescimento das habilidades interpessoais e na entrega bem-sucedida das tarefas.
 
@@ -91,19 +68,18 @@ https://econnectfds.azurewebsites.net
 * Vinicius & Maria Augusta: Maria Augusta concentrou-se no usuário final e na interface desejada, dando ênfase ao frontend, enquanto Vinicius, com sua expertise técnica e compreensão dos cálculos envolvidos, focou no backend. Ambos aproveitaram ao máximo as funcionalidades do GitHub, especialmente os repositórios, para manter o fluxo de trabalho fluido e organizado. As reuniões regulares de revisão de código entre a dupla foram cruciais para identificar e superar rapidamente os desafios, garantindo a eficácia na implementação das soluções, incluindo a criação da tela de informações de orçamento. A experiência de programação em pares entre Vinicius e Maria Augusta foi excepcional. Ambos os desenvolvedores contribuíram com suas forças individuais para o projeto, resultando em um equilíbrio perfeito entre a usabilidade do frontend e a precisão do backend.
 
 ### Backlog e Sprint 03
-![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/4e941da0-541e-4b6a-9dc0-a6c35680dfd2)
-
-![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/75557eb8-206e-41fc-b0f1-2de513213f14)
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/fa8345c4-21c3-4498-8e1b-1b61403da3f2)
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/f68495cd-5614-445a-8d76-a245a904a686)
 
 
 ### Screencast apresentando a Aplicação/Implementação
-
-
 [https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd6-d3ca753ec0be](https://www.youtube.com/watch?v=D_FdT5lo9wY)
 
 ### Screencast apresentando os testes
-
 https://drive.google.com/file/d/18AVLfAwH9iWhzQbP0wMfuSmXln2cK03a/view?usp=gmail
+
+### Lo-Fi - Entrega 3
+https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=187-2&mode=design&t=XFlWAQh6jIuF3r4K-0
 
 ## Colaboradores
 * Eduardo Lins --> eal3@cesar.school
@@ -114,5 +90,7 @@ https://drive.google.com/file/d/18AVLfAwH9iWhzQbP0wMfuSmXln2cK03a/view?usp=gmail
 * Arthur Suzuki --> aljs@cesar.school
 
 #### Links:
-> Jira: https://projetofds2023.atlassian.net/jira/software/projects/ECNT/boards/2<br>
-> Figma: https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=51-4&mode=design&t=XFlWAQh6jIuF3r4K-0
+> <b>Jira:</b> https://projetofds2023.atlassian.net/jira/software/projects/ECNT/boards/2<br>
+> <b>Figma:</b>https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=51-4&mode=design&t=XFlWAQh6jIuF3r4K-0<br>
+> <b>Azure:</b>https://econnectfds.azurewebsites.net
+
