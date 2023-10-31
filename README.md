@@ -73,16 +73,19 @@ https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd
 
 
 ### Screencast apresentando a Aplicação/Implementação
-[https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd6-d3ca753ec0be](https://www.youtube.com/watch?v=D_FdT5lo9wY)
+[[https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd6-d3ca753ec0be](https://www.youtube.com/watch?v=D_FdT5lo9wY)](https://youtu.be/gP8dxRUnnHQ)
 
 ### Screencast apresentando os testes
-
+https://www.youtube.com/watch?v=z1KYmJmUgrw
 
 ### Screencast apresentando o Deployment na Azure
 https://www.loom.com/share/588ad89c55c54089a552ec35244d408a?sid=67e75179-6cb7-4cdb-81a5-d3b9bad9437a
 
 ### Lo-Fi - Entrega 3
 https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=187-2&mode=design&t=XFlWAQh6jIuF3r4K-0
+
+## Screencast - Lo-Fi
+https://youtu.be/1fO223lcb4w
 
 ## Colaboradores
 * Eduardo Lins --> eal3@cesar.school
