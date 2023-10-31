@@ -56,7 +56,8 @@ https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd
 ![Diagrama de atv](https://github.com/arthursuzuki/ECOnnect/assets/126833330/1725813e-202e-4651-a5c4-0f14343516ee)
 
 ### Issue/Bug Tracker Atualizado
-![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/0ff8dc75-01c4-4730-b2fe-5cf9b78fa870)
+![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/ce1dbcb8-449d-4c8b-9c2a-e3e8423a6e6b)
+
 
 
 ### Atualização Relato da Programação em Par:
@@ -68,8 +69,9 @@ https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd
 * Vinicius & Maria Augusta: Maria Augusta concentrou-se no usuário final e na interface desejada, dando ênfase ao frontend, enquanto Vinicius, com sua expertise técnica e compreensão dos cálculos envolvidos, focou no backend. Ambos aproveitaram ao máximo as funcionalidades do GitHub, especialmente os repositórios, para manter o fluxo de trabalho fluido e organizado. As reuniões regulares de revisão de código entre a dupla foram cruciais para identificar e superar rapidamente os desafios, garantindo a eficácia na implementação das soluções, incluindo a criação da tela de informações de orçamento. A experiência de programação em pares entre Vinicius e Maria Augusta foi excepcional. Ambos os desenvolvedores contribuíram com suas forças individuais para o projeto, resultando em um equilíbrio perfeito entre a usabilidade do frontend e a precisão do backend.
 
 ### Backlog e Sprint 03
-![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/fa8345c4-21c3-4498-8e1b-1b61403da3f2)
-![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/f68495cd-5614-445a-8d76-a245a904a686)
+![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/e7af4c72-f5db-41cf-84ce-55d25c9f3daf)
+![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/7e3f4f31-bbc6-4723-a1ff-2728e50c7694)
+
 
 
 ### Screencast apresentando a Aplicação/Implementação
