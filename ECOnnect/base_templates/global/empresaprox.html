@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Empresas próximas a mim</title>
+    <link href='https://fonts.googleapis.com/css?family=Sen' rel='stylesheet'>
+<style>
+        body {
+            font-family: Sen, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 80px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #F2F2F2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            z-index: 1000;
+        }
+
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            width: 50px;
+        }
+
+        #links {
+            font-size: 20px;
+            display: flex;
+            gap: 30px;
+            align-items: left;
+            justify-content: flex-start;
+            margin-left: 15px;
+        }
+        
+        #links a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        #footer {
+            background-color: #F2F2F2;
+            padding: 10px;
+            width: 100%;
+        }
+
+        #popup {
+            position: absolute;
+            display: none;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            right: 60px;
+        }
+
+    </style>
+          
+</head>
+<body>
+    <div id="header">
+        <div id="logo-container">
+            <div id="simbolo">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></a></div>
+            <div id="logo-principal">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></a></div>
+            <div id="links">
+                <a href={%url 'area'%}>Área Disponível</a>
+                <a href={%url 'calculadora'%}>Calculadora Solar</a>
+                <a href={%url 'potencial'%}>Potencial de Energia</a>
+                <a href={%url 'orcamento'%}>Orçamento</a></div>
+        </div>
+        <div id="usuario" onclick="togglePopup()">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
+        </div>
+        <div id="popup">
+            <button onclick="redirectTo('http://127.0.0.1:8000/login')">Login</button>
+            <button onclick="redirectTo('http://127.0.0.1:8000/cadastro')">Cadastro</button>
+        </div>
+        <script>
+            function togglePopup() {
+                var popup = document.getElementById('popup');
+                if (popup.style.display === 'block') {
+                    popup.style.display = 'none';
+                } else {
+                    popup.style.display = 'block';
+                }
+            }
+            function redirectTo(url) {
+                window.location.href = url;
+            }
+        </script>
+    </div>
+
+    <form id="body" onsubmit="enviarDados(event)">
+        <label>
+            <br>
+            <h1>Empresas próximas à você</h1>
+        </label>
+
+        <h2><label for="estado">Escolha um Estado:</label></h2>
+        <select id="estado" name="estado">
+            <option value="ac">Acre</option>
+            <option value="al">Alagoas</option>
+            <option value="ap">Amapá</option>
+            <option value="am">Amazonas</option>
+            <option value="ba">Bahia</option>
+            <option value="ce">Ceará</option>
+            <option value="df">Distrito Federal</option>
+            <option value="es">Espírito Santo</option>
+            <option value="go">Goiás</option>
+            <option value="ma">Maranhão</option>
+            <option value="mt">Mato Grosso</option>
+            <option value="ms">Mato Grosso do Sul</option>
+            <option value="mg">Minas Gerais</option>
+            <option value="pa">Pará</option>
+            <option value="pb">Paraíba</option>
+            <option value="pr">Paraná</option>
+            <option value="pe">Pernambuco</option>
+            <option value="pi">Piauí</option>
+            <option value="rj">Rio de Janeiro</option>
+            <option value="rn">Rio Grande do Norte</option>
+            <option value="rs">Rio Grande do Sul</option>
+            <option value="ro">Rondônia</option>
+            <option value="rr">Roraima</option>
+            <option value="sc">Santa Catarina</option>
+            <option value="sp">São Paulo</option>
+            <option value="se">Sergipe</option>
+            <option value="to">Tocantins</option>
+        </select>
+    </form>
+
+    <script>
+        function mostrarSelecoes() {
+            var estadoSelecionado = document.getElementById("estado").value;
+            var resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = ""; 
+            if (estadoSelecionado === "pe") {
+                resultadoDiv.innerHTML = "Empresas próximas a você: Estrada do Sol, Caminho solar";
+            }
+        }
+
+    </script>
+
+    <button onclick="mostrarSelecoes()">Procurar</button>
+         
+    <span id="resultado"></span>
+    
+</body>
+</html>

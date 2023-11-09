@@ -15,6 +15,11 @@ def home(request):
         'name': 'ECONNECT'
     })
 
+def empresaprox(request):
+    return render(request, 'global/empresaprox.html', context={
+        'name': 'Empresa próxima'
+    })
+
 
 def area(request):
     return render(request, 'global/area.html', context={
