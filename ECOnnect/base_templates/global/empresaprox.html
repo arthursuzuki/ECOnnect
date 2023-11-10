@@ -1,10 +1,41 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
-    <title>Empresas próximas a mim</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Sen' rel='stylesheet'>
-<style>
+    <title>Localizador de Empresas</title>
+    <style>
+
+        #content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+        }
+
+        .empresa {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .empresa h3 {
+            margin-top: 0;
+        }
+
         body {
             font-family: Sen, sans-serif;
             display: flex;
@@ -19,16 +50,6 @@
         h1 {
             color: #333;
             margin-top: 80px;
-        }
-
-        button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-            margin-bottom: 20px;
         }
 
         #header {
@@ -66,17 +87,33 @@
             justify-content: flex-start;
             margin-left: 15px;
         }
-        
+
+        #estado {
+            fontdisplay: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
         #links a {
             text-decoration: none;
             color: black;
             cursor: pointer;
         }
 
-        #footer {
+        botao {
             background-color: #F2F2F2;
+            border: none;
             padding: 10px;
-            width: 100%;
+            cursor: pointer;
         }
 
         #popup {
@@ -90,7 +127,6 @@
         }
 
     </style>
-          
 </head>
 <body>
     <div id="header">
@@ -128,112 +164,195 @@
             }
         </script>
     </div>
+    <div id="content">
+        <br></br>
+        <h2>Localizador de Empresas por CEP</h2>
+        <input type="text" id="cepInput" placeholder="Digite o CEP (sem hífen)">
+        <button onclick="buscarEmpresa()">Buscar</button>
 
-    <form id="body" onsubmit="enviarDados(event)">
-        <label>
-            <br>
-            <h1>Empresas próximas à você</h1>
-        </label>
+        <!-- Lista de Empresas -->
+        <div class="empresa" id="empresa1">
+            <h3>Nome da Empresa 1</h3>
+            <p>Endereço da Empresa 1</p>
+        </div>
 
-        <h2><label for="estado">Escolha um Estado:</label></h2>
-        <select id="estado" name="estado">
-            <option value="ac">Acre</option>
-            <option value="al">Alagoas</option>
-            <option value="ap">Amapá</option>
-            <option value="am">Amazonas</option>
-            <option value="ba">Bahia</option>
-            <option value="ce">Ceará</option>
-            <option value="df">Distrito Federal</option>
-            <option value="es">Espírito Santo</option>
-            <option value="go">Goiás</option>
-            <option value="ma">Maranhão</option>
-            <option value="mt">Mato Grosso</option>
-            <option value="ms">Mato Grosso do Sul</option>
-            <option value="mg">Minas Gerais</option>
-            <option value="pa">Pará</option>
-            <option value="pb">Paraíba</option>
-            <option value="pr">Paraná</option>
-            <option value="pe">Pernambuco</option>
-            <option value="pi">Piauí</option>
-            <option value="rj">Rio de Janeiro</option>
-            <option value="rn">Rio Grande do Norte</option>
-            <option value="rs">Rio Grande do Sul</option>
-            <option value="ro">Rondônia</option>
-            <option value="rr">Roraima</option>
-            <option value="sc">Santa Catarina</option>
-            <option value="sp">São Paulo</option>
-            <option value="se">Sergipe</option>
-            <option value="to">Tocantins</option>
-        </select>
-    </form>
+        <div class="empresa" id="empresa2">
+            <h3>Nome da Empresa 2</h3>
+            <p>Endereço da Empresa 2</p>
+        </div>
+
+        <div class="empresa" id="empresa3">
+            <h3>Nome da Empresa 3</h3>
+            <p>Endereço da Empresa 3</p>
+        </div>
+        <!-- Fim da Lista de Empresas -->
+    </div>
 
     <script>
-        function mostrarSelecoes() {
-            var estadoSelecionado = document.getElementById("estado").value;
-            var resultadoDiv = document.getElementById("resultado");
-            resultadoDiv.innerHTML = ""; 
-            if (estadoSelecionado === "am") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Sol do Norte, Amazonas Sun Gold Energia Solar";
-            } if (estadoSelecionado === "ac") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Solar Norte, Solar Energia";
-            } if (estadoSelecionado === "ap") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Minasol, RLC Energia";
-            } if (estadoSelecionado === "pa") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: ECCO+ Energia Solar, MR Energia";
-            } if (estadoSelecionado === "ro") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: RO Solar, Impacto Energia Solar LTDA";
-            } if (estadoSelecionado === "rr") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Renovavel Energia Solar, YVM Engenharia Energia Solar";
-            } if (estadoSelecionado === "to") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Henesol Energia Solar, MASTROSOL - Energia Solar";
-            } if (estadoSelecionado === "al") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Ecosolar, HCC Energia Solar";
-            } if (estadoSelecionado === "ba") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: DisolarSol – Energia Solar, Bahia Sol Energia";
-            } if (estadoSelecionado === "ce") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: SegEnergy Fortaleza, Kinsol A & R Rocha – Fortaleza";
-            } if (estadoSelecionado === "ma") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: MA Solar, Moove Energia Solar";
-            } if (estadoSelecionado === "pb") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Ative Solar, Faro Cabo Branco Locação E Soluções em Energia Solar LTDA";
-            } if (estadoSelecionado === "pi") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: RX Solar, Cunha Segurança Eletronica e Energia Solar";
-            } if (estadoSelecionado === "es") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: BVK Energia Solar, Ekosolar e Destefani Solar";
-            } if (estadoSelecionado === "mg") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Mirai Energia Solar, RD Solução Solar e NowEnergy";
-            } if (estadoSelecionado === "rj") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Rio Solar, Hexis e SolarCorp";
-            } if (estadoSelecionado === "sp") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Sacada Glas, Eco + Energy e Portal Solar";
-            } if (estadoSelecionado === "pr") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Gaudencio Energia Solar, Powercom Brasil e Cataratas Solar";
-            } if (estadoSelecionado === "rs") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Briolo, Yozze Energia Solar e Elisya";
-            } if (estadoSelecionado === "sc") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: EFM Blue Energy, Atacado Solar e Ilumisam Energia Solar";
-            } if (estadoSelecionado === "go") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Supremus, Ecosol e Goias Energia Solar";
-            } if (estadoSelecionado === "mt") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Yellot, Solar MT e Bella Energia Solar";
-            } if (estadoSelecionado === "ms") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Sistel Engenharia, Seg Energy e Solazzi";
-            } if (estadoSelecionado === "pe") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Auren Energia, RD Solução Solar e Econodata";
-            } if (estadoSelecionado === "rn") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: RN Sol, ITSolar e Megga Solar";
-            } if (estadoSelecionado === "se") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Sunlight Energia Solar, Tecnosolar e Retrofit Energia Solar";
-            } if (estadoSelecionado === "df") {
-                resultadoDiv.innerHTML = "Empresas próximas a você: Bluesol, Solutudo e Trônica Energia Solar";
+        function buscarEmpresa() {
+            var cep = document.getElementById("cepInput").value;
+            var estadoSelecionado = obterEstadoPeloCep(cep);
+
+            // Lógica para mostrar as empresas com base no estado
+            switch (estadoSelecionado) {
+                case "ac":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "al":
+                    exibirEmpresas(["Ecosolar", "HCC Energia Solar"]);
+                    break;
+                case "ap":
+                    exibirEmpresas(["Minasol", "RLC Energia"]);
+                    break;
+                case "am":
+                    exibirEmpresas(["Sol do Norte", "Amazonas Sun Gold Energia Solar"]);
+                    break;
+                case "ba":
+                    exibirEmpresas(["DisolarSol Energia Solar", "Bahia Sol Energia"]);
+                    break;
+                case "ce":
+                    exibirEmpresas(["SegEnergy Fortaleza", "Kinsol A & R Rocha Fortaleza"]);
+                    break;
+                case "df":
+                    exibirEmpresas(["Bluesol", "Solutudo", "Trônica Energia Solar"]);
+                    break;
+                case "es":
+                    exibirEmpresas(["BVK Energia Solar", "Ekosolar", "Destefani Solar"]);
+                    break;
+                case "go":
+                    exibirEmpresas(["Supremus", "Ecosol", "Goias Energia Solar"]);
+                    break;
+                case "ma":
+                    exibirEmpresas(["MA Solar", "Moove Energia Solar"]);
+                    break;
+                case "mt":
+                    exibirEmpresas(["Yellot", "Solar MT", "Bella Energia Solar"]);
+                    break;
+                case "ms":
+                    exibirEmpresas(["Sistel Engenharia", "Seg Energy", "Solazzi"]);
+                    break;
+                case "mg":
+                    exibirEmpresas(["Mirai Energia Solar", "RD Solução Solar", "NowEnergy"]);
+                    break;
+                case "pa":
+                    exibirEmpresas(["ECCO + Energia Solar", "MR Energia"]);
+                    break;
+                case "pb":
+                    exibirEmpresas(["Ative Solar", "Faro Cabo Branco Locação", "Soluções em Energia Solar LTDA"]);
+                    break;
+                case "pr":
+                    exibirEmpresas(["Gaudencio Energia Solar", "Powercom Brasil", "Cataratas Solar"]);
+                    break;    
+                case "pe":
+                    exibirEmpresas(["Auren Energia", "RD Solução Solar", "Econodata"]);
+                    break;
+                case "pi":
+                    exibirEmpresas(["RX Solar", "Cunha Segurança Eletronica"]);
+                    break;
+                case "rj":
+                    exibirEmpresas(["Rio Solar", "Hexis", "SolarCorp"]);
+                    break;
+                case "rn":
+                    exibirEmpresas(["RN Sol", "ITSolar", "Megga Solar"]);
+                    break;  
+                case "rs":
+                    exibirEmpresas(["Briolo", "Yozze Energia Solar", "Elisya"]);
+                    break;
+                case "ro":
+                    exibirEmpresas(["RO Solar", "Impacto Energia Solar LTDA"]);
+                    break;
+                case "rr":
+                    exibirEmpresas(["Renovavel Energia Solar", "YVM Engenharia Energia Solar"]);
+                    break;
+                case "sc":
+                    exibirEmpresas(["EFM Blue Energy", "Atacado Solar", "Ilumisam Energia Solar"]);
+                    break;  
+                case "sp":
+                    exibirEmpresas(["Sacada Glas", "Eco + Energy","Portal Solar"]);
+                    break;
+                case "se":
+                    exibirEmpresas(["Sunlight Energia Solar", "Tecnosolar", "Retrofit Energia Solar"]);
+                    break;
+                case "to":
+                    exibirEmpresas(["Henesol Energia Solar", "MASTROSOL Energia Solar"]);
+                    break;
+                default:
+                    // Limpar a lista se o estado não estiver na lista
+                    limparEmpresas();
             }
         }
 
-    </script>
+        function obterEstadoPeloCep(cep) {
+            // Lógica para obter o estado pela faixa de CEP
+            // Este é um exemplo simplificado para fins de ilustração.
 
-    <button onclick="mostrarSelecoes()">Procurar</button>
-         
-    <span id="resultado"></span>
-    
+            // Definindo faixas de CEP para cada estado
+            var faixasPorEstado = {
+                "ac": { inicio: "69900000", fim: "69999999" },
+                "al": { inicio: "57000000", fim: "57999999" },
+                "ap": { inicio: "68900000", fim: "68999999" },
+                "am": { inicio: "69000000", fim: "69299999" },
+                "am": { inicio: "69400000", fim: "69899999" },
+                "ba": { inicio: "40000000", fim: "48999999" },
+                "ce": { inicio: "60000000", fim: "63999999" },
+                "df": { inicio: "70000000", fim: "72799999" },
+                "df": { inicio: "73000000", fim: "73699999" },
+                "es": { inicio: "29000000", fim: "29999999" },
+                "go": { inicio: "72800000", fim: "72999999" },
+                "go": { inicio: "73700000", fim: "76799999" },
+                "ma": { inicio: "65000000", fim: "65999999" },
+                "mt": { inicio: "78000000", fim: "78899999" },
+                "ms": { inicio: "79000000", fim: "79999999" },
+                "mg": { inicio: "30000000", fim: "39999999" },
+                "pa": { inicio: "66000000", fim: "68899999" },
+                "pb": { inicio: "58000000", fim: "58999999" },
+                "pr": { inicio: "80000000", fim: "87999999" },
+                "pe": { inicio: "50000000", fim: "56999999" },
+                "pi": { inicio: "64000000", fim: "64999999" },
+                "rj": { inicio: "20000000", fim: "28999999" },
+                "rn": { inicio: "59000000", fim: "59999999" },
+                "rs": { inicio: "90000000", fim: "99999999" },
+                "ro": { inicio: "76800000", fim: "76999999" },
+                "rr": { inicio: "69300000", fim: "69399999" },
+                "sc": { inicio: "88000000", fim: "89999999" },
+                "sp": { inicio: "01000000", fim: "19999999" },
+                "se": { inicio: "49000000", fim: "49999999" },
+                "to": { inicio: "77000000", fim: "77999999" },
+                // Adicione mais estados e faixas conforme necessário
+            };
+
+            for (var estado in faixasPorEstado) {
+                var faixa = faixasPorEstado[estado];
+                if (cep >= faixa.inicio && cep <= faixa.fim) {
+                    return estado;
+                }
+            }
+
+            // Retorna null se nenhum estado for encontrado para a faixa de CEP
+            return null;
+        }
+
+        function exibirEmpresas(empresas) {
+            // Ocultar todas as empresas
+            for (var i = 1; i <= 3; i++) {
+                document.getElementById("empresa" + i).style.display = "none";
+            }
+
+            // Exibir as empresas fornecidas
+            for (var i = 0; i < empresas.length; i++) {
+                document.getElementById("empresa" + (i + 1)).style.display = "block";
+                document.getElementById("empresa" + (i + 1)).getElementsByTagName("h3")[0].innerText = empresas[i];
+                // Altere o endereço da empresa conforme necessário
+                document.getElementById("empresa" + (i + 1)).getElementsByTagName("p")[0].innerText = "Endereço da " + empresas[i];
+            }
+        }
+
+        function limparEmpresas() {
+            // Ocultar todas as empresas
+            for (var i = 1; i <= 3; i++) {
+                document.getElementById("empresa" + i).style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
