@@ -1,13 +1,7 @@
-from django.contrib.auth import authenticate
-from django.contrib.auth import login
-from django.contrib.auth import login as auth_login
-from django.contrib.auth import logout
-from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from .forms import ContatoForm, Perfil
-from .models import *
+from .forms import ContatoForm
 
 
 # Create your views here.
@@ -19,6 +13,11 @@ def orcamento(request):
 def home(request):
     return render(request, 'global/home.html', context={
         'name': 'ECONNECT'
+    })
+
+def empresaprox(request):
+    return render(request, 'global/empresaprox.html', context={
+        'name': 'Empresa próxima'
     })
 
 
@@ -44,7 +43,7 @@ def infocredito(request):
         'name': 'Créditos de Carbono'
     })
 
-'''def login(request):
+def login(request):
     return render(request, 'global/login.html', context={
         'name': 'Login'
     })
@@ -52,17 +51,7 @@ def infocredito(request):
 def cadastro(request):
     return render(request, 'global/cadastro.html', context={
         'name': 'Cadastro'
-    })'''
-
-def cadastro(request):
-    if request.method == 'POST':
-        form = Perfil(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('global/home.html')
-    else:
-        form = Perfil()
-    return render(request,"global/cadastro.html",{'form':form})
+    })
 
 def informacaosolar(request):
     roi = None

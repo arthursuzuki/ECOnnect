@@ -89,27 +89,6 @@
             z-index: 1;
             right: 60px;
         }
-
-        .faq-form-container form input[type="text"],
-        .faq-form-container form input[type="email"],
-        .faq-form-container form textarea {
-            width: 100%; 
-            padding: 10px; 
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 25px;
-
-        }
-        .faq-form-container form button[type="submit"] {
-            width: 100%; 
-            padding: 15px; 
-            background-color: #66da7f; 
-            color: #000000; 
-            border: none; 
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 20px;
-        }
     </style>
 </head>
 
@@ -154,10 +133,41 @@
 </body>
 
     <div style="padding: 3rem 10rem 5rem 10rem; display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%;">
-        <form method="post">
+        <form method="post" action="/cadastro">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Enviar Mensagem</button>
+
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Endereço de e-mail</label>
+            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Nome completo</label>
+            <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">CPF</label>
+            <input name="cpf" type="text" class="form-control" id="cpfInput" aria-describedby="emailHelp" />
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Telefone</label>
+            <input name="telefone" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" />
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirmar senha</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1" />
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" checked />
+                <label class="form-check-label" for="exampleCheck1">Concordo com os <a target="_blank" href="https://econnectfds.azurewebsites.net/cadastro">termos de política e privacidade</a>.</label>
+            </div>
+            <div class="text-end">
+            <button type="submit" class="btn btn-subtle me-2">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Cadastrar-se</button>
+            </div>
         </form>
     </div>
     
