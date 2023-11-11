@@ -8,7 +8,7 @@ class ContatoForm(forms.ModelForm):
         model = Contato
         fields = ['nome', 'celular', 'email', 'mensagem']
 
-class Perfil(forms.ModelForm):
+class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
         fields = ['nome', 'celular', 'email', 'cpf', 'senha']

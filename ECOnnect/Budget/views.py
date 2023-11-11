@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from .forms import ContatoForm
+from .forms import ContatoForm, PerfilForm
 
 
 # Create your views here.
@@ -49,9 +49,14 @@ def login(request):
     })
 
 def cadastro(request):
-    return render(request, 'global/cadastro.html', context={
-        'name': 'Cadastro'
-    })
+    if request.method == 'POST':
+        form = PerfilForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = PerfilForm(request.POST)
+    return render(request, 'global/cadastro.html',{'form':form ,'name':'Cadastro'})
 
 def informacaosolar(request):
     roi = None

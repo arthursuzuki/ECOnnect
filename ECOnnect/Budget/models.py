@@ -14,3 +14,10 @@ class Perfil(models.Model):
     cpf = models.CharField(max_length=14)
     celular = models.CharField(max_length=50)
     senha = models.CharField(max_length=50)
+
+class CreditoCarb(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    valor = models.FloatField()
+
+    def str(self):
+        return f"Creditos de Carbono para {self.user.username}: {self.valor}"
