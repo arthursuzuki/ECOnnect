@@ -16,8 +16,8 @@ class Perfil(models.Model):
     senha = models.CharField(max_length=50)
 
 class CreditoCarb(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(Perfil, on_delete=models.CASCADE)
     valor = models.FloatField()
 
-    def str(self):
-        return f"Creditos de Carbono para {self.user.username}: {self.valor}"
+    def __str__(self):
+        return f"Creditos de Carbono para {self.user.nome}: {self.valor}"

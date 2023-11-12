@@ -1,7 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+from django.http import JsonResponse
+from django.contrib.auth import authenticate
+from django.contrib.auth import login
+from django.contrib.auth import login as auth_login
 
-from .forms import ContatoForm, PerfilForm
+from .forms import ContatoForm, PerfilForm, CreditoCarb
 
 
 # Create your views here.
@@ -38,10 +42,25 @@ def calculadora(request):
         'name': 'Cálculo Orçamento'
     })
 
-def infocredito(request):
+'''def infocredito(request):
     return render(request, 'global/infocredito.html', context={
         'name': 'Créditos de Carbono'
-    })
+    })'''
+
+def infocredito(request):
+    # Supondo que o usuário esteja autenticado
+    if request.user.is_authenticated:
+        # Recupere os créditos de carbono associados ao usuário
+        creditos_carbono = CreditoCarb.objects.filter(user=request.user)
+        return render(request, 'global/infocredito.html', context={
+            'name': 'Créditos de Carbono',
+            'creditos_carbono': creditos_carbono
+        })
+    else:
+        return render(request, 'global/infocredito.html', context={
+            'name': 'Créditos de Carbono',
+            'creditos_carbono': None  # Ou qualquer valor padrão que você deseje
+        }) 
 
 def login(request):
     return render(request, 'global/login.html', context={
@@ -108,3 +127,38 @@ def informacoes(request):
 
 def empresas(request):
     return HttpResponse('Empresas Próximas A Mim')
+
+
+
+# Teste infocredito
+
+def calcular_creditos(request):
+    if request.method == 'POST' and request.user.is_authenticated:
+        eletricidade = float(request.POST.get('eletricidade', 0))
+        credito_calculado = eletricidade * 0.7
+        # Atualize o banco de dados com os créditos calculados
+        usuario = request.user
+        credito_carbono, created = CreditoCarb.objects.get_or_create(user=usuario)
+        credito_carbono.valor += credito_calculado
+        credito_carbono.save()
+        return JsonResponse({'success': True, 'credito_calculado': credito_calculado})
+    return JsonResponse({'success': False, 'message': 'Requisição inválida'})
+
+
+def loginPage(request):
+    if request.method == "POST":
+        try:
+            print(request.POST.get("email"))
+            username = UserController.existe(email=request.POST.get("email")).username
+            user = authenticate(request, username=username, password=request.POST.get("password"))
+
+            if (user):
+                login(request, user)
+
+            return redirect("/")
+        except Exception as e:
+            print(e)
+            return redirect("/login?error=1")
+    else:
+        context = {"error": request.GET.get("error", 0)}
+        return render(request, 'auth/login.html', context)

@@ -2,6 +2,7 @@ from Budget.views import (area, calculadora, empresaprox, informacaosolar,
                           orcamento, potencial, sobreNos, suporte)
 from django.urls import path
 
+from .views import calcular_creditos
 from . import views
 
 urlpatterns = [
@@ -19,4 +20,5 @@ urlpatterns = [
     path('empresaprox', views.empresaprox, name='empresaprox'),  # Empresas Próximas A Mim
     path('potencial', views.potencial, name='potencial'),  # Potencial de Geração de Energia
     path('informacaosolar', views.informacaosolar, name='informacaosolar'),  # Informação Solar
+    path('calcular_creditos/', calcular_creditos, name='calcular_creditos'),
 ]
