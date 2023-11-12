@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <!--<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Perguntas Frequentes</title>
+    <link href='https://fonts.googleapis.com/css?family=Sen' rel='stylesheet'>
+    <style>
+        body {
+            font-family: Sen, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #links a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        #links {
+            font-size: 20px;
+            display: flex;
+            gap: 30px;
+            align-items: left;
+            justify-content: flex-start;
+            margin-left: 15px;
+        }
+
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #F2F2F2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            z-index: 1000;
+        }
+
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            width: 50px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 100px;
+            background-color: #ece8e8;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-container {
+            flex: 2; 
+            padding: 10px;
+        }
+
+        .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Ocupar a altura total da viewport */
+        }
+
+
+        .faq-item {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 50px;
+            padding: 50px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center; 
+            justify-content: space-between; 
+        }
+
+        .faq-item:hover {
+            background-color: #e1e1e1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            display: none;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        .faq-item.open {
+            background-color: #e1e1e1;
+        }
+
+        .faq-icon {
+            font-size: 24px;
+        }
+
+        .faq-form-container {
+            background-color: #f0f0f0;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form div:not(:last-child) {
+            margin-bottom: 20px;
+        }
+        .required-label::after {
+            content: ' *';
+            color: red;
+        }
+        .support-contacts {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .support-contacts h2 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .support-contacts p {
+            margin-bottom: 10px;
+        }
+
+        .support-contacts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .support-contacts li {
+            margin-bottom: 10px;
+        }
+
+        .support-contacts li::before {
+            content: "•"; 
+            margin-right: 5px;
+        }
+        .faq-form-container form input[type="text"],
+        .faq-form-container form input[type="email"],
+        .faq-form-container form textarea {
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 25px;
+
+        }
+        .faq-form-container form button[type="submit"] {
+            width: 100%; 
+            padding: 15px; 
+            background-color: #66da7f; 
+            color: #000000; 
+            border: none; 
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        footer {
+            background-color: #a0adb6;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .sucesso-popup {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #00cc00;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        }
+
+        #popup {
+            position: absolute;
+            display: none;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            right: 60px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="logo-container">
+            <div id="simbolo">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></a></div>
+            <div id="logo-principal">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></a></div>
+            <div id="links">
+                <a href={%url 'area'%}>Área Disponível</a>
+                <a href={%url 'calculadora'%}>Calculadora Solar</a>
+                <a href={%url 'potencial'%}>Potencial de Energia</a>
+                <a href={%url 'orcamento'%}>Orçamento</a></div>
+        </div>
+        <div id="usuario" onclick="togglePopup()">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
+        </div>
+        <div id="popup">
+            <button onclick="redirectTo('http://127.0.0.1:8000/login')">Login</button>
+            <button onclick="redirectTo('http://127.0.0.1:8000/cadastro')">Cadastro</button>
+        </div>
+        <script>
+            function togglePopup() {
+                var popup = document.getElementById('popup');
+                if (popup.style.display === 'block') {
+                    popup.style.display = 'none';
+                } else {
+                    popup.style.display = 'block';
+                }
+            }
+            function redirectTo(url) {
+                window.location.href = url;
+            }
+        </script>
+    </div>
+        <div class="form-container">
+            <div class="faq-form-container">
+                <h2>Conte sua experiência conosco!</h2>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 ECOnnect
+    </footer>
+    <script>
+        const faqItems = document.querySelectorAll(".faq-item");
+        faqItems.forEach(item => {
+            item.addEventListener("click", () => {
+                item.classList.toggle("open");
+            });
+        });
+    </script>
+</body>
+</html>
