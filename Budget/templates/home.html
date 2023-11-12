@@ -106,6 +106,21 @@
             height: 380px;
             background-color: #F2F2F2;
         }
+        #quadrado {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .feedback-box {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            width: fit-content;
+        }
 
         #popup {
             position: absolute;
@@ -120,6 +135,17 @@
         #user {
             position: relative;
             display: inline-block;
+        }
+        #button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1px;
+        margin-bottom: 40px;
+        }
+
+        #button {
+            width: 120px;
         }
 
     </style>
@@ -202,6 +228,22 @@
     </div>
 
     <div style="width:100%; height: 0px; margin-top: 80px; margin-bottom: 80px;"></div>
+        <div id="quadrado">
+        {% for feedback in feedbacks %}
+            <div class="feedback-box">
+                <h2>{{ feedback.nota }} estrelas</h2>
+                <p>{{ feedback.texto }}</p>
+                <h3>{{ feedback.nome }} {{ feedback.sobrenome }}</h3>
+                <h4>{{ feedback.cidade }}, {{ feedback.estado }}</h4>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="button-container">
+        <button id="button">
+            <a href={% url 'feedback'%} style="color: black;">Mande seu Feedback!</a>
+        </button>
+    </div>
+     
 
 </body>
 </html>
