@@ -23,7 +23,7 @@ def feedback(request):
             return redirect('/')
     else:
         form = FeedbackForm()
-    return render(request,"feedback.html",{'form':form})
+    return render(request,"feedback.html",{'form':form, 'name': 'feedback'})
 def empresaprox(request):
     return render(request, 'empresaprox.html', context={
         'name': 'Empresa próxima'
