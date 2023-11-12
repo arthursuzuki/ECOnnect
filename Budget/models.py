@@ -7,6 +7,8 @@ class Contato(models.Model):
     email = models.EmailField()
     mensagem = models.TextField(max_length=500)
 class Feedback(models.Model):
+    class Meta:
+        db_table = 'budget_feedback'
     nome = models.CharField(max_length=20)
     sobrenome = models.CharField(max_length=40)
     cidade = models.CharField(max_length=30)
