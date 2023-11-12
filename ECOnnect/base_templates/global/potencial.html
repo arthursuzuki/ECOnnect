@@ -2,20 +2,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Potencial de Geração de Energia</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
+    <link href='https://fonts.googleapis.com/css?family=Sen' rel='stylesheet'>
+<style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: Sen, sans-serif;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            margin: 0;
             align-items: center;
             text-align: center;
             padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 80px;
         }
 
         #horaspordia {
@@ -40,7 +43,6 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 30px;
             background-color: #F2F2F2;
             display: flex;
             justify-content: space-between;
@@ -64,8 +66,9 @@
         }
 
         #links {
+            font-size: 20px;
             display: flex;
-            gap: 20px;
+            gap: 30px;
             align-items: left;
             justify-content: flex-start;
             margin-left: 15px;
@@ -82,6 +85,17 @@
             padding: 10px;
             width: 100%;
         }
+
+        #popup {
+            position: absolute;
+            display: none;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            right: 60px;
+        }
+
     </style>
     <script>
     function mostrarSelecoes() {
@@ -125,7 +139,7 @@
             if (valorCapital !== undefined) {
                 var eficiencia = 0.26;
                 var result = tamanho * horasSol * eficiencia * valorCapital;
-                resultadoDiv.innerHTML = "Resultado do cálculo: " + result.toFixed(2);
+                resultadoDiv.innerHTML = "Resultado do cálculo: " + result.toFixed(2) + "W/h";
             } else {
                 resultadoDiv.innerHTML = "Valor não encontrado para a capital selecionada.";
             }
@@ -146,23 +160,43 @@
     <div id="header">
         <div id="logo-container">
             <div id="simbolo">
-                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></div>
+                <a href="/">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></a></div>
             <div id="logo-principal">
-                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></div>
+                <a href="/">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></a></div>
             <div id="links">
-                <a href="http://127.0.0.1:8000/">Área Disponível</a>
-                <a href="http://127.0.0.1:8000/calculadora/">Calculadora Solar</a>
-                <a href="http://127.0.0.1:8000/potencial/">Potencial de Energia</a>
-                <a href="http://127.0.0.1:8000/orcamento/">Orçamento</a></div>
+                <a href={%url 'area'%}>Área Disponível</a>
+                <a href={%url 'calculadora'%}>Calculadora Solar</a>
+                <a href={%url 'potencial'%}>Potencial de Energia</a>
+                <a href={%url 'orcamento'%}>Orçamento</a></div>
         </div>
-        <div id="usuario">
-            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;"></div>
+        <div id="usuario" onclick="togglePopup()">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
+        </div>
+        <div id="popup">
+            <button onclick="redirectTo('/login')">Login</button>
+            <button onclick="redirectTo('/cadastro')">Cadastro</button>
+        </div>
+        <script>
+            function togglePopup() {
+                var popup = document.getElementById('popup');
+                if (popup.style.display === 'block') {
+                    popup.style.display = 'none';
+                } else {
+                    popup.style.display = 'block';
+                }
+            }
+            function redirectTo(url) {
+                window.location.href = url;
+            }
+        </script>
     </div>
 
     <form id="body" onsubmit="enviarDados(event)">
         <label>
             <br>
-            <h2>Insira a quantidade de horas de sol disponível:</h2>
+            <h1>Insira a quantidade de horas de sol disponível:</h1>
             <p></p>
             <input
                 type="text"
@@ -238,5 +272,6 @@
         <button onclick="mostrarSelecoes()">Calcular</button>
          
     <div id="resultado"></div>
+
 </body>
 </html>
