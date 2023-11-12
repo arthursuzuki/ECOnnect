@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Contato
+from .models import Contato, Feedback
 
 
 class ContatoForm(forms.ModelForm):
