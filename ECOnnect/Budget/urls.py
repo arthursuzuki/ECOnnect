@@ -19,4 +19,5 @@ urlpatterns = [
     path('empresaprox', views.empresaprox, name='empresaprox'),  # Empresas Próximas A Mim
     path('potencial', views.potencial, name='potencial'),  # Potencial de Geração de Energia
     path('informacaosolar', views.informacaosolar, name='informacaosolar'),  # Informação Solar
+    path('feedback/', views.feedback,name='feedback') #Feedbacks
 ]
