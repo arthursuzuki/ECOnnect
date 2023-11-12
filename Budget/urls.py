@@ -1,7 +1,7 @@
 from django.urls import path
 
 from Budget.views import (area, calculadora, empresas, informacaosolar,
-                          orcamento, potencial, sobreNos, suporte)
+                          orcamento, potencial, sobreNos, suporte,feedback)
 
 from . import views
 
