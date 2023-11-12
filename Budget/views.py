@@ -13,7 +13,7 @@ def orcamento(request):
 def home(request):
     # Recupera 4 feedbacks aleatórios do banco de dados com 4 estrelas ou mais
     random_feedbacks = Feedback.objects.filter(nota__gte=4).order_by('?')[:4]
-    return render(request, 'global/home.html', {'feedbacks': random_feedbacks, 'name': 'ECONNECT'})
+    return render(request, 'home.html', {'feedbacks': random_feedbacks, 'name': 'ECONNECT'})
     
 def feedback(request):
     if request.method == 'POST':
@@ -23,7 +23,7 @@ def feedback(request):
             return redirect('/')
     else:
         form = FeedbackForm()
-    return render(request,"global/feedback.html",{'form':form})
+    return render(request,"feedback.html",{'form':form})
 def empresaprox(request):
     return render(request, 'empresaprox.html', context={
         'name': 'Empresa próxima'
