@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-
-from .forms import ContatoForm
+from .models import Feedback
+from .forms import ContatoForm,FeedbackForm
 
 
 # Create your views here.
@@ -11,9 +11,9 @@ def orcamento(request):
     })
 
 def home(request):
-    return render(request, 'global/home.html', context={
-        'name': 'ECONNECT'
-    })
+    # Recupera 4 feedbacks aleatórios do banco de dados com 4 estrelas ou mais
+    random_feedbacks = Feedback.objects.filter(nota__gte=4).order_by('?')[:4]
+    return render(request, 'global/home.html', {'feedbacks': random_feedbacks, 'name': 'ECONNECT'})
 
 def empresaprox(request):
     return render(request, 'global/empresaprox.html', context={
@@ -37,6 +37,15 @@ def calculadora(request):
     return render(request, 'global/calculadora.html', context={
         'name': 'Cálculo Orçamento'
     })
+def feedback(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = FeedbackForm()
+    return render(request,"global/feedback.html",{'form':form})
 
 def infocredito(request):
     return render(request, 'global/infocredito.html', context={
