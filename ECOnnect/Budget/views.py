@@ -1,12 +1,33 @@
-from django.http import HttpResponse
-from django.shortcuts import redirect, render
-from django.http import JsonResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import redirect, render
 
-from .forms import ContatoForm, PerfilForm, CreditoCarb
+from .forms import ContatoForm, CreditoCarbForm, PerfilForm
+from .models import CreditoCarb
 
+
+def minha_view_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('pagina_inicial')  # Redireciona para a página inicial após o login
+        else:
+            # Trate a lógica para credenciais inválidas
+            pass
+
+    return render(request, 'login.html')
+
+def minha_view_logout(request):
+    logout(request)
+    return redirect('pagina_logout')  # Redireciona para a página de logout ou outra página desejada
 
 # Create your views here.
 def orcamento(request):
@@ -51,7 +72,10 @@ def infocredito(request):
     # Supondo que o usuário esteja autenticado
     if request.user.is_authenticated:
         # Recupere os créditos de carbono associados ao usuário
-        creditos_carbono = CreditoCarb.objects.filter(user=request.user)
+        creditos_carbono = CreditoCarbForm.objects.filter(user=request.user)
+        form = CreditoCarbForm(request.POST)
+        if form.is_valid():
+            form.save()
         return render(request, 'global/infocredito.html', context={
             'name': 'Créditos de Carbono',
             'creditos_carbono': creditos_carbono
@@ -59,7 +83,7 @@ def infocredito(request):
     else:
         return render(request, 'global/infocredito.html', context={
             'name': 'Créditos de Carbono',
-            'creditos_carbono': None  # Ou qualquer valor padrão que você deseje
+            'creditos_carbono': None  
         }) 
 
 def login(request):
@@ -138,7 +162,7 @@ def calcular_creditos(request):
         credito_calculado = eletricidade * 0.7
         # Atualize o banco de dados com os créditos calculados
         usuario = request.user
-        credito_carbono, created = CreditoCarb.objects.get_or_create(user=usuario)
+        credito_carbono, created = CreditoCarb.objects.create(user=usuario)
         credito_carbono.valor += credito_calculado
         credito_carbono.save()
         return JsonResponse({'success': True, 'credito_calculado': credito_calculado})

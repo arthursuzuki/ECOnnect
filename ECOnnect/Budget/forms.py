@@ -12,3 +12,8 @@ class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
         fields = ['nome', 'celular', 'email', 'cpf', 'senha']
+
+class CreditoCarbForm(forms.ModelForm):
+    class Meta:
+        model = CreditoCarb
+        fields = ['resultado']
