@@ -7,6 +7,13 @@ class Contato(models.Model):
     email = models.EmailField()
     mensagem = models.TextField(max_length=500)
 
+class InfoCreds(models.Model):
+    creditos = models.FloatField()
+
+class Empresas(models.Model):
+    nome = models.TextField(max_length = 80)
+    rua = models.TextField(max_length = 300)
+
 class Feedback(models.Model):
     nome = models.CharField(max_length=20)
     sobrenome = models.CharField(max_length=40)

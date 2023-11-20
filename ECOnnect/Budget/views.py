@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
+
+from .forms import ContatoForm, FeedbackForm, InfoCredsForm
 from .models import Feedback
-from .forms import ContatoForm,FeedbackForm
 
 
 # Create your views here.
@@ -47,10 +48,20 @@ def feedback(request):
         form = FeedbackForm()
     return render(request,"global/feedback.html",{'form':form})
 
-def infocredito(request):
+'''def infocredito(request):
     return render(request, 'global/infocredito.html', context={
         'name': 'Créditos de Carbono'
-    })
+    })'''
+
+def infocredito(request):
+    if request.method == 'POST':
+        form = InfoCredsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = InfoCredsForm()
+    return render(request,"global/infocredito.html",{'form':form})
 
 def login(request):
     return render(request, 'global/login.html', context={
