@@ -1,5 +1,6 @@
-from Budget.views import (area, calculadora, empresaprox, informacaosolar,
-                          orcamento, potencial, sobreNos, suporte)
+from Budget.views import (area, calculadora, empresaprox, feedback,
+                          informacaosolar, orcamento, potencial, sobreNos,
+                          suporte)
 from django.urls import path
 
 from . import views
