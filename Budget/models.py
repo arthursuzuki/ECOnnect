@@ -52,5 +52,5 @@ class Feedback(models.Model):
     texto = models.CharField(max_length=700)
 
 class Empresas(models.Model):
-    nome = models.TextField(max_length = 80)
-    rua = models.TextField(max_length = 300)
+    nome = models.CharField(max_length = 80)
+    rua = models.CharField(max_length = 400)
