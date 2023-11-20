@@ -27,20 +27,10 @@ def feedback(request):
         form = FeedbackForm()
     return render(request,"feedback.html",{'form':form, 'name': 'feedback'})
 
-'''def empresaprox(request):
+def empresaprox(request):
     return render(request, 'empresaprox.html', context={
         'name': 'Empresa próxima'
-    })'''
-
-def empresaprox(request):
-    if request.method == 'POST':
-        form = EmpresasProxForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-        else:
-            form = EmpresasProxForm()
-        return render(request,"empresaprox.html",{'form':form, 'name': 'empresaprox'})
+    })
 
 
 def area(request):
