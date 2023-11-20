@@ -1,7 +1,8 @@
 from django.urls import path
 
-from Budget.views import (area, calculadora, empresas, informacaosolar,
-                          orcamento, potencial, sobreNos, suporte,feedback)
+from Budget.views import (area, calculadora, empresas, feedback,
+                          informacaosolar, orcamento, potencial, sobreNos,
+                          suporte)
 
 from . import views
 
@@ -21,5 +22,6 @@ urlpatterns = [
     path('empresas', views.empresas, name='empresas'),  # Empresas Próximas A Mim
     path('potencial', views.potencial, name='potencial'),  # Potencial de Geração de Energia
     path('informacaosolar', views.informacaosolar, name='informacaosolar'),  # Informação Solar
-    path('feedback', views.feedback,name='feedback') # feedbacks
+    path('feedback', views.feedback,name='feedback'), # feedbacks
+    path('add_empresas/', views.add_empresas, name='add_empresas')  # Adicionar Empresas ###Novo
 ]

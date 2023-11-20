@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import TextInput
 
 from .models import Contato, Empresas, Feedback
 
@@ -14,7 +15,15 @@ class FeedbackForm(forms.ModelForm):
         fields = ['nome', 'sobrenome','cidade','estado', 'nota', 'texto']
 
 
-class EmpresasProxForm(forms.ModelForm):
+class EmpresasProxForm(forms.ModelForm): ##Novooo
     class Meta:
         model = Empresas
         fields = ['nome', 'rua']
+        widgets = {
+            'nome': forms.TextInput(attrs={'placeholder': 'Digite seu nome'}),
+            'rua': forms.TextInput(attrs={'placeholder': 'Digite o nome da rua'}),
+        }
+
+
+
+

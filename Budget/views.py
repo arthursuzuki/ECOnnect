@@ -1,8 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
+from django.urls import reverse
 
 from .forms import ContatoForm, EmpresasProxForm, FeedbackForm
-from .models import Feedback
+from .models import Empresas, Feedback
 
 
 # Create your views here.
@@ -124,3 +125,20 @@ def informacoes(request):
 
 def empresas(request):
     return HttpResponse('Empresas Próximas A Mim')
+
+####### Tentando adicionar
+def add_empresas(request):
+    form = EmpresasProxForm(request.POST or None)
+
+    if form.is_valid():
+        # Processa os dados do formulário
+        nome = form.cleaned_data['nome']
+        rua = form.cleaned_data['rua']
+
+        # Salva o novo objeto Empresas no banco de dados
+        empresa = Empresas.objects.create(nome=nome, rua=rua)
+
+        # Redireciona o usuário para a página de sucesso
+        return HttpResponseRedirect(reverse('empresas-lista'))
+
+    return render(request, 'add_empresas.html', {'form': form})
