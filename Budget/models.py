@@ -50,3 +50,7 @@ class Feedback(models.Model):
 
     nota = models.IntegerField(choices=Nota.choices)
     texto = models.CharField(max_length=700)
+
+class Empresas(models.Model):
+    nome = models.TextField(max_length = 80)
+    rua = models.TextField(max_length = 300)
