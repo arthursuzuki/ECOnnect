@@ -19,11 +19,6 @@ class EmpresasProxForm(forms.ModelForm): ##Novooo
     class Meta:
         model = Empresas
         fields = ['nome', 'rua']
-        widgets = {
-            'nome': forms.TextInput(attrs={'placeholder': 'Digite seu nome'}),
-            'rua': forms.TextInput(attrs={'placeholder': 'Digite o nome da rua'}),
-        }
-
 
 
 
