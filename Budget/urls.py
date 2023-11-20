@@ -23,5 +23,5 @@ urlpatterns = [
     path('potencial', views.potencial, name='potencial'),  # Potencial de Geração de Energia
     path('informacaosolar', views.informacaosolar, name='informacaosolar'),  # Informação Solar
     path('feedback', views.feedback,name='feedback'), # feedbacks
-    path('add_empresas/', views.add_empresas, name='add_empresas')  # Adicionar Empresas ###Novo
+    path('add_empresas', views.add_empresas, name='add_empresas')  # Adicionar Empresas ###Novo
 ]
