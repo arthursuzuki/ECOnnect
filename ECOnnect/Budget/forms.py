@@ -14,7 +14,7 @@ class FeedbackForm(forms.ModelForm):
         fields = ['nome', 'sobrenome','cidade','estado', 'nota', 'texto']
 
 
-class InfoCredsForm(forms.ModelForm):
+'''class InfoCredsForm(forms.ModelForm):
     class Meta:
         model = InfoCreds
-        fields = ['creditos']
+        fields = ['creditos']'''

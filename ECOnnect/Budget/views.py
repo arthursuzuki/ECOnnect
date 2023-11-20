@@ -48,12 +48,12 @@ def feedback(request):
         form = FeedbackForm()
     return render(request,"global/feedback.html",{'form':form})
 
-'''def infocredito(request):
+def infocredito(request):
     return render(request, 'global/infocredito.html', context={
         'name': 'Créditos de Carbono'
-    })'''
+    })
 
-def infocredito(request):
+'''def infocredito(request):
     if request.method == 'POST':
         form = InfoCredsForm(request.POST)
         if form.is_valid():
@@ -61,7 +61,7 @@ def infocredito(request):
             return redirect('/')
     else:
         form = InfoCredsForm()
-    return render(request,"global/infocredito.html",{'form':form})
+    return render(request,"global/infocredito.html",{'form':form})'''
 
 def login(request):
     return render(request, 'global/login.html', context={
