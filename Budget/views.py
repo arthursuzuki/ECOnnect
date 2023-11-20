@@ -127,7 +127,7 @@ def empresas(request):
     return HttpResponse('Empresas Próximas A Mim')
 
 ####### Tentando adicionar
-def add_empresas(request):
+'''def add_empresas(request):
     if request.method == 'POST':
         form = EmpresasProxForm(request.POST)
         if form.is_valid():
@@ -135,4 +135,17 @@ def add_empresas(request):
             return redirect('/')
     else:
         form = ContatoForm()
-    return render(request, 'add_empresas.html', {'form': form})
+    return render(request, 'add_empresas.html', {'form': form})'''
+def add_empresas(request):
+    if request.method == "POST":
+        nome = request.POST["nome"]
+        rua = request.POST["rua"]
+
+        # Salvar os dados no banco de dados
+
+        return render(request, "add_empresas.html", {
+            "nome": nome,
+            "rua": rua
+        })
+    else:
+        return render(request, "add_empresas.html")
