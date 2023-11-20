@@ -101,6 +101,48 @@ def faq(request):
     return render(request,"faq.html",{'form':form})
 
 
+def simulador(request):
+    return render(request, 'simulador.html', context={
+        'name': 'Simulador Solar'
+    })
+
+
+def resultados(request):
+    roi = None
+    tipoLocal = None
+    potenciaSelecionada = None
+    custoInstalacao = None
+    economiaAnual = None
+    if request.method == 'POST':
+        tipoLocal = request.POST.get('tipoLocal')
+        potenciaSelecionada = float(request.POST.get('potenciaSelecionada').replace(' kWp', '').replace(',', '').strip())
+        gastoMensal = float(request.POST.get('gastoMensal').replace('R$', '').replace(',', '').strip())
+        custos_por_potencia = {
+            2: 8960.00,
+            4: 14720.00,
+            8: 26080.00,
+            12: 36240.00,
+            30: 84300.00,
+            50: 142000.00,
+            75: 227250.00,
+            150: 441000.00,
+            300: 882000.00,
+            500: 1525000.00,
+            1000: 2920000.00,
+            3000: 8730000.00,
+            5000: 14200000.00,
+        }
+        if potenciaSelecionada not in custos_por_potencia:
+            return HttpResponse("Potência selecionada inválida.")
+        custoInstalacao = custos_por_potencia[potenciaSelecionada]
+        economiaAnual = gastoMensal * 12
+        if custoInstalacao > 0:
+            roi = (economiaAnual / custoInstalacao) * 100
+        else:
+            roi = 0
+    return render(request, 'resultados.html', {'name': 'Resultados do Simulador', 'roi': roi, 'tipoLocal': tipoLocal, 'potenciaSelecionada': potenciaSelecionada, 'custoInstalacao': custoInstalacao})
+
+
 def suporte(request):
     return HttpResponse('Suporte')
 
