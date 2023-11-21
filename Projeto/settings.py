@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +25,6 @@ load_dotenv(BASE_DIR / '.env')
 
 TARGET_ENV = os.getenv('TARGET_ENV')
 NOT_PROD = not TARGET_ENV.lower().startswith('prod')
-
 
 if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!
@@ -66,7 +66,7 @@ SECRET_KEY = 'django-insecure-1jb1wip@qo&36c4d_^=lhno4d#7ijj61n*4-s!x*lf^wvz1vfk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['econnectfds.azurewebsites.net']
+ALLOWED_HOSTS = ['econnectfds.azurewebsites.net','127.0.0.1']
 
 
 # Application definition

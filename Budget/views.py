@@ -131,7 +131,7 @@ def add_empresas(request):
         rua = request.POST["rua"]
 
         # Salvar os dados no banco de dados
-
+        Empresas.objects.create(nome=nome,rua=rua)
         return render(request, "add_empresas.html", {
             "nome": nome,
             "rua": rua
