@@ -54,3 +54,5 @@ class Feedback(models.Model):
 class Empresas(models.Model):
     nome = models.CharField(max_length = 80)
     rua = models.CharField(max_length = 300)
+    class Meta:
+        db_table = 'Budget_empresa'
