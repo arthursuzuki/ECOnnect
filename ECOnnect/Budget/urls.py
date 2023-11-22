@@ -23,4 +23,5 @@ urlpatterns = [
     path('feedback/', views.feedback,name='feedback'), #Feedbacks
     path('simulador', views.simulador, name='simulador'),  # Simulador
     path('resultados', views.resultados, name='resultados'),   # Resultados
+    path('add_empresas', views.add_empresas, name='add_empresas')  # Adicionar Empresas ###Novo
 ]

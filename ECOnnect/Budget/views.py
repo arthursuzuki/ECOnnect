@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from .forms import ContatoForm, FeedbackForm, InfoCredsForm
+from .forms import ContatoForm, EmpresasProxForm, FeedbackForm
 from .models import Feedback
 
 
@@ -107,6 +107,16 @@ def faq(request):
     else:
         form = ContatoForm()
     return render(request,"global/faq.html",{'form':form})
+
+def add_empresas(request):
+    if request.method == "POST":
+        form =  EmpresasProxForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = EmpresasProxForm()
+        return render(request, 'global/add_empresas.html', {'form': form})
 
 
 def suporte(request):

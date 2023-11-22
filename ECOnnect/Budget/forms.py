@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Contato, Feedback, InfoCreds
+from .models import Contato, Empresas, Feedback
 
 
 class ContatoForm(forms.ModelForm):
@@ -18,3 +18,8 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model = InfoCreds
         fields = ['creditos']'''
+
+class EmpresasProxForm(forms.ModelForm): ##Novooo
+    class Meta:
+        model = Empresas
+        fields = ['nome', 'rua']
