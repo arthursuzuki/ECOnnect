@@ -22,7 +22,7 @@ def home(request):
     })'''
 
 def empresaprox(request):
-  empresas = Empresas.objects.order_by('?')[:1]
+  empresas = Empresas.objects.all()
   return render(request, 'global/empresaprox.html', {'empresas': empresas, 'name':'empresaprox'})
 
 def area(request):
