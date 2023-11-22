@@ -166,6 +166,16 @@
     </div>
     <div id="content">
         <br></br>
+        <div>
+            <h2>Empresas adicionadas recentemente</h2>
+            {% for empresaa in empresas %}
+            <div>
+                <h3>{{ empresaa.nome }}</h3>
+            </div>
+            {% endfor %}
+        </div>
+        <button onclick="redirectTo('/add_empresas')">Adicione a sua empresa aqui!</button>
+        <br></br>
         <h2>Localizador de Empresas por CEP</h2>
         <input type="text" id="cepInput" placeholder="Digite o CEP (sem hífen)">
         <button onclick="buscarEmpresa()">Buscar</button>

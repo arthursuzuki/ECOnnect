@@ -28,9 +28,8 @@ def feedback(request):
     return render(request,"feedback.html",{'form':form, 'name': 'feedback'})
 
 def empresaprox(request):
-    return render(request, 'empresaprox.html', context={
-        'name': 'Empresa próxima'
-    })
+  empresas = Empresas.objects.all()
+  return render(request, 'empresaprox.html', {'empresas': empresas, 'name':'empresaprox'})
 
 
 def area(request):
@@ -105,7 +104,7 @@ def add_empresas(request):
         form =  EmpresasProxForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/empresaprox')
     else:
         form = EmpresasProxForm()
         return render(request, 'add_empresas.html', {'form': form})
