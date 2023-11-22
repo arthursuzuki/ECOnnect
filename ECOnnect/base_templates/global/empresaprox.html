@@ -163,8 +163,16 @@
                 window.location.href = url;
             }
         </script>
-    </div>
+    </div>   
     <div id="content">
+        <br></br>
+        <div>
+            {% for empresa in empresas %}
+            <div class="empresa">
+                <h3>{{ empresa.nome }}</h3>
+            </div>
+            {% endfor %}
+        </div>
         <br></br>
         <button onclick="redirectTo('http://127.0.0.1:8000/add_empresas')">Adicione a sua empresa aqui!</button>
         <br></br>
@@ -355,6 +363,7 @@
                 document.getElementById("empresa" + i).style.display = "none";
             }
         }
-    </script>
+    </script>      
+    
 </body>
 </html>

@@ -13,14 +13,4 @@ class Migration(migrations.Migration):
         migrations.DeleteModel(
             name='InfoCreds',
         ),
-        migrations.AlterField(
-            model_name='empresas',
-            name='nome',
-            field=models.CharField(max_length=80),
-        ),
-        migrations.AlterField(
-            model_name='empresas',
-            name='rua',
-            field=models.CharField(max_length=300),
-        ),
     ]

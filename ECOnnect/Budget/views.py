@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
 from .forms import ContatoForm, EmpresasProxForm, FeedbackForm
-from .models import Feedback
+from .models import Empresas, Feedback
 
 
 # Create your views here.
@@ -16,11 +16,14 @@ def home(request):
     random_feedbacks = Feedback.objects.filter(nota__gte=4).order_by('?')[:4]
     return render(request, 'global/home.html', {'feedbacks': random_feedbacks, 'name': 'ECONNECT'})
 
-def empresaprox(request):
+'''def empresaprox(request):
     return render(request, 'global/empresaprox.html', context={
         'name': 'Empresa próxima'
-    })
+    })'''
 
+def empresaprox(request):
+  empresas = Empresas.objects.order_by('?')[:1]
+  return render(request, 'global/empresaprox.html', {'empresas': empresas, 'name':'empresaprox'})
 
 def area(request):
     return render(request, 'global/area.html', context={
@@ -113,7 +116,7 @@ def add_empresas(request):
         form =  EmpresasProxForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('http://127.0.0.1:8000/empresaprox')
     else:
         form = EmpresasProxForm()
         return render(request, 'global/add_empresas.html', {'form': form})
