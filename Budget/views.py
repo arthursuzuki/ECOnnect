@@ -100,6 +100,16 @@ def faq(request):
         form = ContatoForm()
     return render(request,"faq.html",{'form':form})
 
+def add_empresas(request):
+    if request.method == "POST":
+        form =  EmpresasProxForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = EmpresasProxForm()
+        return render(request, 'add_empresas.html', {'form': form})
+
 def suporte(request):
     return HttpResponse('Suporte')
 
@@ -125,16 +135,4 @@ def empresas(request):
     else:
         form = ContatoForm()
     return render(request, 'add_empresas.html', {'form': form})'''
-def add_empresas(request):
-    if request.method == "POST":
-        nome = request.POST["nome"]
-        rua = request.POST["rua"]
 
-        # Salvar os dados no banco de dados
-        Empresas.objects.create(nome=nome,rua=rua)
-        return render(request, "add_empresas.html", {
-            "nome": nome,
-            "rua": rua
-        })
-    else:
-        return render(request, "add_empresas.html")

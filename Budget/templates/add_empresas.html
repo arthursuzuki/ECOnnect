@@ -58,15 +58,7 @@
         <h2>Formulário de Nome e Rua</h2>
         <form action="{% url 'add_empresas' %}" method="post">
             {% csrf_token %}
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
-            </div>
-
-            <div class="form-group">
-                <label for="rua">Rua:</label>
-                <input type="text" id="rua" name="rua" placeholder="Digite o nome da rua">
-            </div>
+            {{ form.as_p }}
 
             <button type="submit">Enviar</button>
         </form>
