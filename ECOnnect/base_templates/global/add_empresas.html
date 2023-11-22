@@ -1,12 +1,89 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Sen' rel='stylesheet'>
     <title>Formulário de Nome e Rua</title>
     <style>
+        #header {
+            font-family: Sen, sans-serif;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #F2F2F2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            z-index: 1000;
+        }
+
+        #logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #usuario {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px;
+            width: 50px;
+        }
+
+        #links {
+            font-size: 20px;
+            display: flex;
+            gap: 30px;
+            align-items: left;
+            justify-content: flex-start;
+            margin-left: 15px;
+        }
+
+        #estado {
+            fontdisplay: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        button {
+            font-family: Sen, sans-serif;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #links a {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        botao {
+            background-color: #F2F2F2;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #popup {
+            position: absolute;
+            display: none;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            z-index: 1;
+            right: 60px;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: Sen, sans-serif;
             background-color: #f0f0f0;
             display: flex;
             justify-content: center;
@@ -16,6 +93,7 @@
         }
 
         #content {
+            font-family: Sen, sans-serif;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -30,6 +108,7 @@
         }
 
         button {
+            font-family: Sen, sans-serif;
             padding: 10px 20px;
             background-color: #4caf50;
             color: #fff;
@@ -47,6 +126,7 @@
         }
 
         .form-container {
+            font-family: Sen, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -54,6 +134,41 @@
     </style>
 </head>
 <body>
+    <div id="header">
+        <div id="logo-container">
+            <div id="simbolo">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;"></a></div>
+            <div id="logo-principal">
+                <a href="http://127.0.0.1:8000/">
+                <img src="{% static 'logo\ECNTlogo.png' %}" alt="Logo ECOnnect" style="width: 150px; height: auto;"></a></div>
+            <div id="links">
+                <a href={%url 'area'%}>Área Disponível</a>
+                <a href={%url 'calculadora'%}>Calculadora Solar</a>
+                <a href={%url 'potencial'%}>Potencial de Energia</a>
+                <a href={%url 'orcamento'%}>Orçamento</a></div>
+        </div>
+        <div id="usuario" onclick="togglePopup()">
+            <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
+        </div>
+        <div id="popup">
+            <button onclick="redirectTo('http://127.0.0.1:8000/login')">Login</button>
+            <button onclick="redirectTo('http://127.0.0.1:8000/cadastro')">Cadastro</button>
+        </div>
+        <script>
+            function togglePopup() {
+                var popup = document.getElementById('popup');
+                if (popup.style.display === 'block') {
+                    popup.style.display = 'none';
+                } else {
+                    popup.style.display = 'block';
+                }
+            }
+            function redirectTo(url) {
+                window.location.href = url;
+            }
+        </script>
+    </div>
     <div id="content">
         <h2>Formulário de Nome e Rua</h2>
         <form action="{% url 'add_empresas' %}" method="post">
