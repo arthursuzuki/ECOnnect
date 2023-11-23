@@ -1,9 +1,11 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
 
-from .forms import ContatoForm, EmpresasProxForm, FeedbackForm
-from .models import Empresas, Feedback
+
+from .forms import ContatoForm, EmpresasProxForm, FeedbackForm, RoiForm
+from .models import Empresas, Feedback, Roi
 
 
 # Create your views here.
@@ -65,7 +67,7 @@ def cadastro(request):
     })
 
 def informacaosolar(request):
-    roi = None
+    roiSolar = None
 
     if request.method == 'POST':
         tipo_local = request.POST.get('tipo_local')
@@ -83,11 +85,11 @@ def informacaosolar(request):
         economia_anual = gasto_mensal * 12
 
         if custo_instalacao > 0:
-            roi = (economia_anual / custo_instalacao) * 100
+            roiSolar = (economia_anual / custo_instalacao) * 100
         else:
-            roi = 0
+            roiSolar = 0
 
-    return render(request, 'informacaosolar.html', {'name': 'Informação Solar', 'roi': roi})
+    return render(request, 'informacaosolar.html', {'name': 'Informação Solar', 'roi': roiSolar})
 
 def faq(request):
     if request.method == 'POST':
@@ -135,3 +137,22 @@ def empresas(request):
         form = ContatoForm()
     return render(request, 'add_empresas.html', {'form': form})'''
 
+
+def simulador(request):
+    return render(request, 'simulador.html', context={
+        'name': 'Simulador Solar'
+    })
+
+
+@csrf_exempt
+def resultados(request):
+    if request.method == 'POST':
+        form = RoiForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return JsonResponse({'status': 'success'})
+        else:
+            print('Formulário inválido:', form.errors)
+    else:
+        form = RoiForm()
+    return render(request, 'resultados.html', {'name': 'Resultados do Simulador', 'form': form})

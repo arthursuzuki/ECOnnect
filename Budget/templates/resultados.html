@@ -147,8 +147,8 @@
   }
   
   </style>
+  {% csrf_token %}
 </head>
-
 <body>
     <div id="header">
       <div id="logo-container">
@@ -208,9 +208,9 @@
           <!-- O resultado do ROI será exibido aqui via JavaScript -->
         </div>
         <div class="roi-details">
-          <span>Produção Mensal</span>
-          <span>Economia Anual</span>
-          <span>Tempo Aproximado do seu ROI</span>
+          <span>{{ roiFinal.producao }}</span>
+          <span>{{ roiFinal.economia|floatformat:2 }}</span>
+          <span>{{ roiFinal.tempo }}</span>
         </div>
         <div class="actions">
           <a href="{% url 'simulador' %}" class="action-button">Simule Novamente</a>
@@ -222,29 +222,30 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var roiResult = sessionStorage.getItem('roiResult');
-    
       var resultadoElement = document.getElementById('resultado_roi');
-      
+
       if (roiResult !== null) {
         resultadoElement.innerHTML = '<h3>ROI Calculado:</h3><p>O retorno sobre o investimento é de ' + roiResult + '%.</p>';
       } else {
         resultadoElement.innerHTML = '<p>O resultado do ROI não está disponível.</p>';
       }
-  
+
       var producaoMensalElement = document.createElement('span');
-      producaoMensalElement.innerHTML = 'Produção Mensal: ' + calcularProducaoMensal(); // Substitua calcularProducaoMensal() pela sua lógica
-  
+      producaoMensalElement.innerHTML = 'Produção Mensal: ' + calcularProducaoMensal() + ' kWh';
+
       var economiaAnualElement = document.createElement('span');
-      economiaAnualElement.innerHTML = 'Economia Anual: ' + calcularEconomiaAnual(); // Substitua calcularEconomiaAnual() pela sua lógica
-  
+      economiaAnualElement.innerHTML = 'Economia Anual: ' + 'R$' + calcularEconomiaAnual();
+
       var tempoROIElement = document.createElement('span');
-      tempoROIElement.innerHTML = 'Tempo Aproximado do seu ROI: ' + calcularTempoROI(); // Substitua calcularTempoROI() pela sua lógica
-  
-      // Encontrar a div com a classe 'roi-details' e adicionar os resultados
+      tempoROIElement.innerHTML = 'Tempo Aproximado do seu ROI: ' + calcularTempoROI() + ' anos';
+
       var roiDetailsDiv = document.querySelector('.roi-details');
       roiDetailsDiv.appendChild(producaoMensalElement);
       roiDetailsDiv.appendChild(economiaAnualElement);
       roiDetailsDiv.appendChild(tempoROIElement);
+      
+      console.log('CSRF Token:', getCookie('csrftoken'));
+      salvarDadosNoBanco();
     });
   
     function calcularProducaoMensal() {
@@ -252,25 +253,67 @@
       var horasDeSolPorDia = 6;
     
       var producaoMensal = potenciaArmazenada/ horasDeSolPorDia * 30; 
-      return producaoMensal.toFixed(2) + ' kWh';
+      return producaoMensal.toFixed(2);
     }
     
     function calcularEconomiaAnual() {
       var custoDaEletricidadePorKWh = 6.5;
-      var producaoMensal = calcularProducaoMensal().replace(' kWh', ''); 
+      var producaoMensal = parseFloat(calcularProducaoMensal());
     
       var economiaAnual = (producaoMensal * 12) - (custoDaEletricidadePorKWh * producaoMensal);
-      return 'R$ ' + economiaAnual.toFixed(2);
+      return economiaAnual.toFixed(2);
     }
     
     function calcularTempoROI() {
       var custoInicialDoSistema = sessionStorage.getItem('preco');
-      var economiaAnual = parseFloat(calcularEconomiaAnual().replace('R$ ', '')); 
+      var economiaAnual = parseFloat(calcularEconomiaAnual());
     
       var tempoROI = custoInicialDoSistema / (economiaAnual*12);
-      return tempoROI.toFixed(2) + ' anos';
+      return tempoROI.toFixed(2);
     }
+
+    function salvarDadosNoBanco() {
+      var economia = calcularEconomiaAnual();
+      var producao = calcularProducaoMensal();
+      var tempoROI = calcularTempoROI();
+      var roiResult = sessionStorage.getItem('roiResult');
     
+      console.log('Economia:', economia);
+      console.log('Producao:', producao);
+      console.log('Tempo ROI:', tempoROI);
+      console.log('ROI Result:', roiResult);
+    
+      var formData = new FormData();
+      formData.append('economia', economia);
+      formData.append('producao', producao);
+      formData.append('tempoROI', tempoROI);
+      formData.append('roiResult', roiResult);
+    
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '{% url 'resultados' %}', true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          console.log('Dados salvos com sucesso!');
+        }
+      };
+    
+      xhr.send(formData);
+    }    
+
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+              var cookie = cookies[i].trim();
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
   </script>  
 </body>
 </html>
