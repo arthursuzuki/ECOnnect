@@ -15,7 +15,7 @@
       align-items: center;
       margin: 0;
   }
-​
+
   #header {
       top: 0;
       left: 0;
@@ -27,7 +27,7 @@
       padding: 14px;
       z-index: 1000;
   }
-​
+
   .background-image-section {
       background-image: url('{% static 'background/familiafeliz.png' %}');
       background-size: cover;
@@ -37,7 +37,7 @@
       padding: 20px;
       height: 450px;
   }
-​
+
   #text {
       line-height: 1.5;
       color: #f9f9f9;
@@ -49,7 +49,7 @@
       align-items: center;
       gap: 10px;
   }
-​
+
   #links {
       font-size: 20px;
       display: flex;
@@ -58,19 +58,19 @@
       justify-content: flex-start;
       margin-left: 15px;
   }
-​
+
   #links a {
       text-decoration: none;
       color: black;
       cursor: pointer;
   }
-​
+
   #images {
       display: flex;
       align-items: center;
       justify-content: center;
   }
-​
+
   #user {
       display: flex;
       align-items: center;
@@ -78,13 +78,13 @@
       margin-right: 20px;
       width: 50px;
   }
-​
+
   #images img {
       width: 150px;
       height: auto;
       margin-bottom: 20px;
   }
-​
+
   .flex-center {
       display: flex;
       justify-content: center;
@@ -92,7 +92,7 @@
       margin-top: 80px;
       text-align: center;
   }
-​
+
   .title-link {
       color: black;
       font-size: 18px;
@@ -100,31 +100,31 @@
       font-weight: 600;
       text-decoration: none;
   }
-​
+
     .simulator {
       background-color: #fff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-​
+
     h2 {
       color: #333;
     }
-​
+
     p {
       color: #666;
     }
-​
+
     .form-group {
       margin-bottom: 20px;
     }
-​
+
     .form-group label {
       display: block;
       margin-bottom: 5px;
     }
-​
+
     .form-group input {
       width: 100%;
       padding: 10px;
@@ -132,7 +132,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-​
+
     .option {
       padding: 10px;
       margin-right: 10px;
@@ -141,12 +141,12 @@
       border-radius: 4px;
       cursor: pointer;
     }
-​
+
     .option.selected {
       background-color: #4CAF50;
       color: white;
     }
-​
+
     .submit-button {
       font-family: Sen, sans-serif;
       font-size: 18px;
@@ -157,18 +157,18 @@
       border-radius: 4px;
       cursor: pointer;
     }
-​
+
     footer {
       text-align: center;
       margin-top: 20px;
       font-size: 12px;
     }
-​
+
     #user {
       position: relative;
       display: inline-block;
     }
-​
+
     #button-container {
     display: flex;
     justify-content: center;
@@ -176,11 +176,11 @@
     margin-top: 1px;
     margin-bottom: 40px;
     }
-​
+
     #button {
         width: 120px;
     }
-​
+
     .options label {
       display: inline-block;
       margin-right: 10px;
@@ -191,16 +191,16 @@
       border-radius: 4px;
       cursor: pointer;
     }
-​
+
     .options input {
       display: none;
     }
-​
+
     .options input:checked + label {
       background-color: #4CAF50;
       color: white;
     }
-​
+
     #popup {
       position: absolute;
       display: none;
@@ -210,15 +210,15 @@
       z-index: 1;
       right: 60px;
   }
-​
+
   </style>
 </head>
-​
+
 <body>
   <div id="header">
     <div id="logo-container">
       <div>
-        <a href="http://127.0.0.1:8000/">
+        <a href="/">
           <img src="{% static 'logo\ECNTdesign.png' %}" alt="Símbolo ECOnnect" id="logo-design" style="width: 50px; height: auto;">
         </a>
       </div>
@@ -238,8 +238,8 @@
       <img src="{% static 'logo\user.png' %}" alt="Símbolo User" style="width: 40px; height: auto;">
     </div>
     <div id="popup">
-      <button onclick="redirectTo('http://127.0.0.1:8000/login')">Login</button>
-      <button onclick="redirectTo('http://127.0.0.1:8000/cadastro')">Cadastro</button>
+      <button onclick="redirectTo('/login')">Login</button>
+      <button onclick="redirectTo('/cadastro')">Cadastro</button>
     </div>
     <script>
       function togglePopup() {
@@ -253,9 +253,9 @@
       function redirectTo(url) {
         window.location.href = url;
       }
-​
+
       var optionButtons = document.querySelectorAll('.option');
-​
+
       optionButtons.forEach(function(button) {
         button.addEventListener('click', function() {
           optionButtons.forEach(function(btn) {
@@ -266,7 +266,7 @@
       });
     </script>
   </div>
-​
+
   <div class="container" style="margin-top: 50px">
     <main>
       <section class="simulator">
@@ -278,10 +278,10 @@
             <div class="options">
               <input type="radio" name="tipo_local" value="Residencial" id="residencial" checked>
               <label for="residencial">Residencial</label>
-​
+
               <input type="radio" name="tipo_local" value="Comercial" id="comercial">
               <label for="comercial">Comercial</label>
-​
+
               <input type="radio" name="tipo_local" value="Industrial" id="industrial">
               <label for="industrial">Industrial</label>
             </div>
@@ -291,40 +291,40 @@
             <div class="options">
               <input type="radio" name="potencia" id="potencia_2" value="2" data-preco="8960.00">
               <label for="potencia_2">2 kWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_4" value="4" data-preco="14720.00">
               <label for="potencia_4">4 kWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_8" value="8" data-preco="26080.00">
               <label for="potencia_8">8 kWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_12" value="12" data-preco="36240.00">
               <label for="potencia_12">12 kWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_30" value="30" data-preco="84300.00">
               <label for="potencia_30">30 kWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_50" value="50" data-preco="142000.00">
               <label for="potencia_50">50 kWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_75" value="75" data-preco="227250.00">
               <label for="potencia_75">75 kWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_150" value="150" data-preco="441000.00">
               <label for="potencia_150">150 kWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_300" value="300" data-preco="882000.00">
               <label for="potencia_300">300 kWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_500" value="500" data-preco="1525000.00">
               <label for="potencia_500">500 kWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_1000" value="1000" data-preco="2920000.00">
               <label for="potencia_1000">1 MWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_3000" value="3000" data-preco="8730000.00">
               <label for="potencia_3000">3 MWp</label>
-​
+
               <input type="radio" name="potencia" id="potencia_5000" value="5000" data-preco="14200000.00">
               <label for="potencia_5000">5 MWp</label>
             </div>
@@ -340,7 +340,7 @@
       </section>
     </main>
   </div>
-​
+
   <script>
     function calcularROI() {  
       var tipoLocal = document.querySelector('input[name="tipo_local"]:checked').value;
@@ -369,7 +369,7 @@
   
       return false;
     }
-​
+
     function obterPotenciaSelecionada() {
       const potencias = document.getElementsByName('potencia');
       for (const potencia of potencias) {

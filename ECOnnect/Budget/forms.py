@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Contato, Empresas, Feedback
+from .models import Contato, Empresas, Feedback, Roi
 
 
 class ContatoForm(forms.ModelForm):
@@ -23,3 +23,9 @@ class EmpresasProxForm(forms.ModelForm): ##Novooo
     class Meta:
         model = Empresas
         fields = ['nome', 'rua']
+
+
+class RoiForm(forms.ModelForm):
+    class Meta:
+        model = Roi
+        fields = ['producao', 'economia', 'tempoROI', 'roiResult']
