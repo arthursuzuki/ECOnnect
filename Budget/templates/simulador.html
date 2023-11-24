@@ -272,23 +272,26 @@
       <section class="simulator">
         <h2>Simulador Solar ECNT</h2>
         <p>Quanto tempo levará para você obter o retorno financeiro do seu investimento?</p>
-        <form onsubmit="return calcularROI()">
+        <form method="post" action="{% url 'resultados' %}" onsubmit="return calcularROI()">
+          {% csrf_token %}
+          <input type="hidden" name="roiResult" value="roiResult">
           <div class="form-group">
             <label for="tipo_local">1. Qual será o tipo de local de instalação das suas placas solares?</label>
             <div class="options">
               <input type="radio" name="tipo_local" value="Residencial" id="residencial" checked>
               <label for="residencial">Residencial</label>
-
+  
               <input type="radio" name="tipo_local" value="Comercial" id="comercial">
               <label for="comercial">Comercial</label>
-
+  
               <input type="radio" name="tipo_local" value="Industrial" id="industrial">
               <label for="industrial">Industrial</label>
             </div>
           </div>
+
           <div class="form-group">
-            <label for="location">2. Qual a potência do Gerador Solar que você deseja aplicar?</label>
-            <div class="options">
+          <label for="location">2. Qual a potência do Gerador Solar que você deseja aplicar?</label>
+          <div class="options">
               <input type="radio" name="potencia" id="potencia_2" value="2" data-preco="8960.00">
               <label for="potencia_2">2 kWp</label>
 
@@ -333,6 +336,7 @@
             <label for="gasto_mensal">3. Quanto é o seu gasto médio mensal com conta de luz?</label>
             <input type="text" id="gasto_mensal" name="gasto_mensal" placeholder="R$">
           </div>
+  
           <button type="submit" class="submit-button" onclick="return calcularROI()">SIMULE AGORA!</button>
         </form>
         <!-- Resultado do ROI -->
@@ -346,28 +350,28 @@
       var tipoLocal = document.querySelector('input[name="tipo_local"]:checked').value;
       var potenciaSelecionada = obterPotenciaSelecionada();
       var gastoMensal = parseFloat(document.getElementById('gasto_mensal').value.replace('R$', '').replace(',', '').trim());
-  
+      
       if (isNaN(gastoMensal)) {
         alert('Por favor, insira um valor válido para o gasto mensal.');
         return false;
       }
-  
-      if (!potenciaSelecionada) {
-        alert('Selecione uma potência para o gerador solar.');
+      
+      if (!potenciaSelecionada || !potenciaSelecionada.preco) {
+        alert('Selecione uma potência válida para o gerador solar.');
         return false;
       }
-  
+      
       var custoInstalacao = potenciaSelecionada.preco;
-  
       var economiaAnual = gastoMensal * 12;
-      var roi = (economiaAnual / custoInstalacao) * 100;
-  
+      var roi = (economiaAnual / custoInstalacao);
+      
+      console.log('ROI Calculado:', roi.toFixed(2));
+
+      var form = document.querySelector('form');
+      form.querySelector('input[name="roiResult"]').value = roi.toFixed(2);
       sessionStorage.setItem('roiResult', roi.toFixed(2));
-      sessionStorage.setItem('custo', custoInstalacao)
-  
-      window.location.href = "{% url 'resultados' %}";
-  
-      return false;
+      form.submit();
+      return true;
     }
 
     function obterPotenciaSelecionada() {
@@ -385,7 +389,7 @@
         }
       }
       return null;
-    }    
+    }
   </script>
 </body>
 </html>

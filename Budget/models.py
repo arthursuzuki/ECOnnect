@@ -59,7 +59,4 @@ class Empresas(models.Model):
 
 
 class Roi(models.Model):
-    producao = models.CharField(max_length=100, null=True)
-    economia = models.FloatField(null=True)
-    tempoROI = models.FloatField(null=True)
     roiResult = models.CharField(max_length=255, null=True)

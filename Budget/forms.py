@@ -24,4 +24,4 @@ class EmpresasProxForm(forms.ModelForm): ##Novooo
 class RoiForm(forms.ModelForm):
     class Meta:
         model = Roi
-        fields = ['producao', 'economia', 'tempoROI', 'roiResult']
+        fields = ['roiResult']

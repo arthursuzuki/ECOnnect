@@ -139,20 +139,32 @@ def empresas(request):
 
 
 def simulador(request):
-    return render(request, 'simulador.html', context={
-        'name': 'Simulador Solar'
-    })
+    if request.method == 'POST':
+        tipo_local = request.POST.get('tipo_local')
+        potencia = request.POST.get('data-preco')
+        gasto_mensal = request.POST.get('gasto_mensal')
+
+        if not tipo_local or not potencia or not gasto_mensal:
+            return JsonResponse({'status': 'error', 'message': 'Preencha todos os campos'})
+        
+        economia = gasto_mensal*12
+        roiResult = (economia/potencia)
+
+        return JsonResponse({
+            'status': 'success',
+            'roiResult': roiResult
+        })
+
+    return render(request, 'simulador.html', context={'name': 'Simulador Solar'})
 
 
-@csrf_exempt
 def resultados(request):
     if request.method == 'POST':
-        form = RoiForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return JsonResponse({'status': 'success'})
-        else:
-            print('Formulário inválido:', form.errors)
-    else:
-        form = RoiForm()
-    return render(request, 'resultados.html', {'name': 'Resultados do Simulador', 'form': form})
+        roiResult = request.POST.get('roiResult')
+
+        roi = Roi(roiResult=roiResult)
+        roi.save()
+
+        return render(request, 'resultados.html', {'status': 'success', 'message': 'Dados salvos no banco de dados'})
+
+    return render(request, 'resultados.html', context={'name': 'Resultados'})
