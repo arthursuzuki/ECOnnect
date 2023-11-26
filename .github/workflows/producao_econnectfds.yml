@@ -31,7 +31,13 @@ jobs:
           pip install --upgrade pip
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          set -ex
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install msedge-selenium-tools
 
       - name: Run Tests
         run: |
