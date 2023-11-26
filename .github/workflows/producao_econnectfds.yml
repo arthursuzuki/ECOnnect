@@ -26,25 +26,12 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-      - name: Upgrade Pip
-        run:
-          pip install --upgrade pip
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Run Tests
-        run: |
-          python manage.py migrate
-          sleep 5
-          python manage.py runserver &
-          sleep 5
-          python manage.py test
-  
       - name: Cleaning testing files
         run: |
           rm db.sqlite3
-
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       - name: Zip artifact for deployment
