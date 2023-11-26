@@ -35,7 +35,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          cd ECOnnect
+          cd Budget
           python manage.py migrate
           sleep 5
           python manage.py runserver &
