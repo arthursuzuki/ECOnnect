@@ -52,6 +52,8 @@ jobs:
         set -ex
         python -m pip install --upgrade pip
         pip install -r ECOnnect/requirements.txt
+        pip install selenium
+        pip install webdriver_manager
       
     - name: Generate deployment package
       run: |
