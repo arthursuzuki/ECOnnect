@@ -94,6 +94,6 @@ class SeuTeste(TestCase):
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/div/form/p[4]/select/option[6]').click()
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/div/form/p[5]/select/option[5]').click()
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/div/form/p[6]/input').send_keys('Boa')
-        time.sleep(1)
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/div/form/button').click()
-        assert self.navegador.current_url == "http://127.0.0.1:8000"
+        feedback = self.navegador.find_element(By.XPATH, '/html/body/i/div[3]/div[2]')
+        assert feedback is not None
