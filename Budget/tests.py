@@ -60,6 +60,7 @@ class SeuTeste(TestCase):
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/main/section/form/div[2]/div/label[9]').click()
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/main/section/form/div[3]/input').send_keys('35')
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/main/section/form/button').click()
+        time.sleep(1)
         assert self.navegador.current_url == "http://127.0.0.1:8000/resultados"
     
     def test_Novamente_simulador(self):
@@ -70,6 +71,7 @@ class SeuTeste(TestCase):
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/main/section/form/div[3]/input').send_keys('46')
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/main/section/form/button').click()
         self.navegador.find_element(By.XPATH, '/html/body/main/section/div[2]/a[1]').click()
+        time.sleep(1)
         assert self.navegador.current_url == "http://127.0.0.1:8000/simulador"
 
     def test_Orcamento_simulador(self):
@@ -80,6 +82,7 @@ class SeuTeste(TestCase):
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/main/section/form/div[3]/input').send_keys('46')
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/main/section/form/button').click()
         self.navegador.find_element(By.XPATH, '/html/body/main/section/div[2]/a[2]').click()
+        time.sleep(1)
         assert self.navegador.current_url == "http://127.0.0.1:8000/orcamento"
 
     def test_Enviar_Feedback(self):
@@ -90,6 +93,7 @@ class SeuTeste(TestCase):
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/div/form/p[3]/input').send_keys('Cidade') 
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/div/form/p[4]/select/option[6]').click()
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/div/form/p[5]/select/option[5]').click()
-        self.navegador.find_element(By.XPATH, '/html/body/div[2]/div/form/p[1]/input').send_keys('Boa')
+        self.navegador.find_element(By.XPATH, '/html/body/div[2]/div/form/p[6]/input').send_keys('Boa')
+        time.sleep(1)
         self.navegador.find_element(By.XPATH, '/html/body/div[2]/div/form/button').click()
         assert self.navegador.current_url == "http://127.0.0.1:8000"
