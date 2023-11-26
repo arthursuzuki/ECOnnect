@@ -89,6 +89,48 @@ https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&no
 ## Screencast - Lo-Fi
 https://youtu.be/1fO223lcb4w
 
+
+## ENTREGA 04:
+
+### Diagrama de Atividades
+![Imagem do WhatsApp de 2023-11-26 à(s) 15 26 09_9f1d4633](https://github.com/arthursuzuki/ECOnnect/assets/126833330/65105b41-d4e1-4810-8c2a-977283cc329d)
+
+
+### Issue/Bug Tracker Atualizado
+![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/03365235-7a69-4542-b339-181e93768a29)
+
+
+
+
+### Atualização Relato da Programação em Par:
+
+* Luísa Chagas & Arthur Suzuki:A escolha de adotar a programação em pares, com Luísa responsável pelo frontend e Suzuki pelo backend, fortaleceu a colaboração, aprimorou a comunicação e agilizou a solução de problemas. A dupla se reunia regularmente para avaliar o progresso do projeto e auxiliar um ao outro conforme necessário. Eles revisaram a história de cálculo do potencial de geração de energia, aprimorando seu desempenho, e também desenvolveram a tela de FAQ do projeto, utilizando o GitHub para compartilhar os códigos. Isso resultou em um desenvolvimento eficaz, no crescimento das habilidades interpessoais e na entrega bem-sucedida das tarefas.
+
+* Laura Vidal & Eduardo Lins: Na parceria entre Laura e Eduardo, optou-se pela programação em dupla para facilitar o progresso do projeto, reduzir a ocorrência de bugs e problemas, promover aprendizado e assegurar uma fluidez eficiente durante o desenvolvimento de uma das funcionalidades da aplicação web. Em grande parte, este método foi impulsionado pelas funcionalidades oferecidas pelo GitHub, principalmente seu repositório virtual que facilitou a manipulação e edição do código. Com o desenvolvimento da tela de "Acessar Informações de Crédito", adquirimos um vasto conhecimento sobre Django e HTML. Além disso, a experiência foi altamente enriquecedora, já que ambos não tinham trabalhado nesse formato de pair programming anteriormente. Ambos os programadores participaram ativamente de todo o processo, tanto no front-end quanto no back-end.
+
+* Vinicius & Maria Augusta: Maria Augusta concentrou-se no usuário final e na interface desejada, dando ênfase ao frontend, enquanto Vinicius, com sua expertise técnica e compreensão dos cálculos envolvidos, focou no backend. Ambos aproveitaram ao máximo as funcionalidades do GitHub, especialmente os repositórios, para manter o fluxo de trabalho fluido e organizado. As reuniões regulares de revisão de código entre a dupla foram cruciais para identificar e superar rapidamente os desafios, garantindo a eficácia na implementação das soluções, incluindo a criação da tela de informações de orçamento. A experiência de programação em pares entre Vinicius e Maria Augusta foi excepcional. Ambos os desenvolvedores contribuíram com suas forças individuais para o projeto, resultando em um equilíbrio perfeito entre a usabilidade do frontend e a precisão do backend.
+
+### Backlog e Sprint 04
+![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/131038a6-c0c7-490a-9876-1ffa7f4aca42)
+
+
+!!!!!!!!!!!!
+### Screencast apresentando a Aplicação/Implementação
+[[https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd6-d3ca753ec0be](https://www.youtube.com/watch?v=D_FdT5lo9wY)](https://youtu.be/gP8dxRUnnHQ)
+
+### Screencast apresentando os testes
+[https://www.youtube.com/watch?v=z1KYmJmUgrw](https://www.youtube.com/watch?v=YWLGMJVQMTA)
+!!!!!!!!!!!!!!
+### Screencast apresentando o Deployment na Azure
+https://www.loom.com/share/588ad89c55c54089a552ec35244d408a?sid=67e75179-6cb7-4cdb-81a5-d3b9bad9437a
+
+### Lo-Fi - Entrega 4
+https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=51%3A4&mode=design&t=X2gNttKaeJdFoAOA-1
+!!!!!!!!!!!!!
+## Screencast - Lo-Fi
+https://youtu.be/1fO223lcb4w
+
+
 ## Colaboradores
 * Eduardo Lins --> eal3@cesar.school
 * Laura Vidal --> lbv2@cesar.school
