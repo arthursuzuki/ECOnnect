@@ -106,16 +106,14 @@ https://youtu.be/1fO223lcb4w
 
 ### Atualização Relato da Programação em Par:
 
-Arthur Suzuki e Luísa Chagas: A estratégia de implementar a programação em pares, com Arthur encarregado do desenvolvimento frontend e Luísa liderando o backend, não apenas consolidou a colaboração, mas também refinou a comunicação e otimizou a resolução de desafios. A dupla realizava reuniões regulares para avaliar meticulosamente o avanço do projeto, oferecendo suporte mútuo conforme necessário. Durante essas interações, eles aprimoraram a lógica por trás do cálculo do potencial de geração de energia, elevando significativamente seu desempenho. Além disso, dedicaram esforços para conceber e implementar a interface dos Feedbacks do projeto, utilizando o GitHub como plataforma para compartilhamento de códigos e colaboração eficiente.
+* Arthur Suzuki e Luísa Chagas: A estratégia de implementar a programação em pares, com Arthur encarregado do desenvolvimento frontend e Luísa liderando o backend, não apenas consolidou a colaboração, mas também refinou a comunicação e otimizou a resolução de desafios. A dupla realizava reuniões regulares para avaliar meticulosamente o avanço do projeto, oferecendo suporte mútuo conforme necessário. Durante essas interações, eles aprimoraram a lógica por trás do cálculo do potencial de geração de energia, elevando significativamente seu desempenho. Além disso, dedicaram esforços para conceber e implementar a interface dos Feedbacks do projeto, utilizando o GitHub como plataforma para compartilhamento de códigos e colaboração eficiente.
 
 * Eduardo Lins & Laura Vidal: Na parceria entre Eduardo e Laura, optou-se pela programação em dupla para facilitar significativamente o progresso do projeto, reduzir a incidência de bugs e problemas, promover um aprendizado mais aprofundado e assegurar uma fluidez eficiente durante o desenvolvimento de uma das funcionalidades essenciais da aplicação web. Essa escolha foi fortemente impulsionada pelas capacidades oferecidas pelo GitHub, especialmente o seu repositório virtual, que simplificou a manipulação e edição do código de maneira colaborativa. Com o foco no desenvolvimento da tela de "Acessar disponibilidade de empresas que forcencem serviços próximas ao usuário", adquirimos um conhecimento abrangente sobre Django e HTML. Adicionalmente, a experiência revelou-se altamente enriquecedora, pois ambos os membros da equipe não tinham previamente trabalhado nesse formato de pair programming. Ambos os programadores estiveram ativamente envolvidos em todas as fases do processo, contribuindo tanto para o front-end quanto para o back-end.
 
 * Maria Augusta & Vinicius: Maria Augusta direcionou sua atenção para o usuário final e a interface desejada, destacando o frontend, enquanto Vinicius, com sua especialização técnica e compreensão dos cálculos envolvidos, concentrou-se no backend. Ambos aproveitaram ao máximo as capacidades do GitHub, especialmente os repositórios, para manter o fluxo de trabalho fluido e organizado. As reuniões regulares de revisão de código entre a dupla foram cruciais para identificar e superar rapidamente os desafios, garantindo a eficácia na implementação das soluções, incluindo a criação da tela de informações de orçamento. A experiência de programação em pares entre Vinicius e Maria Augusta foi escepcionalmente boa. Ambos os desenvolvedores contribuíram com suas forças individuais para o projeto, resultando em um equilíbrio perfeito entre a usabilidade do frontend e a precisão do backend.
 
 ### Backlog e Sprint 04
-![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/131038a6-c0c7-490a-9876-1ffa7f4aca42)
-
-
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/dd22c260-c179-466f-98b6-51b2e3e25307)
 
 ### Screencast apresentando a Aplicação/Implementação
 [[https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd6-d3ca753ec0be](https://www.youtube.com/watch?v=D_FdT5lo9wY)](https://youtu.be/gP8dxRUnnHQ)
@@ -145,4 +143,5 @@ https://youtu.be/1fO223lcb4w
 > <b>Jira:</b> https://projetofds2023.atlassian.net/jira/software/projects/ECNT/boards/2<br>
 > <b>Figma:</b>https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=51-4&mode=design&t=XFlWAQh6jIuF3r4K-0<br>
 > <b>Azure:</b>https://econnectfds.azurewebsites.net
+> <b>Notion:</b>https://quiver-sweatshirt-e08.notion.site/ECOnnect-b47bdb6da88146269a9f29fbeb6002e2?pvs=4
 
