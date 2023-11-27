@@ -128,7 +128,7 @@ https://youtu.be/6nfcZvQ6SUo
 https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=51%3A4&mode=design&t=X2gNttKaeJdFoAOA-1
 
 ## Screencast - Lo-Fi
-https://youtu.be/1fO223lcb4w
+https://youtu.be/vsOGKC652Ns
 
 
 ## Colaboradores
