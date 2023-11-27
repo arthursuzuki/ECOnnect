@@ -2,12 +2,12 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - econnect
+name: Build and deploy Python app to Azure Web App - econnectfds
 
 on:
   push:
     branches:
-      - CI/CD
+      - producao
   workflow_dispatch:
 
 jobs:
@@ -26,7 +26,6 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-          cd .\ECOnnect\
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -66,6 +65,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'econnect'
+          app-name: 'econnectfds'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7D26C27DE3E6407EBDC266ADD9021F07 }}
