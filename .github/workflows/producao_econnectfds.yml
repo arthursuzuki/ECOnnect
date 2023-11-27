@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - econnectfds
+name: Build and deploy Python app to Azure Web App - appeasycond
 
 on:
   push:
@@ -15,35 +15,53 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout do repositório
+        uses: actions/checkout@v2
 
-      - name: Set up Python version
-        uses: actions/setup-python@v1
+      - name: Configurar Python
+        uses: actions/setup-python@v3
         with:
-          python-version: '3.11'
+          python-version: 3.11
 
-      - name: Create and start virtual environment
+      - name: Configurar ambiente virtual
         run: |
           python -m venv venv
           source venv/bin/activate
+          pip install --upgrade pip
+          cd .\ECOnnect\
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Cleaning testing files
+      - name: Instalar dependências
         run: |
-          rm db.sqlite3
+          pip install -r requirements.txt
+          pip install selenium
+          pip install webdriver_manager
 
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+      - name: Rodar migrações do Django
+        run: |
+          python manage.py migrate
 
-      - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v3
+      - name: Rodar testes do Django
+        run: |
+          export DISPLAY=:99
+          /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+          sleep 3  # Esperar pelo Xvfb iniciar
+          python -m unittest discover -v
+
+      - name: Limpar
+        run: |
+          rm -rf venv  # Remover ambiente virtual
+          rm -f db.sqlite3  # Remover arquivo de banco de dados SQLite
+          rm -f .env  # Remover arquivo de ambiente, se presente
+
+      - name: Upload de artefato para trabalhos de deploy
+        uses: actions/upload-artifact@v2
         with:
           name: python-app
-          path: |
-            release.zip
-            !venv/
+          path: .
+          exclude: |
+            venv/
+            __pycache__/
+            .git/
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,18 +71,30 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+      - name: Download de artefato do trabalho de build
+        uses: actions/download-artifact@v2
         with:
           name: python-app
+          path: .
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
+      - name: Instalar Chrome e ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
+          google-chrome-stable --version
+          chromedriver --version
 
-      - name: 'Deploy to Azure Web App'
+      - name: 'Deploy para o Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'econnectfds'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0905D18BFE864B8CBAE4FEE267C44A6C }}
+          app-name: 'budget'
+          slot-name: 'producao'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CF01664E481249B6A8A451A45BC3078B }}
