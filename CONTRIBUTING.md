@@ -78,7 +78,7 @@ Para testar o nosso site rodando localmente, siga esses passos:
   - Utilize nomes de variáveis e funções adequados, que indiquem do que se trata
     - Dê preferência para nomes utilizando underline (_): nome_usuario, nome_grupo
   - Adicione comentários sempre que julgar necessário, evitando comentários óbvios
-  - Escreva testes na pasta correta ([testes]()), cobrindo diferentes cenários de aceitação
+  - Escreva testes na pasta correta ([testes](https://github.com/arthursuzuki/ECOnnect/blob/producao/Budget/tests.py)), cobrindo diferentes cenários de aceitação
   - Por tratar com informações de cadastro de usuários, priorize sempre a segurança, evitando vulnerabilidades no código
 - Se essas diretrizes não forem seguidas, as chances da sua pull request ser aprovada são baixas, por isso tente sempre seguir essas instruções
 - Em caso de dúvida, você pode olhar os códigos já desenvolvidos pela equipe, para saber como as suas alterações devem ser escritas
