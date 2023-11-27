@@ -93,7 +93,8 @@ https://youtu.be/1fO223lcb4w
 ## ENTREGA 04:
 
 ### Diagrama de Atividades
-![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/67dc6061-5f40-4b55-b471-80887e2bf755)
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/ae50d03b-62d3-482a-8582-1699096b48c1)
+
 
 
 
