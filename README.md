@@ -142,6 +142,6 @@ https://youtu.be/1fO223lcb4w
 #### Links:
 > <b>Jira:</b> https://projetofds2023.atlassian.net/jira/software/projects/ECNT/boards/2<br>
 > <b>Figma:</b>https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=51-4&mode=design&t=XFlWAQh6jIuF3r4K-0<br>
-> <b>Azure:</b>https://econnectfds.azurewebsites.net
+> <b>Azure:</b>https://econnectfds.azurewebsites.net<br>
 > <b>Notion:</b>https://quiver-sweatshirt-e08.notion.site/ECOnnect-b47bdb6da88146269a9f29fbeb6002e2?pvs=4
 
