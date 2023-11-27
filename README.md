@@ -93,7 +93,8 @@ https://youtu.be/1fO223lcb4w
 ## ENTREGA 04:
 
 ### Diagrama de Atividades
-![Imagem do WhatsApp de 2023-11-26 à(s) 15 26 09_9f1d4633](https://github.com/arthursuzuki/ECOnnect/assets/126833330/65105b41-d4e1-4810-8c2a-977283cc329d)
+![image](https://github.com/arthursuzuki/ECOnnect/assets/129343931/67dc6061-5f40-4b55-b471-80887e2bf755)
+
 
 
 ### Issue/Bug Tracker Atualizado
@@ -114,19 +115,19 @@ Arthur Suzuki e Luísa Chagas: A estratégia de implementar a programação em p
 ![image](https://github.com/arthursuzuki/ECOnnect/assets/126833330/131038a6-c0c7-490a-9876-1ffa7f4aca42)
 
 
-!!!!!!!!!!!!
+
 ### Screencast apresentando a Aplicação/Implementação
 [[https://github.com/arthursuzuki/ECOnnect/assets/132377213/a953f8cc-d4d4-4cf9-abd6-d3ca753ec0be](https://www.youtube.com/watch?v=D_FdT5lo9wY)](https://youtu.be/gP8dxRUnnHQ)
 
 ### Screencast apresentando os testes
 [https://www.youtube.com/watch?v=z1KYmJmUgrw](https://www.youtube.com/watch?v=YWLGMJVQMTA)
-!!!!!!!!!!!!!!
+
 ### Screencast apresentando o Deployment na Azure
 https://www.loom.com/share/588ad89c55c54089a552ec35244d408a?sid=67e75179-6cb7-4cdb-81a5-d3b9bad9437a
 
 ### Lo-Fi - Entrega 4
 https://www.figma.com/file/44MzOUDmhrIgjVL71y08rb/LoFi---ECOnnect?type=design&node-id=51%3A4&mode=design&t=X2gNttKaeJdFoAOA-1
-!!!!!!!!!!!!!
+
 ## Screencast - Lo-Fi
 https://youtu.be/1fO223lcb4w
 
