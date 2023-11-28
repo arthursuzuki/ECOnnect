@@ -1,73 +1,65 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
-
 name: Build and deploy Python app to Azure Web App - econnectfds
 
 on:
-  push:
-    branches:
-      - producao
-  workflow_dispatch:
+ push:
+   branches:
+     - producao
+ workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+ build:
+   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+   steps:
+     - uses: actions/checkout@v4
 
-      - name: Set up Python version
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.11'
+     - name: Set up Python version
+       uses: actions/setup-python@v1
+       with:
+         python-version: '3.11'
+     
+     - name: Create and start virtual environment
+       run: |
+         python -m venv venv
+         source venv/bin/activate
 
-      - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
+     - name: Install dependencies
+       run: |
+         pip install -r requirements.txt
+         pip install selenium
+         pip install webdriver_manager
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install selenium
-          pip install webdriver_manager
+     # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+     - name: Zip artifact for deployment
+       run: zip release.zip ./* -r
 
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+     - name: Running tests cases
+       run: python manage.py test
 
-      - name: Running tests cases
-        run: python manage.py test
+     - name: Upload artifact for deployment jobs
+       uses: actions/upload-artifact@v3
+       with:
+         name: python-app
+         path: |
+           release.zip
+           !venv/
 
-      - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v3
-        with:
-          name: python-app
-          path: |
-            release.zip
-            !venv  # Exclude the venv directory
+ deploy:
+   runs-on: ubuntu-latest
+   needs: build
+   steps:
+     - name: Download artifact from build job
+       uses: actions/download-artifact@v3
+       with:
+         name: python-app
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+     - name: Unzip artifact for deployment
+       run: unzip release.zip
 
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: python-app
-
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
-
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: 'econnectfds'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7D26C27DE3E6407EBDC266ADD9021F07 }}
+     - name: 'Deploy to Azure Web App'
+       uses: azure/webapps-deploy@v2
+       id: deploy-to-webapp
+       with:
+         app-name: 'econnectfds'
+         slot-name: 'Production'
+         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0905D18BFE864B8CBAE4FEE267C44A6C }}
