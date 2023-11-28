@@ -1,3 +1,7 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
+
 name: Build and deploy Python app to Azure Web App - econnectfds
 
 on:
@@ -16,24 +20,22 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v1
         with:
-          python-version: '3.11'  # Updated Python version
-      
+          python-version: '3.11'
+
       - name: Create and start virtual environment
         run: |
           python -m venv venv
           source venv/bin/activate
 
       - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Cleaning testing files
         run: |
-          pip install -r requirements.txt  # Ensure this file is in the root of your repo
-          pip install selenium
-          pip install webdriver_manager
+          rm db.sqlite3
 
+      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
-
-      - name: Running tests cases
-        run: python manage.py test
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
@@ -48,6 +50,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
       - name: Download artifact from build job
@@ -65,14 +68,3 @@ jobs:
           app-name: 'econnectfds'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0905D18BFE864B8CBAE4FEE267C44A6C }}
-
-      - name: Set webapp URL as output
-        id: set-output
-        run: echo "::set-output name=webapp-url::https://${{ needs.deploy.outputs.webapp-url }}"
-
-  output:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get the webapp URL
-        run: echo "The webapp URL is ${{ needs.deploy.outputs.webapp-url }}"
