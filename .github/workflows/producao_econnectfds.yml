@@ -46,7 +46,7 @@ jobs:
           name: python-app
           path: |
             release.zip
-            !venv/
+            - '!venv/**'  # Exclude the venv directory
 
   deploy:
     runs-on: ubuntu-latest
